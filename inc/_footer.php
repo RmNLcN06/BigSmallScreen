@@ -1,0 +1,1 @@
+<div class="footer__copyright">© BSS Copyright 2022 - Tous Droits Réservés</div>
