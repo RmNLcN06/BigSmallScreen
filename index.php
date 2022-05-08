@@ -10,8 +10,8 @@ else
 
 switch($page)
 {
-    case 'index':
-        $pagepath = 'index.php';
+    case 'accueil':
+        $pagepath = 'pages/accueil.php';
         break;
     case 'actualites':
         $pagepath = 'pages/actualites.php';
@@ -29,12 +29,12 @@ switch($page)
         $pagepath = 'pages/contact.php';
         break;
     default: 
-        $pagepath = 'index.php';
+        $pagepath = 'pages/accueil.php';
 }
 
 if(!file_exists($pagepath))
 {
-    $pagepath = 'index.php';
+    $pagepath = 'pages/accueil.php';
 }
 ?>
 
@@ -83,7 +83,7 @@ if(!file_exists($pagepath))
                 <?php include("inc/_menu.php"); ?>
             </nav>
             <main>
-                <?php include($pagepath);?>
+                <?php include($pagepath); ?>
             </main>
             <footer>
                 <?php include('inc/_footer.php'); ?>
