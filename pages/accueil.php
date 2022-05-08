@@ -1,5 +1,5 @@
-<section class="about">
-                    <h1>About</h1>
+<section class="accueil">
+                    <h1>Accueil</h1>
                     <p><a href="resume.pdf">Resume</a></p>
                     <p><a href="#">github</a></p>
                     <blockquote>
@@ -11,6 +11,18 @@
                     </blockquote>
 
 
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rerum autem fugiat neque magnam veniam sed unde possimus enim ab, ipsa aliquid natus distinctio harum necessitatibus voluptatum error placeat aperiam.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit eos tempore quidem magnam porro. Dignissimos voluptatum veritatis sit quas, illo quod laboriosam, recusandae praesentium nam accusantium, inventore sequi dolores eum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, expedita. Rem nisi qui cum repudiandae earum, temporibus deleniti reiciendis aspernatur assumenda. Suscipit ducimus a beatae provident vero culpa quibusdam sed?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rerum autem fugiat neque magnam veniam sed unde possimus enim ab, ipsa aliquid natus distinctio harum necessitatibus voluptatum error placeat aperiam.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit eos tempore quidem magnam porro. Dignissimos voluptatum veritatis sit quas, illo quod laboriosam, recusandae praesentium nam accusantium, inventore sequi dolores eum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, expedita. Rem nisi qui cum repudiandae earum, temporibus deleniti reiciendis aspernatur assumenda. Suscipit ducimus a beatae provident vero culpa quibusdam sed?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rerum autem fugiat neque magnam veniam sed unde possimus enim ab, ipsa aliquid natus distinctio harum necessitatibus voluptatum error placeat aperiam.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit eos tempore quidem magnam porro. Dignissimos voluptatum veritatis sit quas, illo quod laboriosam, recusandae praesentium nam accusantium, inventore sequi dolores eum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, expedita. Rem nisi qui cum repudiandae earum, temporibus deleniti reiciendis aspernatur assumenda. Suscipit ducimus a beatae provident vero culpa quibusdam sed?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rerum autem fugiat neque magnam veniam sed unde possimus enim ab, ipsa aliquid natus distinctio harum necessitatibus voluptatum error placeat aperiam.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit eos tempore quidem magnam porro. Dignissimos voluptatum veritatis sit quas, illo quod laboriosam, recusandae praesentium nam accusantium, inventore sequi dolores eum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, expedita. Rem nisi qui cum repudiandae earum, temporibus deleniti reiciendis aspernatur assumenda. Suscipit ducimus a beatae provident vero culpa quibusdam sed?</p>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima rerum autem fugiat neque magnam veniam sed unde possimus enim ab, ipsa aliquid natus distinctio harum necessitatibus voluptatum error placeat aperiam.</p>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit eos tempore quidem magnam porro. Dignissimos voluptatum veritatis sit quas, illo quod laboriosam, recusandae praesentium nam accusantium, inventore sequi dolores eum!</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, expedita. Rem nisi qui cum repudiandae earum, temporibus deleniti reiciendis aspernatur assumenda. Suscipit ducimus a beatae provident vero culpa quibusdam sed?</p>

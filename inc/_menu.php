@@ -3,8 +3,7 @@
         <li><a href="?page=accueil">Accueil</a></li>
         <li><a href="?page=actualites">Actualités</a></li>
         <li><a href="?page=critiques">Critiques</a></li>
-        <li><a href="?page=reglements">Règlements</a></li>
-        <li><a href="?page=inscription">Inscription</a></li>
-        <li><a href="?page=contact">Contact</a></li>
+        <li><a href="?page=films">Films</a></li>
+        <li><a href="?page=series">Séries</a></li>
     </ul>
 </div>
