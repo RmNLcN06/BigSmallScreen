@@ -81,7 +81,7 @@ if(!file_exists($pagepath))
     <title>Bienvenue sur BBS - Actualités et Critiques Cinés et Séries</title>
 
     <!-- Main Stylesheet CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="dist/style.css">
 
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
@@ -92,7 +92,7 @@ if(!file_exists($pagepath))
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Font-Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>

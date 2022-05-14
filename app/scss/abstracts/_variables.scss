@@ -1,0 +1,21 @@
+:root {
+    // Couleurs background default + dark mode
+    --bg-color: hsl(0, 0%, 87%);
+    --bg-color-dark: hsl(233, 60%, 6%);
+
+    // Couleurs fonts default + dark mode
+    --font-color: hsl(0, 0%, 17%);
+    --font-color-dark: hsl(212, 27%, 90%);;
+
+    // Couleurs navigation background default + dark mode
+    --nav-bg-color: rgb(25, 30, 58); // A Changer
+    --nav-bg-color-dark: hsl(231, 40%, 16%);
+
+    // Couleurs a link default + dark mode
+    --link-color: hsl(0, 0%, 17%);
+    --link-color-dark: hsl(0, 20%, 93%);
+
+    // Couleurs container default + dark mode
+    --container-color: hsl(218, 46%, 10%); // A Changer
+    --container-color-dark: hsl(218, 46%, 10%);
+}
