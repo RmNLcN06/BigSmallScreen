@@ -112,6 +112,9 @@ if(!file_exists($pagepath))
             </footer>
         </div>
     </div>
+
+    <!-- JavaScript File -->
+    <script src="app/js/script.js"></script>
 </body>
 
 </html>

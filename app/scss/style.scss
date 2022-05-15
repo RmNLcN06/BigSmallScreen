@@ -6,6 +6,7 @@
 @forward 'abstracts/variables';
 
 // 2. Base Rules
+@forward 'base/animations';
 @forward 'base/base';
 @forward 'base/fonts';
 @forward 'base/helpers';
@@ -24,7 +25,7 @@
 @forward 'layout/footer';
 
 // 5. Pages Rules :
-
+@forward 'pages/home';
 
 // 6. Themes Rules : 
 @forward 'themes/default';
