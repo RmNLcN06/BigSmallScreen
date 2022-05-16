@@ -7,17 +7,23 @@
             <div class="slideshow">
                 <div class="mySlides1 fade">
                     <div class="mySlides1__number">1 / 3</div>
-                    <img src="https://via.placeholder.com/1000x200" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides1__text">Film 1</p>
                 </div>
                 <div class="mySlides1 fade">
                     <div class="mySlides1__number">2 / 3</div>
-                    <img src="https://via.placeholder.com/1000x205" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides1__text">Film 2</p>
                 </div>
                 <div class="mySlides1 fade">
                     <div class="mySlides1__number">3 / 3</div>
-                    <img src="https://via.placeholder.com/1000x210" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides1__text">Film 3</p>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 0)">
@@ -28,21 +34,78 @@
                 </a>
             </div>
 
-            <div class="carousel">
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+            <div class="card">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
+                </div>
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,17 +117,23 @@
             <div class="slideshow">
                 <div class="mySlides2 fade">
                     <div class="mySlides2__number">1 / 3</div>
-                    <img src="https://via.placeholder.com/1000x200" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides2__text">Film 1</p>
                 </div>
                 <div class="mySlides2 fade">
                     <div class="mySlides2__number">2 / 3</div>
-                    <img src="https://via.placeholder.com/1000x205" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides2__text">Film 2</p>
                 </div>
                 <div class="mySlides2 fade">
                     <div class="mySlides2__number">3 / 3</div>
-                    <img src="https://via.placeholder.com/1000x210" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides2__text">Film 3</p>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 1)">
@@ -75,21 +144,78 @@
                 </a>
             </div>
 
-            <div class="carousel">
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+            <div class="card">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
+                </div>
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,17 +227,23 @@
             <div class="slideshow">
                 <div class="mySlides3 fade">
                     <div class="mySlides3__number">1 / 3</div>
-                    <img src="https://via.placeholder.com/1000x200" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides3__text">Film 1</p>
                 </div>
                 <div class="mySlides3 fade">
                     <div class="mySlides3__number">2 / 3</div>
-                    <img src="https://via.placeholder.com/1000x205" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides3__text">Film 2</p>
                 </div>
                 <div class="mySlides3 fade">
                     <div class="mySlides3__number">3 / 3</div>
-                    <img src="https://via.placeholder.com/1000x210" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides3__text">Film 3</p>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 2)">
@@ -122,43 +254,106 @@
                 </a>
             </div>
 
-            <div class="carousel">
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+            <div class="card">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
+                </div>
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="accueil__container">
         <div class="accueil__container--wrapper">
-            <h1>Titre</h1>
+            <h1>Les Critiques</h1>
 
             <div class="slideshow">
                 <div class="mySlides4 fade">
                     <div class="mySlides4__number">1 / 3</div>
-                    <img src="https://via.placeholder.com/1000x200" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides4__text">Film 1</p>
                 </div>
                 <div class="mySlides4 fade">
                     <div class="mySlides4__number">2 / 3</div>
-                    <img src="https://via.placeholder.com/1000x205" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides4__text">Film 2</p>
                 </div>
                 <div class="mySlides4 fade">
                     <div class="mySlides4__number">3 / 3</div>
-                    <img src="https://via.placeholder.com/1000x210" alt="">
+                    <a href="">
+                        <img src="https://via.placeholder.com/1000x400" alt="">
+                    </a>
                     <p class="mySlides4__text">Film 3</p>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 3)">
@@ -169,21 +364,78 @@
                 </a>
             </div>
 
-            <div class="carousel">
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+            <div class="card">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
-                <div class="carousel__cell">
-                    <img src="https://via.placeholder.com/100" alt="">
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
+                </div>
+                <div class="card__cell">
+                    <a class="card__cell--img" href="">
+                        <img src="https://via.placeholder.com/185x270" alt="">
+                    </a>
+                    <div class="card__cell--description">
+                        <a href="#">
+                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
+                        </a>
+                        <a href="#" class="description--category ellipsis">Films</a>
+                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
+                    </div>
                 </div>
             </div>
         </div>

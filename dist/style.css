@@ -138,6 +138,12 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.accueil__container--wrapper h1 {
+  border: 2px solid red;
+  text-align: center;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+}
 .accueil__container--wrapper .slideshow {
   max-width: 1000px;
   position: relative;
@@ -190,13 +196,31 @@ footer {
   background-color: #f1f1f1;
   color: black;
 }
-.accueil__container--wrapper .carousel {
+.accueil__container--wrapper .card {
   border: 2px dashed yellow;
   display: flex;
   justify-content: space-around;
   gap: 18px;
+  margin-top: 20px;
 }
-.accueil__container--wrapper .carousel__cell {
+.accueil__container--wrapper .card__cell {
   border: 2px solid orangered;
-  height: 350px;
+  border-radius: 5px;
+}
+.accueil__container--wrapper .card__cell--description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.accueil__container--wrapper .card__cell .description--category, .accueil__container--wrapper .card__cell .description--tags {
+  margin-top: 5px;
+  font-size: 13px;
+  padding-left: 10px;
+}
+.accueil__container--wrapper .card__cell .ellipsis {
+  white-space: nowrap;
+  width: 185px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px dashed black;
 }/*# sourceMappingURL=style.css.map */

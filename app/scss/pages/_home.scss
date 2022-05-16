@@ -12,6 +12,13 @@
       display: flex;
       flex-direction: column;
 
+      h1 {
+        border: 2px solid red;
+        text-align: center;
+        padding: 20px 0px;
+        margin-bottom: 20px;
+      }
+
       .slideshow {
         max-width: 1000px;
         position: relative;
@@ -69,16 +76,36 @@
         }
       }
 
-      .carousel {
+      .card {
         border: 2px dashed yellow;
         display: flex;
         justify-content: space-around;
         gap: 18px;
+        margin-top: 20px;
 
         &__cell {
           border: 2px solid orangered;
-          // width: 20%;
-          height: 350px;
+          border-radius: 5px;
+
+          &--description {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .description--category, .description--tags {
+            margin-top: 5px;
+            font-size: 13px;
+            padding-left: 10px;
+          }
+
+          .ellipsis {
+            white-space: nowrap; 
+            width: 185px; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px dashed black;
+          }
         }
       }
     }
