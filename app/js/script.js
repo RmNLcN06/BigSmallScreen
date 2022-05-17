@@ -58,7 +58,7 @@ myInput.onblur = function() {
   document.getElementById("message").style.display = "none";
 }
 
-// Quand l'utilisateur commence à taper quelque chose dans le champ "Mot de passe"
+// Quand l'utilisateur commence à entrer quelque chose dans le champ "Mot de passe"
 myInput.onkeyup = function() {
 
   // Validation des lettres minuscules

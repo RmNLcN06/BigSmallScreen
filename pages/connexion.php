@@ -38,7 +38,7 @@ function test_input($data) {
 
 <form action="" method="post">
     <label for="mail">E-mail</label>
-    <input type="mail" name="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" required>
+    <input type="mail" id="mail" name="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" required>
     <!-- 
         [A-Za-z0-9._%+-]+ : caractères minuscules, majuscules, digitales, caractères spéciaux (._%+-) et accepte plusieurs fois les termes précédents
         @ : signe arobase

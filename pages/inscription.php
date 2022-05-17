@@ -1,17 +1,28 @@
 <?php
 // define variables and set to empty values
 // Définit des variables que l'on instancie sans valeur
-$firstnameErr = $lastnameErr = $mailErr = $passwordErr = "";
+$pseudoErr= $firstnameErr = $lastnameErr = $mailErr = $passwordErr = "";
 $pseudo = $firstname = $lastname = $mail = $password = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["pseudo"])) {
+    $pseudoErr = "Pseudo requis";
+  } else {
+    $pseudo = test_input($_POST["pseudo"]);
+    // Vérifie si le pseudo contient des lettres, des chiffres et des espaces
+    if (!preg_match("/^[a-zA-Z0-9-' ]*$/", $pseudo)) {
+      $pseudoErr = "Seuls les lettres, les chiffres et les espaces sont autorisés";
+    }
+  }
+
   if (empty($_POST["firstname"])) {
     $firstnameErr = "Nom requis";
   } else {
     $firstname = test_input($_POST["firstname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) {
-      $firstnameErr = "Only letters and white space allowed";
+    // Vérifie si le nom contient des lettres et des espaces
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+      $firstnameErr = "Seuls les lettres et les espaces sont autorisés";
     }
   }
 
@@ -19,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastnameErr = "Prénom requis";
   } else {
     $lastname = test_input($_POST["lastname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) {
-      $lastnameErr = "Only letters and white space allowed";
+    // Vérifie si le nom contient des lettres et des espaces
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+      $lastnameErr = "Seuls les lettres et les espaces sont autorisés";
     }
   }
   
@@ -57,6 +68,7 @@ function test_input($data) {
 <form action="" method="post">
     <label for="pseudo">Pseudo: </label>
     <input type="text" name="pseudo" value="<?php echo $pseudo;?>" required >
+    <span class="error">* <?php echo $pseudoErr;?></span>
     
     <label for="firstname">Nom: </label>
     <input type="text" name="firstname" value="<?php echo $firstname;?>" required >
