@@ -2,49 +2,47 @@
 // define variables and set to empty values
 // Définit des variables que l'on instancie sans valeur
 $firstnameErr = $lastnameErr = $mailErr = $passwordErr = "";
-$firstname = $lastname = $mail = $password = "";
+$pseudo = $firstname = $lastname = $mail = $password = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+  if (empty($_POST["firstname"])) {
+    $firstnameErr = "Nom requis";
   } else {
-    $name = test_input($_POST["name"]);
+    $firstname = test_input($_POST["firstname"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) {
+      $firstnameErr = "Only letters and white space allowed";
+    }
+  }
+
+  if (empty($_POST["lastname"])) {
+    $lastnameErr = "Prénom requis";
+  } else {
+    $lastname = test_input($_POST["lastname"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) {
+      $lastnameErr = "Only letters and white space allowed";
     }
   }
   
-  if (empty($_POST["email"])) {
-    $mailErr = "Email is required";
+  if (empty($_POST["mail"])) {
+    $mailErr = "Email requis";
   } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $mailErr = "Invalid email format";
+    $mail = test_input($_POST["mail"]);
+    // Vérifie si l'adresse e-mail correspond au format établie
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+      $mailErr = "Format de l'email invalide";
     }
   }
     
-  if (empty($_POST["website"])) {
-    $website = "";
+  if (empty($_POST["password"])) {
+    $password = "";
   } else {
-    $website = test_input($_POST["website"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-      $websiteErr = "Invalid URL";
+    $password = test_input($_POST["password"]);
+    // Vérifie si le mot de passe est valide (vérification par regex)
+    if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $password)) {
+      $passwordErr = "Format du mot de passe invalide";
     }
-  }
-
-  if (empty($_POST["comment"])) {
-    $comment = "";
-  } else {
-    $comment = test_input($_POST["comment"]);
-  }
-
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
-  } else {
-    $gender = test_input($_POST["gender"]);
   }
 }
 
@@ -73,11 +71,20 @@ function test_input($data) {
     <span class="error">* <?php echo $mailErr;?></span>
 
     <label for="password">Mot de passe: </label>
-    <input type="password" name="password" value="<?php echo $password;?>" required >
+    <input type="password" id="password" name="password" value="<?php echo $password;?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}" title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" required >
     <span class="error">* <?php echo $passwordErr;?></span>
 
     <button type="submit" name="submit">S'enregistrer</button>
 </form>
+
+<div id="message">
+  <h3>Votre mot de passe doit comporter: </h3>
+  <p id="letter" class="invalid">Une lettre minuscule</p>
+  <p id="capital" class="invalid">Une lettre majuscule</p>
+  <p id="number" class="invalid">Un nombre</p>
+  <p id="special" class="invalid">Un caractère spécial</p>
+  <p id="length" class="invalid">8 caractères minimum</p>
+</div>
 
 <p>Vous avez déjà un compte ?</p> 
 <a href="?page=connexion">Se connecter</a>

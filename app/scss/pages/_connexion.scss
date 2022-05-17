@@ -1,0 +1,36 @@
+// Ce message s'affiche quand l'utilisateur clique sur le champ "Mot de passe"
+#message {
+    display: none;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+
+    p {
+        padding: 0px 35px;
+        font-size: 18px;
+      }
+  }
+
+// Ajoute un texte vert et une marque de validation quand les obligations sont remplies
+.valid {
+    color: green;
+
+    &:before {
+        position: relative;
+        left: -35px;
+        content: "\002705";
+    }
+}
+
+// Ajoute un texte rouge et une marque de refus quand les obligations ne sont pas remplies
+.invalid {
+    color: red;
+
+    &:before {
+        position: relative;
+        left: -35px;
+        content: "\00274c";
+    }
+}
+  
