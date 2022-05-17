@@ -1,4 +1,15 @@
 footer {
-    grid-area: footerZone;
-    background: orangered;
+  grid-area: footerZone;
+  background: orangered;
+}
+
+.footer {
+  &__content {
+    display: flex;
+    justify-content: space-between;
   }
+
+  &__copyright {
+    text-align: center;
+  }
+}
