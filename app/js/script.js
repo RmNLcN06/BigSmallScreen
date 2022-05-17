@@ -1,5 +1,5 @@
 // Slideshow Script
-/*
+
 var slideIndex = [1,1,1,1];
 var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
 showSlides(1, 0);
@@ -35,11 +35,11 @@ function showSlides(n, no) {
   slides[slideIndex[no]-1].style.display = "block";
 
 }
-*/
+
 
 ////////////////////////////////////////////////
 
-
+/*
 // Valider Password
 var myInput = document.getElementById("password");
 var letter = document.getElementById("letter");
@@ -110,3 +110,4 @@ myInput.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
+*/
