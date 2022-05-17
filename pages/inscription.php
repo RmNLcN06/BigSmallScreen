@@ -1,5 +1,4 @@
 <?php
-// define variables and set to empty values
 // Définit des variables que l'on instancie sans valeur
 $pseudoErr= $firstnameErr = $lastnameErr = $mailErr = $passwordErr = "";
 $pseudo = $firstname = $lastname = $mail = $password = "";
@@ -47,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
     
   if (empty($_POST["password"])) {
-    $password = "";
+    $passwordErr = "Mot de passe requis";
   } else {
     $password = test_input($_POST["password"]);
     // Vérifie si le mot de passe est valide (vérification par regex)
