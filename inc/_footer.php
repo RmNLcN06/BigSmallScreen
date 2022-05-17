@@ -10,13 +10,13 @@
     </ul>
     <div>
         <p>Venez nous retrouver sur</p>
-        <a href="https://www.facebook.com/">
+        <a href="https://www.facebook.com/" target="_blank">
             <i class="fa-brands fa-facebook-square"></i>
         </a>
-        <a href="https://www.twitter.com/">
+        <a href="https://www.twitter.com/" target="_blank">
             <i class="fa-brands fa-twitter-square"></i>
         </a>
-        <a href="https://www.youtube.com/">
+        <a href="https://www.youtube.com/" target="_blank">
             <i class="fa-brands fa-youtube-square"></i>
         </a>
     </div>

@@ -18,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
     
   if (empty($_POST["password"])) {
-    $password = "";
+    $passwordErr = "Mot de passe requis";
   } else {
     $password = test_input($_POST["password"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$password)) {
-      $passwordErr = "Invalid URL";
+    // Vérifie si le mot de passe est valide (vérification par regex)
+    if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $password)) {
+      $passwordErr = "Format du mot de passe invalide";
     }
   }
 }
