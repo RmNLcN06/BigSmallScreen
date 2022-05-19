@@ -1,5 +1,5 @@
 // Slideshow Script
-
+/*
 var slideIndex = [1,1,1,1];
 var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
 showSlides(1, 0);
@@ -36,12 +36,12 @@ function showSlides(n, no) {
 
 }
 
-
+*/
 ////////////////////////////////////////////////
 
-/*
+
 // Valider Password
-var myInput = document.getElementById("password");
+var myInput = document.getElementById("pwd");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
@@ -50,12 +50,12 @@ var special = document.getElementById("special");
 
 // Quand l'utilisateur clique sur le champ "Mot de passe", la boite de message de validation apparait
 myInput.onfocus = function() {
-  document.getElementById("message").style.display = "block";
+  document.getElementsByClassName("pwd-message")[0].style.display = "block";
 }
 
 // Quand l'utilisateur clique hors du champ "Mot de passe", la boite de message de validation disparait
 myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
+  document.getElementsByClassName("pwd-message")[0].style.display = "none";
 }
 
 // Quand l'utilisateur commence à entrer quelque chose dans le champ "Mot de passe"
@@ -110,4 +110,3 @@ myInput.onkeyup = function() {
     length.classList.add("invalid");
   }
 }
-*/
