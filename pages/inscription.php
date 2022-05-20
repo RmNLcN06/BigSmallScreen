@@ -1,6 +1,8 @@
 <?php
-if(!empty($_POST)) 
- {
+
+require ('req/_signup.php');
+// if(!empty($_POST)) 
+//  {
  // Définit des variables que l'on instancie sans valeur pour les messages d'erreur
 //  $nicknameErr= $firstnameErr = $lastnameErr = $mailErr = $pwdErr = "";
 //  $nickname = $firstname = $lastname = $mail = $pwd = "";
@@ -17,56 +19,56 @@ if(!empty($_POST))
 
      
 
-      if (empty($_POST["nickname"])) {
-        $nicknameErr = "Pseudo requis";
-      } else {
-        $nickname = test_input($_POST["nickname"]);
-        // Vérifie si le pseudo contient des lettres, des chiffres et des espaces
-        if (!preg_match("/^[a-zA-Z0-9-' ]*$/", $nickname)) {
-          $nicknameErr = "Seuls les lettres, les chiffres et les espaces sont autorisés";
-        }
-      }
+      // if (empty($_POST["nickname"])) {
+      //   $nicknameErr = "Pseudo requis";
+      // } else {
+      //   $nickname = test_input($_POST["nickname"]);
+      //   // Vérifie si le pseudo contient des lettres, des chiffres et des espaces
+      //   if (!preg_match("/^[a-zA-Z0-9-' ]*$/", $nickname)) {
+      //     $nicknameErr = "Seuls les lettres, les chiffres et les espaces sont autorisés";
+      //   }
+      // }
 
-      if (empty($_POST["firstname"])) {
-        $firstnameErr = "Nom requis";
-      } else {
-        $firstname = test_input($_POST["firstname"]);
-        // Vérifie si le nom contient des lettres et des espaces
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-          $firstnameErr = "Seuls les lettres et les espaces sont autorisés";
-        }
-      }
+      // if (empty($_POST["firstname"])) {
+      //   $firstnameErr = "Nom requis";
+      // } else {
+      //   $firstname = test_input($_POST["firstname"]);
+      //   // Vérifie si le nom contient des lettres et des espaces
+      //   if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+      //     $firstnameErr = "Seuls les lettres et les espaces sont autorisés";
+      //   }
+      // }
 
-      if (empty($_POST["lastname"])) {
-        $lastnameErr = "Prénom requis";
-      } else {
-        $lastname = test_input($_POST["lastname"]);
-        // Vérifie si le prénom contient des lettres et des espaces
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-          $lastnameErr = "Seuls les lettres et les espaces sont autorisés";
-        }
-      }
+      // if (empty($_POST["lastname"])) {
+      //   $lastnameErr = "Prénom requis";
+      // } else {
+      //   $lastname = test_input($_POST["lastname"]);
+      //   // Vérifie si le prénom contient des lettres et des espaces
+      //   if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+      //     $lastnameErr = "Seuls les lettres et les espaces sont autorisés";
+      //   }
+      // }
       
-      if (empty($_POST["mail"])) {
-        $mailErr = "Email requis";
-      } else {
-        $mail = test_input($_POST["mail"]);
-        // Vérifie si l'adresse e-mail correspond au format établie
-        if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-          $mailErr = "Format de l'email invalide";
-        }
-      }
+      // if (empty($_POST["mail"])) {
+      //   $mailErr = "Email requis";
+      // } else {
+      //   $mail = test_input($_POST["mail"]);
+      //   // Vérifie si l'adresse e-mail correspond au format établie
+      //   if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+      //     $mailErr = "Format de l'email invalide";
+      //   }
+      // }
         
-      if (empty($_POST["pwd"])) {
-        $pwdErr = "Mot de passe requis";
-      } else {
-        $pwd = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
-        // $pwd = test_input($_POST["pwd"]);
-        // Vérifie si le mot de passe est valide (vérification par regex)
-        if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $pwd)) {
-          $pwdErr = "Format du mot de passe invalide";
-        }
-      }
+      // if (empty($_POST["pwd"])) {
+      //   $pwdErr = "Mot de passe requis";
+      // } else {
+      //   $pwd = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
+      //   // $pwd = test_input($_POST["pwd"]);
+      //   // Vérifie si le mot de passe est valide (vérification par regex)
+      //   if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $pwd)) {
+      //     $pwdErr = "Format du mot de passe invalide";
+      //   }
+      // }
 
     //   
     //   // On enregistre en BDD
@@ -88,7 +90,7 @@ if(!empty($_POST))
     //   // Execution de la requête
     //   $query->execute();
     // }
-  }
+  // }
   // else 
   // {
   //   die("Le formulaire est incomplet");
@@ -96,12 +98,12 @@ if(!empty($_POST))
 // }
 
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+// function test_input($data) {
+//   $data = trim($data);
+//   $data = stripslashes($data);
+//   $data = htmlspecialchars($data);
+//   return $data;
+// }
 ?>
 
 <div class="form__wrapper">
@@ -109,45 +111,48 @@ function test_input($data) {
     <fieldset>
       <legend>Veuillez remplir le formulaire d'inscription</legend>
 
+      <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
+
       <div class="form__wrapper--label">
         <label for="nickname">Pseudo: </label>
       </div>
       <div class="form__wrapper--input">
-        <input type="text" name="nickname" id="nickname" value="<?php echo $nickname;?>" required >
+        <input type="text" name="nickname" id="nickname" >
       </div>
-      <span class="error"><?php echo $nicknameErr;?></span>
+      <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
     
       <div class="form__wrapper--label">
         <label for="firstname">Nom: </label>
-        <span class="error"><?php echo $firstnameErr;?></span>
       </div>
       <div class="form__wrapper--input">
-        <input type="text" name="firstname" id="firstname" value="<?php echo $firstname;?>" required >
+        <input type="text" name="firstname" id="firstname" >
       </div>
-        
+      <?php if(isset($firstnameMsgErr)){echo '<span class="error">' . $firstnameMsgErr . '</span>';}?>
+
       <div class="form__wrapper--label">
         <label for="lastname">Prénom: </label>
-        <span class="error"><?php echo $lastnameErr;?></span> 
       </div>
       <div class="form__wrapper--input">
-        <input type="text" name="lastname" id="lastname" value="<?php echo $lastname;?>" required >
+        <input type="text" name="lastname" id="lastname" >
       </div>
-        
+      <?php if(isset($lastnameMsgErr)){echo '<span class="error">' . $lastnameMsgErr . '</span>';}?>
+
       <div class="form__wrapper--label">
-        <label for="email">E-mail: </label>
-        <span class="error"><?php echo $mailErr;?></span> 
+        <label for="mail">E-mail: </label>
       </div>
       <div class="form__wrapper--input">
-        <input type="email" name="email" id="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" value="<?php echo $mail;?>" required >
+        <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
       </div>
-        
+      <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
+
       <div class="form__wrapper--label">
         <label for="pwd">Mot de passe: </label>
-        <span class="error"><?php echo $pwdErr;?></span> 
       </div>
       <div class="form__wrapper--input">
-        <input type="password" id="pwd" name="pwd" value="<?php echo $pwd;?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}" title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" required>
+        <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
       </div>
+      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
+
 
       <div class="pwd-message">
         <h3>Votre mot de passe doit comporter: </h3>

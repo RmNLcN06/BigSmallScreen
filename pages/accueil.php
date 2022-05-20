@@ -1,8 +1,15 @@
+<?php 
+session_start();
+?>
+
 <section class="accueil">
 
     <div class="accueil__container">
         <div class="accueil__container--wrapper">
             <h1>Titre</h1>
+
+            <h1>Bonjour <?= $_SESSION['nickname'] ?></h1>
+            
 
             <div class="slideshow">
                 <div class="mySlides1 fade">

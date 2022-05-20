@@ -1,3 +1,4 @@
+
 <div class="header__title">
     <div class="header__title--logo">
         <a href="?page=accueil">
@@ -11,6 +12,13 @@
                 <i class="fa-solid fa-user-check"></i> Devenir Premium
             </a>  
         </li>
+        <?php if(empty($_SESSION['nickname'])) { ?>
+            <li>
+                <a href="./_logout.php">
+                    <i class="fa-solid fa-right-from-bracket"></i> Se Déconnecter
+                </a>
+            </li>
+        <?php } ?>
         <li>
             <a href="?page=connexion">
                 <i class="fa-solid fa-right-to-bracket"></i> Se Connecter

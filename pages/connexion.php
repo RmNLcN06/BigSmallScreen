@@ -1,39 +1,42 @@
 <?php
+
+require('req/_login.php');
+
 // define variables and set to empty values
 // Définit des variables que l'on instancie sans valeur
-$mailErr = $pwdErr = "";
-$mail = $pwd = "";
+// $mailErr = $pwdErr = "";
+// $mail = $pwd = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
-  if (empty($_POST["mail"])) {
-    $mailErr = "Email requis";
-  } else {
-    $mail = test_input($_POST["mail"]);
-    // check if e-mail address is well-formed
-    // Vérifie si l'adresse e-mail est au bon format
-    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-      $mailErr = "Format de l'email invalide";
-    }
-  }
+//   if (empty($_POST["mail"])) {
+//     $mailErr = "Email requis";
+//   } else {
+//     $mail = test_input($_POST["mail"]);
+//     // check if e-mail address is well-formed
+//     // Vérifie si l'adresse e-mail est au bon format
+//     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+//       $mailErr = "Format de l'email invalide";
+//     }
+//   }
     
-  if (empty($_POST["pwd"])) {
-    $pwdErr = "Mot de passe requis";
-  } else {
-    $pwd = test_input($_POST["pwd"]);
-    // Vérifie si le mot de passe est valide (vérification par regex)
-    if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $pwd)) {
-      $pwdErr = "Format du mot de passe invalide";
-    }
-  }
-}
+//   if (empty($_POST["pwd"])) {
+//     $pwdErr = "Mot de passe requis";
+//   } else {
+//     $pwd = test_input($_POST["pwd"]);
+//     // Vérifie si le mot de passe est valide (vérification par regex)
+//     if (!preg_match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}", $pwd)) {
+//       $pwdErr = "Format du mot de passe invalide";
+//     }
+//   }
+// }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+// function test_input($data) {
+//   $data = trim($data);
+//   $data = stripslashes($data);
+//   $data = htmlspecialchars($data);
+//   return $data;
+// }
 ?>
 
 <div class="form__wrapper">
@@ -41,13 +44,23 @@ function test_input($data) {
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 
+      <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
+
       <div class="form__wrapper--label">
-        <label for="mail">E-mail: </label>
-        <span class="error"><?php echo $mailErr;?></span>
+        <label for="nickname">Pseudo: </label>
       </div>
       <div class="form__wrapper--input">
-        <input type="mail" name="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" value="<?php echo $mail;?>" required >
+        <input type="text" name="nickname" id="nickname" >
       </div>
+      <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
+
+      <div class="form__wrapper--label">
+        <label for="mail">E-mail: </label>
+      </div>
+      <div class="form__wrapper--input">
+        <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
+      </div>
+      <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
       <!-- 
           [A-Za-z0-9._%+-]+ : caractères minuscules, majuscules, digitales, caractères spéciaux (._%+-) et accepte plusieurs fois les termes précédents
           @ : signe arobase
@@ -57,12 +70,12 @@ function test_input($data) {
           {2,63} : entre 2 et 63 caractères pour l'ensemble précédent
       -->
       <div class="form__wrapper--label">
-        <label for="password">Mot de passe: </label>
-        <span class="error"><?php echo $pwdErr;?></span>
+        <label for="pwd">Mot de passe: </label>
       </div>
       <div class="form__wrapper--input">
-        <input type="password" id="pwd" name="pwd" value="<?php echo $pwd;?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&/?*]).{8,}" title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" required>
+        <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
       </div>
+      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
       <!-- 
           (?=.*\d) : digitale
           (?=.*[a-z]) : minuscule
