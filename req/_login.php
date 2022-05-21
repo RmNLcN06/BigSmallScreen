@@ -1,7 +1,6 @@
 <?php
-
-// session_start();
-require ('req/_connect.php');
+session_start();
+require ('_connect.php');
 
 // Envoi du formulaire
 if(isset($_POST['submit'])) 
@@ -45,7 +44,13 @@ if(isset($_POST['submit']))
                 $_SESSION['role_id'] = $userInfos['role_id'];
 
                 // Redirection de l'utilisateur connecté vers la page d'accueil
-                header('Location: ?page=accueil');
+                header('Location: http://localhost/BigSmallScreen/?page=accueil');
+                
+                // echo '<script language="Javascript">
+                //     <!--
+                //     var t=setTimeout("document.location.replace(\'http://localhost/BigSmallScreen/?page=accueil\')", 2000);
+                //     // -->
+                //     </script>';
            }
            else 
            {

@@ -1,6 +1,6 @@
 <?php
-
 require('req/_login.php');
+
 
 // define variables and set to empty values
 // Définit des variables que l'on instancie sans valeur
@@ -40,7 +40,7 @@ require('req/_login.php');
 ?>
 
 <div class="form__wrapper">
-  <form method="post">
+  <form action="http://localhost/BigSmallScreen/req/_login.php" method="post">
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 

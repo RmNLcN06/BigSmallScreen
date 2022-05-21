@@ -1,6 +1,6 @@
-<!-- <?php 
+<?php 
 session_start();
-?> -->
+?> 
 
 <div class="header__title">
     <div class="header__title--logo">
@@ -15,19 +15,18 @@ session_start();
                 <i class="fa-solid fa-user-check"></i> Devenir Premium
             </a>  
         </li>
-        <?php if(($_SESSION['auth'])) { ?>
+        <?php if(($_SESSION)) { ?>
             <li>
                 <a href="req/_logout.php">
                     <i class="fa-solid fa-right-from-bracket"></i> Se Déconnecter
                 </a>
             </li>
-        <?php } ?>
-        <?php if(empty($_SESSION['auth'])) { ?>
-        <li>
-            <a href="?page=connexion">
-                <i class="fa-solid fa-right-to-bracket"></i> Se Connecter
-            </a>
-        </li>
+        <?php } else { ?>
+            <li>
+                <a href="?page=connexion">
+                    <i class="fa-solid fa-right-to-bracket"></i> Se Connecter
+                </a>
+            </li>
         <?php } ?>
         <li>
             <a href="?page=inscription">

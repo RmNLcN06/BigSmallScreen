@@ -1,4 +1,11 @@
-
+<?php 
+// session_start();
+echo $_SESSION['auth'];
+echo $_SESSION['nickname'];
+echo $_SESSION['firstname'];
+echo $_SESSION['lastname'];
+echo $_SESSION['role_id'];
+?>
 
 <section class="accueil">
 
@@ -7,8 +14,8 @@
             <h1>Titre</h1>
 
             <?php if(($_SESSION['auth'])){ ?>
-                    <?= $_SESSION['auth']; ?>
                     <h1>Bonjour <?= $_SESSION['nickname'] ?></h1>
+                    <p>Vous êtes connecté en tant que <?= $_SESSION['role_id'] ?></p>
             <?php } ?>
             
             <div class="slideshow">
