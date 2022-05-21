@@ -1,6 +1,4 @@
-<?php 
-session_start();
-?>
+
 
 <section class="accueil">
 
@@ -8,9 +6,11 @@ session_start();
         <div class="accueil__container--wrapper">
             <h1>Titre</h1>
 
-            <h1>Bonjour <?= $_SESSION['nickname'] ?></h1>
+            <?php if(($_SESSION['auth'])){ ?>
+                    <?= $_SESSION['auth']; ?>
+                    <h1>Bonjour <?= $_SESSION['nickname'] ?></h1>
+            <?php } ?>
             
-
             <div class="slideshow">
                 <div class="mySlides1 fade">
                     <div class="mySlides1__number">1 / 3</div>

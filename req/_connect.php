@@ -10,7 +10,6 @@
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=$charset";
     try
     {
-        session_start();
         // Connexion à la base de données en instanciant PDO
         $database = new PDO($dsn, $user, $password);
 
