@@ -40,11 +40,15 @@ require('req/_login.php');
 ?>
 
 <div class="form__wrapper">
-  <form action="http://localhost/BigSmallScreen/req/_login.php" method="post">
+  <form method="post">
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 
-      <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
+      <?php if(isset($pwdEnterErr)){echo '<span class="error">' . $pwdEnterErr . '</span>';}?>
+      <?php if(isset($userErr)){echo '<span class="error">' . $userErr . '</span>';}?>
+      <?php if(isset($pwdErr)){echo '<span class="error">' . $pwdErr . '</span>';}?>
+      <?php if(isset($mailErr)){echo '<span class="error">' . $mailErr . '</span>';}?>
+      <?php if(isset($nicknameErr)){echo '<span class="error">' . $nicknameErr . '</span>';}?>
 
       <div class="form__wrapper--label">
         <label for="nickname">Pseudo: </label>
