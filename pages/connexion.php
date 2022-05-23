@@ -40,7 +40,7 @@ require('req/_login.php');
 ?>
 
 <div class="form__wrapper">
-  <form method="post">
+  <form action="../../BigSmallScreen/req/_login.php" method="post">
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 

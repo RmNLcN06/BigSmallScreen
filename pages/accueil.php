@@ -51,7 +51,7 @@ echo $_SESSION['role_id'];
             <div class="card">
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -63,7 +63,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -75,7 +75,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -87,7 +87,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -99,19 +99,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
-                    </a>
-                    <div class="card__cell--description">
-                        <a href="#">
-                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
-                        </a>
-                        <a href="#" class="description--category ellipsis">Films</a>
-                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
-                    </div>
-                </div>
-                <div class="card__cell">
-                    <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -161,7 +149,7 @@ echo $_SESSION['role_id'];
             <div class="card">
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -173,7 +161,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -185,7 +173,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -197,7 +185,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -209,19 +197,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
-                    </a>
-                    <div class="card__cell--description">
-                        <a href="#">
-                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
-                        </a>
-                        <a href="#" class="description--category ellipsis">Films</a>
-                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
-                    </div>
-                </div>
-                <div class="card__cell">
-                    <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -271,7 +247,7 @@ echo $_SESSION['role_id'];
             <div class="card">
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -283,7 +259,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -295,7 +271,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -307,7 +283,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -319,19 +295,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
-                    </a>
-                    <div class="card__cell--description">
-                        <a href="#">
-                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
-                        </a>
-                        <a href="#" class="description--category ellipsis">Films</a>
-                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
-                    </div>
-                </div>
-                <div class="card__cell">
-                    <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -381,7 +345,7 @@ echo $_SESSION['role_id'];
             <div class="card">
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -393,7 +357,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -405,7 +369,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -417,7 +381,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">
@@ -429,19 +393,7 @@ echo $_SESSION['role_id'];
                 </div>
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
-                    </a>
-                    <div class="card__cell--description">
-                        <a href="#">
-                            <h4 class="description--title ellipsis">Le premier film est trop grand</h4>
-                        </a>
-                        <a href="#" class="description--category ellipsis">Films</a>
-                        <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
-                    </div>
-                </div>
-                <div class="card__cell">
-                    <a class="card__cell--img" href="">
-                        <img src="https://via.placeholder.com/185x270" alt="">
+                        <img src="https://via.placeholder.com/205x270" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">

@@ -28,6 +28,8 @@
 // 5. Pages Rules :
 @forward 'pages/home';
 @forward 'pages/connexion';
+@forward 'pages/article';
+@forward 'pages/category';
 
 // 6. Themes Rules : 
 @forward 'themes/default';

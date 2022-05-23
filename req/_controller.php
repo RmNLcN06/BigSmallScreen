@@ -15,6 +15,9 @@ switch($page)
     case 'premium':
         $pagepath = 'pages/premium.php';
         break;
+    case 'profil':
+        $pagepath = 'pages/profil.php';
+        break;
     case 'connexion':
         $pagepath = 'pages/connexion.php';
         break;
