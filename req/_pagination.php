@@ -3,10 +3,10 @@
 // 1ère Etape
 // Position de l'utilisateur (sur quelle page se trouve-t'il ?)
 // S'il la page existe et qu'elle n'est pas vide
-if(isset($_GET['page']) && !empty($_GET['page']))
+if(isset($_GET['pages']) && !empty($_GET['pages']))
 {
     // On supprime les balises HTML et PHP de la chaîne avec strip_tags
-    $currentPage = (int) strip_tags($_GET['page']);
+    $currentPage = (int) strip_tags($_GET['pages']);
 }
 else
 {
@@ -14,7 +14,7 @@ else
 }
 
 // Connexion à la base de donnée
-require('req/_connect.php');
+require_once('req/_connect.php');
 
 // Nombre total d'articles en base de données
 $articleAmount = 'SELECT count(*) AS article_amount FROM `articles`';
@@ -43,13 +43,13 @@ $firstPage = ($currentPage * $articlesPerPage) - $articlesPerPage;
 // Sélectionne tous les articles en base de données et on les affiche 
 // par date de création décroissante en limitant l'affichage entre le premier 
 // article et le nombre d'article par page
-$articleAmount = 'SELECT * FROM `articles` ORDER BY created_at DESC LIMIT :firstpage, :articlesperpage';
+$articleAmount = 'SELECT * FROM `articles` ORDER BY `created_at` DESC LIMIT :firstpage, :articlesperpage';
 
 // Préparation de la requête
 $request = $database->prepare($articleAmount);
 
-$request->bindParam(':firstpage', $firstPage, PDO::PARAM_INT);
-$request->bindParam(':articlesperpage', $articlesPerPage, PDO::PARAM_INT);
+$request->bindValue(':firstpage', $firstPage, PDO::PARAM_INT);
+$request->bindValue(':articlesperpage', $articlesPerPage, PDO::PARAM_INT);
 
 // Exécution de la requête
 $request->execute();
