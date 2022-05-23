@@ -352,9 +352,8 @@ footer {
 }
 .categorie__container--wrapper .card {
   border: 2px dashed yellow;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
 .categorie__container--wrapper .card__cell {
   border: 2px solid orangered;
@@ -386,4 +385,11 @@ footer {
   border: 2px solid red;
   margin: 20px 0px;
   padding: 10px;
+}
+.categorie__container--wrapper .page__wrapper--number {
+  color: grey;
+}
+.categorie__container--wrapper .page__wrapper .active {
+  font-weight: bolder;
+  color: blue;
 }/*# sourceMappingURL=style.css.map */
