@@ -3,7 +3,22 @@
 <section class="categorie">
     <div class="categorie__container">
         <div class="categorie__container--wrapper">
-            <h1>Critiques</h1>
+            <h1>
+                <?php 
+                    require('req/_connect.php');
+                    $category = 'SELECT categories.name AS name_category FROM articles INNER JOIN categories ON articles.category_id = categories.id;
+                    ';
+
+                    $request = $database->prepare($category);
+
+                    $request->execute();
+                    
+                    $resultCategory = $request->fetch();
+
+                    $tagCategory = $resultCategory['name_category'];
+                ?>
+                <?= $tagCategory; ?>
+            </h1>
             <div class="card">
                 <?php foreach($articles as $article) { ?>
                     <div class="card__cell">
@@ -14,22 +29,7 @@
                             <a href="#">
                                 <h4 class="description--title ellipsis"><?= $article['title']; ?></h4>
                             </a>
-                            <?php 
-                                require('req/_connect.php');
-                                $category = 'SELECT categories.name AS name_category FROM articles INNER JOIN categories ON articles.type_id = categories.id;
-                                ';
-                                /*
-                                $type = 'SELECT types.name FROM articles INNER JOIN types ON articles.type_id = types.id;
-                                ';*/
-
-                                $request = $database->prepare($category);
-
-                                $request->execute();
-                                
-                                $resultCategory = $request->fetch();
-
-                                $tagCategory = $resultCategory['name_category'];
-                            ?>  
+                            
                             <a href="#" class="description--category ellipsis"><?= $tagCategory; ?></a>
 
                             <?php 
@@ -49,7 +49,7 @@
                             <p class="description--date"> 
                                 <?php
                                     $formDate = strtotime($article['created_at']);
-                                    echo "Ajouté le " . date("d-m-Y à h:i", $formDate);
+                                    echo "Ajouté le " . date("d-m-Y", $formDate);
                                 ?>
                             </p>
                         </div>

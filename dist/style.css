@@ -363,6 +363,7 @@ footer {
 .categorie__container--wrapper .card__cell--img img {
   width: 100%;
   height: 270px;
+  border-radius: 5px;
 }
 .categorie__container--wrapper .card__cell--description {
   display: flex;
