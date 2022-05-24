@@ -348,16 +348,21 @@ footer {
   border: 2px solid red;
   text-align: center;
   padding: 20px 0px;
-  margin-bottom: 20px;
 }
 .categorie__container--wrapper .card {
   border: 2px dashed yellow;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+  gap: 50px 120px;
+  padding: 45px;
 }
 .categorie__container--wrapper .card__cell {
   border: 2px solid orangered;
   border-radius: 5px;
+}
+.categorie__container--wrapper .card__cell--img img {
+  width: 100%;
+  height: 270px;
 }
 .categorie__container--wrapper .card__cell--description {
   display: flex;
@@ -369,6 +374,10 @@ footer {
   margin-top: 5px;
   font-size: 13px;
   padding-left: 10px;
+}
+.categorie__container--wrapper .card__cell .description--date {
+  font-size: 10px;
+  font-style: italic;
 }
 .categorie__container--wrapper .card__cell .ellipsis {
   white-space: nowrap;

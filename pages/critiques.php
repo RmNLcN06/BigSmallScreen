@@ -8,17 +8,55 @@
                 <?php foreach($articles as $article) { ?>
                     <div class="card__cell">
                         <a class="card__cell--img" href="">
-                            <img src="https://via.placeholder.com/205x270" alt="">
+                            <img src="<?= $article['path_img']; ?>" alt="">
                         </a>
                         <div class="card__cell--description">
                             <a href="#">
                                 <h4 class="description--title ellipsis"><?= $article['title']; ?></h4>
                             </a>
-                            <a href="#" class="description--category ellipsis"><?= $article['category_id']; ?></a>
-                            <a href="#" class="description--tags ellipsis"><?= $article['type_id']; ?></a>
+                            <?php 
+                                require('req/_connect.php');
+                                $category = 'SELECT categories.name AS name_category FROM articles INNER JOIN categories ON articles.type_id = categories.id;
+                                ';
+                                /*
+                                $type = 'SELECT types.name FROM articles INNER JOIN types ON articles.type_id = types.id;
+                                ';*/
+
+                                $request = $database->prepare($category);
+
+                                $request->execute();
+                                
+                                $resultCategory = $request->fetch();
+
+                                $tagCategory = $resultCategory['name_category'];
+                            ?>  
+                            <a href="#" class="description--category ellipsis"><?= $tagCategory; ?></a>
+
+                            <?php 
+                                require('req/_connect.php');
+                                $type = 'SELECT types.name AS name_type FROM articles INNER JOIN types ON articles.type_id = types.id;
+                                ';
+
+                                $request = $database->prepare($type);
+
+                                $request->execute();
+                                
+                                $resultType = $request->fetch();
+
+                                $tagType = $resultType['name_type'];
+                            ?>  
+                            <a href="#" class="description--tags ellipsis"><?= $tagType; ?></a>
+                            <p class="description--date"> 
+                                <?php
+                                    $formDate = strtotime($article['created_at']);
+                                    echo "Ajouté le " . date("d-m-Y à h:i", $formDate);
+                                ?>
+                            </p>
                         </div>
                     </div>
                 <?php }; ?>
+
+                
                 <!--
                 <div class="card__cell">
                     <a class="card__cell--img" href="">
