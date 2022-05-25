@@ -402,4 +402,23 @@ footer {
 .categorie__container--wrapper .page__wrapper .active {
   font-weight: bolder;
   color: blue;
+}
+
+.juridique {
+  border: 2px solid red;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.juridique ol {
+  border: 2px solid blue;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.juridique ol li {
+  margin: 20px 10px;
+  list-style-type: upper-roman;
 }/*# sourceMappingURL=style.css.map */

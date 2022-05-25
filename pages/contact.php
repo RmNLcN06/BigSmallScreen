@@ -1,12 +1,12 @@
 <div class="form__wrapper">
-  <form action="../../BigSmallScreen/req/_login.php" method="post">
+  <form action="../../BigSmallScreen/req/_contact.php" method="post">
     <fieldset>  
         <legend>
-            Une question en rapport avec l'utilisation de notre site ou sur un autre sujet ?
+            Nous Contacter
         </legend>
-        <legend>
+        <h4>
             N'hésitez pas à nous contacter. Nous vous répondrons le plus rapidement possible.
-        </legend>
+        </h4>
 
         <?php if(isset($mailErr)){echo '<span class="error">' . $mailErr . '</span>';}?>
 
