@@ -55,6 +55,11 @@
                         </div>
                     </div>
                 <?php }; ?>
+            </div>
+            <?php include('inc/_page.php'); ?>
+        </div>
+    </div>
+</section>
 
                 
                 <!--
@@ -304,21 +309,4 @@
                         <a href="#" class="description--tags ellipsis">Science-fiction, Horreur</a>
                     </div>
                 </div> -->
-            </div>
-            <?php include('inc/_page.php'); ?>
-            <!-- <ul class="page">
-                <div class="page__wrapper">
-                    <li>
-                        <a class="page__wrapper--number active" href="#">1</a>
-                    </li>
-                    <li>
-                        <a class="page__wrapper--number" href="#">2</a>
-                    </li>
-                    <li>
-                        <a class="page__wrapper--number" href="#">3</a>
-                    </li>
-                </div>
-            </ul> -->
-        </div>
-    </div>
-</section>
+            
