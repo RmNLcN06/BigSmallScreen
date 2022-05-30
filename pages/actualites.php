@@ -22,7 +22,7 @@
             <div class="card">
                 <?php foreach($articles as $article) { ?>
                     <div class="card__cell">
-                        <a class="card__cell--img" href="">
+                        <a class="card__cell--img" href="?page=article_actualite">
                             <img src="<?= $article['path_img']; ?>" alt="">
                         </a>
                         <div class="card__cell--description">

@@ -1,26 +1,71 @@
 <section class="juridique">
-    <h1>Règlements du site Big&SmallScreen</h1>
+    <h1>Règlements du site BigSmallScreen</h1>
     <ol>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
         <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae totam obcaecati nulla dolorum quasi provident laboriosam perspiciatis praesentium maiores et voluptatibus nam inventore ducimus saepe aliquam, quam, quia officia perferendis.
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
         </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
+        <li>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
+        </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
+        <li>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
+        </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
+        <li>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
+        </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
+        <li>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2> 
+        </li>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis sunt modi ipsam, earum iste blanditiis, unde hic pariatur inventore cumque rerum quia nemo id magni quibusdam architecto, qui labore autem?
+        </p>
     </ol>
 </section>

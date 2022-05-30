@@ -41,6 +41,20 @@ switch($page)
     case 'series':
         $pagepath = 'pages/series.php';
         break;
+
+    // Article Pages
+    case 'article_actualite':
+        $pagepath = 'articles/article_actualite.php';
+        break;
+    case 'article_critique':
+        $pagepath = 'articles/article_critique.php';
+        break;
+    case 'article_film':
+        $pagepath = 'articles/article_film.php';
+        break;
+    case 'article_serie':
+        $pagepath = 'articles/article_serie.php';
+        break;
     
     // Menu Pages Footer
     case 'reglements':
@@ -53,6 +67,17 @@ switch($page)
         $pagepath = 'pages/faq.php';
         break;
     
+    // Admin Pages
+    case 'admin_login':
+        $pagepath = 'admin/admin_login.php';
+        break;
+    case 'admin_dashboard_user':
+        $pagepath = 'admin/admin_dashboard_user.php';
+        break;
+    case 'admin_dashboard_article':
+        $pagepath = 'admin/admin_dashboard_article.php';
+        break;
+
     // Par Défaut
     default: 
         $pagepath = 'pages/accueil.php';

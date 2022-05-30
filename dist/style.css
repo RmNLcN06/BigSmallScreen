@@ -155,12 +155,34 @@ footer {
 .form__wrapper {
   border: 2px solid green;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.form__wrapper .choice {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  border: 2px solid blue;
+}
+.form__wrapper .choice .profil-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid red;
+}
+.form__wrapper .choice .button-choice {
+  display: flex;
+  justify-content: space-around;
 }
 .form__wrapper form {
   margin: 50px 0px;
   width: 50%;
+}
+.form__wrapper form.user-form.hidden, .form__wrapper form.admin-form.hidden {
+  display: none;
+}
+.form__wrapper form.user-form.show, .form__wrapper form.admin-form.show {
+  display: block;
 }
 .form__wrapper form fieldset {
   display: flex;
@@ -412,13 +434,26 @@ footer {
   flex-direction: column;
   flex-wrap: nowrap;
 }
+.juridique h1 {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
 .juridique ol {
   border: 2px solid blue;
-  margin: 10px;
+  margin: 60px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .juridique ol li {
-  margin: 20px 10px;
+  padding: 20px 0px;
   list-style-type: upper-roman;
+}
+.juridique ol li h2 {
+  color: grey;
+}
+.juridique ol p {
+  border: 1px solid green;
+  margin: 5px 0px 10px 0px;
 }/*# sourceMappingURL=style.css.map */

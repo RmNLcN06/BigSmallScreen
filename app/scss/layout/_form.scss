@@ -1,12 +1,41 @@
 .form__wrapper {
     border: 2px solid green;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+
+    .choice {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border: 2px solid blue;
+
+        .profil-choice {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px solid red;
+        }
+
+        .button-choice {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
 
     form {
         margin: 50px 0px;
         width: 50%;
+
+        &.user-form, &.admin-form {
+            &.hidden {
+                display: none;
+            }
+            &.show {
+                display: block;
+            }
+        }
 
         fieldset {
             display: flex;
