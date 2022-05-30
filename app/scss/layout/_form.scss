@@ -1,8 +1,8 @@
 .form__wrapper {
     border: 2px solid green;
     display: flex;
-    flex-direction: row;
-    // align-items: center;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     .choice {
@@ -24,27 +24,34 @@
         }
     }
 
-    form {
-        margin: 50px 0px;
-        width: 50%;
+    .form-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        border: 2px solid green;
 
-        &.user-form, &.admin-form {
-            &.hidden {
+        form {
+            margin: 50px 0px;
+    
+            &.user-form, &.admin-form {
                 display: none;
+    
+                &.show {
+                    display: block;
+                }
             }
-            &.show {
-                display: block;
+    
+            fieldset {
+                margin: 50px 0px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-        }
-
-        fieldset {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        legend {
-            text-align: center;
+    
+            legend {
+                margin: 20px 50px;
+            }
         }
     }
 

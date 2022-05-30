@@ -47,7 +47,8 @@ require('req/_login.php');
       <button id="admin">Administrateur</button>
     </div>
   </div>
-  <form class="user-form hidden" action="../../BigSmallScreen/req/_login.php" method="post">
+  <div class="form-container">
+  <form class="user-form" action="../../BigSmallScreen/req/_login.php" method="post">
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 
@@ -112,7 +113,7 @@ require('req/_login.php');
     </fieldset>
   </form>
 
-  <form class="admin-form hidden" action="../../BigSmallScreen/req/_login.php" method="post">
+  <form class="admin-form" action="../../BigSmallScreen/req/_login.php" method="post">
     <fieldset>  
       <legend>Veuillez entrer vos informations de connexion</legend>
 
@@ -176,6 +177,8 @@ require('req/_login.php');
       </div>
     </fieldset>
   </form>
+  </div>
+  
 </div>
 
 

@@ -107,69 +107,72 @@ require ('req/_signup.php');
 ?>
 
 <div class="form__wrapper">
-  <form method="post">
-    <fieldset>
-      <legend>Veuillez remplir le formulaire d'inscription</legend>
+  <div class="form-container">
+    <form method="post">
+      <fieldset>
+        <legend>Veuillez remplir le formulaire d'inscription</legend>
 
-      <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
+        <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
 
-      <div class="form__wrapper--label">
-        <label for="nickname">Pseudo: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="text" name="nickname" id="nickname" >
-      </div>
-      <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
-    
-      <div class="form__wrapper--label">
-        <label for="firstname">Nom: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="text" name="firstname" id="firstname" >
-      </div>
-      <?php if(isset($firstnameMsgErr)){echo '<span class="error">' . $firstnameMsgErr . '</span>';}?>
+        <div class="form__wrapper--label">
+          <label for="nickname">Pseudo: </label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="text" name="nickname" id="nickname" >
+        </div>
+        <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
+      
+        <div class="form__wrapper--label">
+          <label for="firstname">Nom: </label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="text" name="firstname" id="firstname" >
+        </div>
+        <?php if(isset($firstnameMsgErr)){echo '<span class="error">' . $firstnameMsgErr . '</span>';}?>
 
-      <div class="form__wrapper--label">
-        <label for="lastname">Prénom: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="text" name="lastname" id="lastname" >
-      </div>
-      <?php if(isset($lastnameMsgErr)){echo '<span class="error">' . $lastnameMsgErr . '</span>';}?>
+        <div class="form__wrapper--label">
+          <label for="lastname">Prénom: </label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="text" name="lastname" id="lastname" >
+        </div>
+        <?php if(isset($lastnameMsgErr)){echo '<span class="error">' . $lastnameMsgErr . '</span>';}?>
 
-      <div class="form__wrapper--label">
-        <label for="mail">E-mail: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
-      </div>
-      <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
+        <div class="form__wrapper--label">
+          <label for="mail">E-mail: </label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
+        </div>
+        <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
 
-      <div class="form__wrapper--label">
-        <label for="pwd">Mot de passe: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
-      </div>
-      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
+        <div class="form__wrapper--label">
+          <label for="pwd">Mot de passe: </label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
+        </div>
+        <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
 
 
-      <div class="pwd-message">
-        <h3>Votre mot de passe doit comporter: </h3>
-        <p id="letter" class="invalid">Une lettre minuscule</p>
-        <p id="capital" class="invalid">Une lettre majuscule</p>
-        <p id="number" class="invalid">Un nombre</p>
-        <p id="special" class="invalid">Un caractère spécial</p>
-        <p id="length" class="invalid">8 caractères minimum</p>
-      </div>
+        <div class="pwd-message">
+          <h3>Votre mot de passe doit comporter: </h3>
+          <p id="letter" class="invalid">Une lettre minuscule</p>
+          <p id="capital" class="invalid">Une lettre majuscule</p>
+          <p id="number" class="invalid">Un nombre</p>
+          <p id="special" class="invalid">Un caractère spécial</p>
+          <p id="length" class="invalid">8 caractères minimum</p>
+        </div>
 
-      <button type="submit" name="submit">S'inscrire</button>
+        <button type="submit" name="submit">S'inscrire</button>
 
-      <div class="form__wrapper--action">
-        <p>Vous avez déjà un compte ?</p>
-        <a href="?page=connexion">Se connecter</a>
-      </div>
-    </fieldset>
-  </form>
+        <div class="form__wrapper--action">
+          <p>Vous avez déjà un compte ?</p>
+          <a href="?page=connexion">Se connecter</a>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  
   
 </div>

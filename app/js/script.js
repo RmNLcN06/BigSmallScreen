@@ -116,26 +116,18 @@ myInput.onkeyup = function() {
 // User/Admin buttons form onclick
 var userBtn = document.getElementById('user');
 var adminBtn = document.getElementById('admin');
-var userForm = document.getElementsByClassName('user')[0];
-var adminForm = document.getElementsByClassName('admin')[0];
 
 userBtn.addEventListener('click', showFormUser);
 adminBtn.addEventListener('click', showFormAdmin);
 
-function showFormUser() {
-  if(userForm.style == "hidden")
-  {
-    userForm.classList.remove("hidden");
-    userForm.classList.add("show");
-  }
-  else 
-  {
-    userForm.classList.remove("show");
-    userForm.classList.add("hidden");
-  }
- 
+function showFormUser() 
+{
+  var userForm = document.getElementsByClassName('user-form')[0];
+ userForm.classList.toggle('show');
 }
 
-function showFormAdmin() {
-
+function showFormAdmin() 
+{
+  var adminForm = document.getElementsByClassName('admin-form')[0];
+  adminForm.classList.toggle('show');
 }
