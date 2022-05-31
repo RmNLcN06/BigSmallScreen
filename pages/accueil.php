@@ -1,5 +1,5 @@
 <?php 
-// session_start();
+session_start();
 echo $_SESSION['auth'];
 echo $_SESSION['nickname'];
 echo $_SESSION['firstname'];

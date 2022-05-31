@@ -1,12 +1,12 @@
 <?php
-session_start();
 require ('_connect.php');
 
 // Envoi du formulaire
 if(isset($_POST['submit'])) 
 {
+    echo $_POST['submit'];
     // Vérification que tous les champs du formulaire sont remplis
-    if(!empty($_POST['nickname']) && !empty($_POST['pwd'])) 
+    if(!empty($_POST['mail']) && !empty($_POST['pwd'])) 
     {
     // if(!empty($_POST['nickname'])) {
     //     if(!empty($_POST['mail'])) {
@@ -15,12 +15,12 @@ if(isset($_POST['submit']))
             require('_functions.php');
 
             // Protections + tests des données envoyés par l'utilisateurs avant de les récupérer dans des variables
-            $user_nickname = test_input($_POST['nickname']);
-            $user_pwd = test_input($_POST['pwd']);
+            $user_mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);
+            $user_pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
 
             // Vérification de l'existance de l'utilisateur dans la base de données (pseudo existant ?)
             $checkIfUserExists = $database->prepare('SELECT * FROM users WHERE nickname = ?');
-            $checkIfUserExists->execute([$user_nickname]);
+            $checkIfUserExists->execute([$user_mail]);
 
             // Si l'utilisateur existe ...
             if($checkIfUserExists->rowCount() > 0)
@@ -40,7 +40,7 @@ if(isset($_POST['submit']))
                     $_SESSION['role_id'] = $userInfos['role_id'];
 
                     // Redirection de l'utilisateur connecté vers la page d'accueil
-                    header('Location: ../?page=accueil');
+                    header('Location: http://localhost/BigSmallScreen/?page=accueil');
                     die();
                     
                     // echo '<script language="Javascript">
@@ -51,19 +51,19 @@ if(isset($_POST['submit']))
                 }
                 else 
                 {
-                    header('Location ../?page=connexion?login_err=pwd');
+                    header('Location: ../?page=connexion?login_err=pwd');
                     die();
                 }
             }
             else 
             {
-                header('Location ../?page=connexion?login_err=usernone');
+                header('Location: ../?page=connexion?login_err=usernone');
                 die();
             }
         }
         else 
         {
-            header('Location ../?page=connexion');
+            header('Location: ../?page=connexion');
             die();
         }
     }

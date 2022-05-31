@@ -1,4 +1,6 @@
 <?php
+
+// session_start();
 // require('req/_login.php');
 require('req/_functions.php');
 
