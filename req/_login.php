@@ -6,22 +6,16 @@ require ('_connect.php');
 if(isset($_POST['submit'])) 
 {
     // Vérification que tous les champs du formulaire sont remplis
-    // if(!empty($_POST['nickname']) && !empty($_POST['mail']) && !empty($_POST['pwd']))
-    if(!empty($_POST['nickname'])) {
-        if(!empty($_POST['mail'])) {
-            if(!empty($_POST['pwd'])) {
+    if(!empty($_POST['nickname']) && !empty($_POST['pwd'])) 
+    {
+    // if(!empty($_POST['nickname'])) {
+    //     if(!empty($_POST['mail'])) {
+    //         if(!empty($_POST['pwd'])) 
 
-            function test_input($data) 
-            {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
+            require('_functions.php');
 
             // Protections + tests des données envoyés par l'utilisateurs avant de les récupérer dans des variables
             $user_nickname = test_input($_POST['nickname']);
-            $user_mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);
             $user_pwd = test_input($_POST['pwd']);
 
             // Vérification de l'existance de l'utilisateur dans la base de données (pseudo existant ?)
@@ -46,7 +40,8 @@ if(isset($_POST['submit']))
                     $_SESSION['role_id'] = $userInfos['role_id'];
 
                     // Redirection de l'utilisateur connecté vers la page d'accueil
-                    header('Location: http://localhost/BigSmallScreen/?page=accueil');
+                    header('Location: ../?page=accueil');
+                    die();
                     
                     // echo '<script language="Javascript">
                     //     <!--
@@ -56,28 +51,21 @@ if(isset($_POST['submit']))
                 }
                 else 
                 {
-                        $pwdEnterErr = "Le mot de passe que vous avez entré est incorrect. Veuillez essayer à nouveau.";
+                    header('Location ../?page=connexion?login_err=pwd');
+                    die();
                 }
-
             }
-            else
+            else 
             {
-                $userErr = "Ce profil n'existe pas. Veuillez réessayer ou vous inscrire.";
-            }
-            }
-            else
-            {
-                $pwdErr = "Mot de passe manquant. Veuillez renseigner votre mot de passe.";
+                header('Location ../?page=connexion?login_err=usernone');
+                die();
             }
         }
         else 
         {
-            $mailErr = "E-mail manquant. Veuillez renseigner votre email.";
+            header('Location ../?page=connexion');
+            die();
         }
-    } 
-    else 
-    {
-        $nicknameErr = "Pseudo manquant. Veuillez renseigner votre pseudo.";
     }
     //{
         // Fonction pour se protéger des informations entrées par l'utilisateur
@@ -139,7 +127,7 @@ if(isset($_POST['submit']))
     //     $msgErr = "Veuillez compléter tous les champs...";
     // }
 
-} 
+
     //     elseif($checkIfUserExists->rowCount() == 0) 
     //     {
             
@@ -166,4 +154,3 @@ if(isset($_POST['submit']))
     // else
     // {
     //     $msgErr = "Veuillez remplir tous les champs de ce formulaire.";
- //}

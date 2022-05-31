@@ -1,5 +1,6 @@
 <?php
-require('req/_login.php');
+// require('req/_login.php');
+require('req/_functions.php');
 
 
 // define variables and set to empty values
@@ -37,34 +38,41 @@ require('req/_login.php');
 //   $data = htmlspecialchars($data);
 //   return $data;
 // }
+
 ?>
-
 <div class="form__wrapper">
-  <div class="choice">
-    <h3 class="profil-choice">Veuillez sélectionner votre type de connexion: </h3>
-    <div class="button-choice">
-      <button id="user">Utilisateur</button>
-      <button id="admin">Administrateur</button>
-    </div>
-  </div>
   <div class="form-container">
-  <form class="user-form" action="../../BigSmallScreen/req/_login.php" method="post">
+  <form class="user-form" action="./req/_login.php" method="post">
     <fieldset>  
-      <legend>Veuillez entrer vos informations de connexion</legend>
+      <legend>Connexion Utilisateur</legend>
 
-      <?php if(isset($pwdEnterErr)){echo '<span class="error">' . $pwdEnterErr . '</span>';}?>
-      <?php if(isset($userErr)){echo '<span class="error">' . $userErr . '</span>';}?>
-      <?php if(isset($pwdErr)){echo '<span class="error">' . $pwdErr . '</span>';}?>
-      <?php if(isset($mailErr)){echo '<span class="error">' . $mailErr . '</span>';}?>
-      <?php if(isset($nicknameErr)){echo '<span class="error">' . $nicknameErr . '</span>';}?>
+      <?php
+        if(isset($_GET['login_err']))
+        {
+          $errMsg = test_input($_GET['login_err']);
 
-      <div class="form__wrapper--label">
-        <label for="nickname">Pseudo: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="text" name="nickname" id="nickname" >
-      </div>
-      <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
+          switch($errMsg)
+          {
+            case 'pwd':
+            ?>
+              <span class="error">Erreur: mot de passe incorrect.</span>
+            <?php
+            break;
+
+            case 'mail':
+            ?>
+              <span class="error">Erreur: email incorrect.</span>
+            <?php
+            break;
+
+            case 'usernone':
+            ?>
+              <span class="error">Erreur: compte non existant.</span> 
+            <?php
+            break;
+          }
+        }
+      ?>
 
       <div class="form__wrapper--label">
         <label for="mail">E-mail: </label>
@@ -72,7 +80,6 @@ require('req/_login.php');
       <div class="form__wrapper--input">
         <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
       </div>
-      <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
       <!-- 
           [A-Za-z0-9._%+-]+ : caractères minuscules, majuscules, digitales, caractères spéciaux (._%+-) et accepte plusieurs fois les termes précédents
           @ : signe arobase
@@ -87,7 +94,6 @@ require('req/_login.php');
       <div class="form__wrapper--input">
         <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
       </div>
-      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
       <!-- 
           (?=.*\d) : digitale
           (?=.*[a-z]) : minuscule
@@ -105,23 +111,40 @@ require('req/_login.php');
       </div>
 
       <button type="submit" name="submit">Se connecter</button>
-
-      <div class="form__wrapper--action">
-        <p>Vous n'avez pas de compte ?</p> 
-        <a href="?page=inscription">S'inscrire</a>
-      </div>
     </fieldset>
   </form>
 
-  <form class="admin-form" action="../../BigSmallScreen/req/_login.php" method="post">
-    <fieldset>  
-      <legend>Veuillez entrer vos informations de connexion</legend>
+  <form class="admin-form" action="./req/_login.php" method="post">
+    <fieldset>
+      <legend>Connexion Administrateur</legend>
 
-      <?php if(isset($pwdEnterErr)){echo '<span class="error">' . $pwdEnterErr . '</span>';}?>
-      <?php if(isset($userErr)){echo '<span class="error">' . $userErr . '</span>';}?>
-      <?php if(isset($pwdErr)){echo '<span class="error">' . $pwdErr . '</span>';}?>
-      <?php if(isset($mailErr)){echo '<span class="error">' . $mailErr . '</span>';}?>
-      <?php if(isset($nicknameErr)){echo '<span class="error">' . $nicknameErr . '</span>';}?>
+      <?php
+        if(isset($_GET['login_err']))
+        {
+          $errMsg = test_input($_GET['login_err']);
+
+          switch($errMsg)
+          {
+            case 'pwd':
+            ?>
+              <span class="error">Erreur: mot de passe incorrect.</span>
+            <?php
+            break;
+
+            case 'mail':
+            ?>
+              <span class="error">Erreur: email incorrect.</span>
+            <?php
+            break;
+
+            case 'usernone':
+            ?>
+              <span class="error">Erreur: compte non existant.</span> 
+            <?php
+            break;
+          }
+        }
+      ?>
 
       <div class="form__wrapper--label">
         <label for="mail">E-mail: </label>
@@ -129,7 +152,6 @@ require('req/_login.php');
       <div class="form__wrapper--input">
         <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
       </div>
-      <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
       <!-- 
           [A-Za-z0-9._%+-]+ : caractères minuscules, majuscules, digitales, caractères spéciaux (._%+-) et accepte plusieurs fois les termes précédents
           @ : signe arobase
@@ -144,7 +166,6 @@ require('req/_login.php');
       <div class="form__wrapper--input">
         <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
       </div>
-      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
       <!-- 
           (?=.*\d) : digitale
           (?=.*[a-z]) : minuscule
@@ -161,24 +182,14 @@ require('req/_login.php');
         <p id="length" class="invalid">8 caractères minimum</p>
       </div>
 
-      <div class="form__wrapper--label">
-        <label for="pwd">Confirmer mot de passe: </label>
-      </div>
-      <div class="form__wrapper--input">
-        <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
-      </div>
-      <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
-
       <button type="submit" name="submit">Se connecter</button>
-
-      <div class="form__wrapper--action">
-        <p>Vous n'avez pas de compte ?</p> 
-        <a href="?page=inscription">S'inscrire</a>
-      </div>
     </fieldset>
   </form>
   </div>
-  
+  <div class="form__wrapper--action">
+    <p>Vous n'avez pas de compte ?</p> 
+    <a href="?page=inscription">S'inscrire</a>
+  </div>
 </div>
 
 

@@ -185,12 +185,6 @@ footer {
 .form__wrapper .form-container form {
   margin: 50px 0px;
 }
-.form__wrapper .form-container form.user-form, .form__wrapper .form-container form.admin-form {
-  display: none;
-}
-.form__wrapper .form-container form.user-form.show, .form__wrapper .form-container form.admin-form.show {
-  display: block;
-}
 .form__wrapper .form-container form fieldset {
   margin: 50px 0px;
   display: flex;
