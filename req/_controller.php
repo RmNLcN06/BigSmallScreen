@@ -21,6 +21,9 @@ switch($page)
     case 'connexion':
         $pagepath = 'pages/connexion.php';
         break;
+    case 'connexionAdmin':
+        $pagepath = 'pages/connexionAdmin.php';
+        break;
     case 'inscription':
         $pagepath = 'pages/inscription.php';
         break;
@@ -65,17 +68,6 @@ switch($page)
         break;
     case 'faq':
         $pagepath = 'pages/faq.php';
-        break;
-    
-    // Admin Pages
-    case 'admin_login':
-        $pagepath = 'admin/admin_login.php';
-        break;
-    case 'admin_dashboard_user':
-        $pagepath = 'admin/admin_dashboard_user.php';
-        break;
-    case 'admin_dashboard_article':
-        $pagepath = 'admin/admin_dashboard_article.php';
         break;
 
     // Par Défaut

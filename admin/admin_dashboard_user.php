@@ -5,6 +5,7 @@ session_start();
 
 // Inclusion de la connexion à la base de donnée
 require_once('../admin/req/_connect.php');
+require ('../req/_security.php');
 
 $sql = 'SELECT * FROM `users`';
 

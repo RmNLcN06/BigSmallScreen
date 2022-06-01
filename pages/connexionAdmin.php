@@ -1,10 +1,10 @@
 <div class="form__wrapper">
   <div class="form-container">
 
-  <?php require('req/_loginUser.php'); ?>
+  <?php require('req/_loginAdmin.php'); ?>
   <form class="user-form" action="" method="post">
     <fieldset>  
-      <legend>Connexion Utilisateur</legend>
+      <legend>Connexion Administrateur</legend>
 
       <?php if(isset($errorMsg)){echo '<span class="error">' . $errorMsg . '</span>';}?>
 
@@ -53,8 +53,8 @@
   <div class="form__wrapper--action">
     <p>Vous n'avez pas de compte ?</p> 
     <a href="?page=inscription">S'inscrire</a>
-    <p>Se connecter en tant qu'administrateur ?</p> 
-    <a href="?page=connexionAdmin">Se connecter</a>
+    <p>Se connecter en tant qu'utilisateur ?</p> 
+    <a href="?page=connexion">Se connecter</a>
   </div>
 </div>
 
