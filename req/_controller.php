@@ -70,6 +70,11 @@ switch($page)
         $pagepath = 'pages/faq.php';
         break;
 
+    // Deny Page
+    case "deny":
+        $pagepath = "pages/deny.php";
+        break; 
+        
     // Par Défaut
     default: 
         $pagepath = 'pages/accueil.php';

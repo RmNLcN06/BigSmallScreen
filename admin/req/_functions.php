@@ -7,18 +7,22 @@ function redirection($to){
   $rootpath = rootpath(); 
   switch($to)
   {
-    case 'home':  
-        $towards = $rootpath.'index.php'; 
+    case 'accueil':  
+        $towards = $rootpath.'?page=accueil'; 
         break;
-    case 'login': 
-        $towards = $rootpath.'?page=login'; 
+
+    case 'connexion': 
+        $towards = $rootpath.'?page=connexion'; 
         break;
+
     case 'admin': 
-        $towards = $rootpath.'admin/adindex.php'; 
+        $towards = $rootpath.'admin/admin_accueil.php'; 
         break;
+
     case 'deny' : 
-        $towards = $rootpath.'?page=forbidden'; 
+        $towards = $rootpath.'?page=deny'; 
         break;
+
     default : 
         $towards = $rootpath.'/'; 
   }
