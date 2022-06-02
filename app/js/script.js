@@ -113,80 +113,6 @@ myInput.onkeyup = function() {
 }
 
 ////////////////////////////////////////////////
-/*
-// Valider Password Utilisateur
-var myInputAdmin = document.getElementById("pwdAdmin");
-var letterAdmin = document.getElementById("letterAdmin");
-var capitalAdmin = document.getElementById("capitalAdmin");
-var numberAdmin = document.getElementById("numberAdmin");
-var lengthAdmin = document.getElementById("lengthAdmin");
-var specialAdmin = document.getElementById("specialAdmin");
-
-// Quand l'utilisateur clique sur le champ "Mot de passe", la boite de message de validation apparait
-myInputAdmin.onfocus = function() {
-  document.getElementsByClassName("pwd-message-admin")[0].style.display = "block";
-}
-
-// Quand l'utilisateur clique hors du champ "Mot de passe", la boite de message de validation disparait
-myInputAdmin.onblur = function() {
-  document.getElementsByClassName("pwd-message-admin")[0].style.display = "none";
-}
-
-// Quand l'utilisateur commence à entrer quelque chose dans le champ "Mot de passe"
-myInputAdmin.onkeyup = function() {
-
-  // Validation des lettres minuscules
-  var lowerCaseLetters = /[a-z]/g;
-  if(myInputAdmin.value.match(lowerCaseLetters)) {
-    letterAdmin.classList.remove("invalid");
-    letterAdmin.classList.add("valid");
-  } else {
-    letterAdmin.classList.remove("valid");
-    letterAdmin.classList.add("invalid");
-}
-
-  // Validation des lettres majuscules  
-  var upperCaseLetters = /[A-Z]/g;
-  if(myInputAdmin.value.match(upperCaseLetters)) {
-    capitalAdmin.classList.remove("invalid");
-    capitalAdmin.classList.add("valid");
-  } else {
-    capitalAdmin.classList.remove("valid");
-    capitalAdmin.classList.add("invalid");
-  }
-
-  // Validation des nombres
-  var numbers = /[0-9]/g;
-  if(myInputAdmin.value.match(numbers)) {
-    numberAdmin.classList.remove("invalid");
-    numberAdmin.classList.add("valid");
-  } else {
-    numberAdmin.classList.remove("valid");
-    numberAdmin.classList.add("invalid");
-  }
-
-  // Validation des caractères spéciaux
-  var specials = /[!@#$%^&_/?*]/g;
-  if(myInputAdmin.value.match(specials)) {
-    specialAdmin.classList.remove("invalid");
-    specialAdmin.classList.add("valid");
-  } else {
-    specialAdmin.classList.remove("valid");
-    specialAdmin.classList.add("invalid");
-  }
-
-  // // Validation du nombre de caractères entrés
-  if(myInputAdmin.value.length >= 8) {
-    lengthAdmin.classList.remove("invalid");
-    lengthAdmin.classList.add("valid");
-  } else {
-    lengthAdmin.classList.remove("valid");
-    lengthAdmin.classList.add("invalid");
-  }
-}
-*/
-
-////////////////////////////////////////////////
 
 // User/Admin buttons form onclick
 // var userBtn = document.getElementById('user');
@@ -206,3 +132,41 @@ myInputAdmin.onkeyup = function() {
 //   var adminForm = document.getElementsByClassName('admin-form')[0];
 //   adminForm.classList.toggle('show');
 // }
+
+////////////////////////////////////////////////
+
+// Show/Hide Password + Confirm Password
+
+var showPwd = document.getElementById('showPwd');
+var showConfirmPwd = document.getElementById('showConfirmPwd');
+
+showPwd.addEventListener('click', revealPwd);
+showConfirmPwd.addEventListener('click', revealConfirmPwd);
+
+function revealPwd()
+{
+  var pwd = document.getElementById('pwd');
+
+  if(pwd.type === "password") 
+  {
+    pwd.type = "text";
+  }
+  else
+  {
+    pwd.type = "password";
+  }
+}
+
+function revealConfirmPwd()
+{
+  var confirmPwd = document.getElementById('confirmPwd');
+
+  if(confirmPwd.type === "password") 
+  {
+    confirmPwd.type = "text";
+  }
+  else
+  {
+    confirmPwd.type = "password";
+  }
+}

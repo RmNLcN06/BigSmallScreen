@@ -15,7 +15,7 @@ session_start();
                 <i class="fa-solid fa-user-check"></i> Devenir Premium
             </a>  
         </li>
-        <?php if(($_SESSION)) { ?>
+        <?php if($_SESSION) { ?>
             <li>
                 <a href="?page=profil">
                 <i class="fa-solid fa-user"></i> Mon Profil
@@ -24,6 +24,12 @@ session_start();
             <li>
                 <a href="req/_logout.php">
                     <i class="fa-solid fa-right-from-bracket"></i> Se Déconnecter
+                </a>
+            </li>
+        <?php } elseif(isset($_SESSION['authAdmin'])) { ?>
+            <li>
+                <a href="admin/admin_accueil.php">
+                    <i class="fa-solid fa-user-tie"></i> Espace Administrateur
                 </a>
             </li>
         <?php } else { ?>

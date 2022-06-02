@@ -24,6 +24,9 @@ switch($page)
     case 'connexionAdmin':
         $pagepath = 'pages/connexionAdmin.php';
         break;
+    case 'admin':
+        $pagepath = 'admin/admin_accueil.php';
+        break;
     case 'inscription':
         $pagepath = 'pages/inscription.php';
         break;
