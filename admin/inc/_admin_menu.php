@@ -10,27 +10,27 @@
 
 
 <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid border border-success">
+  <div class="container-fluid">
     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse border border-danger d-flex justify-content-around" id="navbarNav">
-      <ul class="navbar-nav border border-warning row col-12">
+    <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
+      <ul class="navbar-nav row col-12">
         <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="admin_accueil.php">Accueil</a>
         </li> -->
         <div class="d-flex align-items-center justify-content-center">
-            <li class="nav-item col-3 border border-secondary bg-primary d-flex justify-content-center">
+            <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
                 <a class="nav-link text-white" href="admin_dashboard_user.php">Utilisateurs</a>
             </li>
-            <li class="nav-item col-3 border border-secondary bg-primary d-flex justify-content-center">
+            <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
                 <a class="nav-link text-white" href="admin_dashboard_admin.php">Administrateurs</a>
             </li>
-            <li class="nav-item col-3 border border-secondary bg-primary d-flex justify-content-center">
+            <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
                 <a class="nav-link text-white" href="admin_dashboard_article.php">Articles</a>
             </li>
-            <li class="nav-item col-3 border border-secondary bg-primary d-flex justify-content-center">
+            <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
                 <a class="nav-link text-white" href="admin_dashboard_comment.php">Commentaires</a>
             </li>
         </div>

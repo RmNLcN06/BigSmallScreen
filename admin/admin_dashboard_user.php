@@ -70,7 +70,7 @@ require_once('../admin/req/_close.php');
                 <?php
                 }
                 ?>
-                <h1 class="d-flex justify-content-center">Liste des utilisateurs</h1>
+                <h1 class="d-flex justify-content-center mt-5">Liste des utilisateurs</h1>
                 <table class="table">
                     <thead>
                         <th>ID</th>
@@ -95,7 +95,7 @@ require_once('../admin/req/_close.php');
                                 <td><?= $user['mail'] ?></td>
                                 <td><?= $user['created_at'] ?></td>
                                 <td><?= $user['updated_at'] ?></td>
-                                <td class="d-flex justify-content-between align-items-center">
+                                <td class="d-flex justify-content-evenly align-items-center">
                                     <a href="./pages_user/disable.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-success col-2">Activer / Désactiver</a>
                                     <a href="./pages_user/details.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-info col-2">Voir</a>
                                     <a href="./pages_user/edit.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning col-2">Modifier</a>

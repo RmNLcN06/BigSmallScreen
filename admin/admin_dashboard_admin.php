@@ -70,7 +70,7 @@ require_once('../admin/req/_close.php');
                 <?php
                 }
                 ?>
-                <h1 class="d-flex justify-content-center">Liste des administrateurs</h1>
+                <h1 class="d-flex justify-content-center mt-5">Liste des administrateurs</h1>
                 <a href="../admin/pages_admin/add.php" class="btn btn-primary">Ajouter un profil administrateur</a>
                 <table class="table">
                     <thead>
@@ -96,7 +96,7 @@ require_once('../admin/req/_close.php');
                                 <td><?= $admin['mail'] ?></td>
                                 <td><?= $admin['created_at'] ?></td>
                                 <td><?= $admin['updated_at'] ?></td>
-                                <td class="d-flex justify-content-center align-items-center">
+                                <td class="d-flex justify-content-evenly align-items-center">
                                     <a href="./pages_admin/details.php?id=<?= $admin['id'] ?>" class="btn btn-sm btn-info mx-2">Voir</a>
                                     <a href="./pages_admin/delete.php?id=<?= $admin['id'] ?>" class="btn btn-sm btn-danger mx-2">Supprimer</a>
                                 </td>
