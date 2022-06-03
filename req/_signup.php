@@ -49,7 +49,7 @@ if(isset($_POST['submit']))
             $userInfos = $getInfosUserReg->fetch();
 
             // Données d'authentification de l'utilisateur récupérées dans des variables globales "SESSION"
-            $_SESSION['auth'] = true;
+            $_SESSION['authUser'] = true;
             $_SESSION['id'] = $userInfos['id'];
             $_SESSION['nickname'] = $userInfos['nickname'];
             $_SESSION['firstname'] = $userInfos['firstname'];

@@ -6,8 +6,7 @@
             <h1>
                 <?php 
                     require('req/_connect.php');
-                    $category = 'SELECT categories.name AS name_category FROM articles INNER JOIN categories ON articles.category_id = categories.id;
-                    ';
+                    $category = 'SELECT categories.name AS name_category FROM categories JOIN articles ON articles.category_id = categories.id WHERE articles.category_id = 3';
 
                     $request = $database->prepare($category);
 
@@ -34,7 +33,7 @@
 
                             <?php 
                                 require('req/_connect.php');
-                                $type = 'SELECT types.name AS name_type FROM articles INNER JOIN types ON articles.type_id = types.id;
+                                $type = 'SELECT types.name AS name_type FROM types JOIN articles ON articles.type_id = types.id;
                                 ';
 
                                 $request = $database->prepare($type);

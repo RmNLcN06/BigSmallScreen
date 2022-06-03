@@ -4,7 +4,7 @@ $hello = 'Bonjour ' . $_SESSION['firstname'];
 ?> 
 
 <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">
         <h1>BSS</h1>
         <h3>Big&SmallScreen</h3>

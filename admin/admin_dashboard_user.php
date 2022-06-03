@@ -45,7 +45,7 @@ require_once('../admin/req/_close.php');
 <body>
     <?php include('../admin/inc/_admin_header.php'); ?>
     <?php include('../admin/inc/_admin_menu.php'); ?>
-    <main class="container-fluid">
+    <main class="container">
         <div class="row">
             <section class="col-12">
                 <?php
@@ -75,8 +75,8 @@ require_once('../admin/req/_close.php');
                     <thead>
                         <th>ID</th>
                         <th>Pseudo</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
+                        <!-- <th>Nom</th>
+                        <th>Prénom</th> -->
                         <th>Email</th>
                         <th>Créé le</th>
                         <th>Modifié le</th>
@@ -89,9 +89,13 @@ require_once('../admin/req/_close.php');
                         ?>
                             <tr>
                                 <td><?= $user['id'] ?></td>
-                                <td><?= $user['nickname'] ?></td>
-                                <td><?= $user['firstname'] ?></td>
-                                <td><?= $user['lastname'] ?></td>
+                                <td>
+                                    <a href="./pages_user/details.php?id=<?= $user['id'] ?>">
+                                        <?= $user['nickname'] ?>
+                                    </a>
+                                </td>
+                                <!-- <td><?= $user['firstname'] ?></td>
+                                <td><?= $user['lastname'] ?></td> -->
                                 <td><?= $user['mail'] ?></td>
                                 <td><?= $user['created_at'] ?></td>
                                 <td><?= $user['updated_at'] ?></td>

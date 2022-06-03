@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 require('../admin/req/_functions.php');
 
 // Si l'utilisateur essaie d'aller sur une page 

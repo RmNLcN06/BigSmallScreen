@@ -14,39 +14,53 @@ if ($_POST) {
         require_once('../req/_connect.php');
 
         // Réinitialisation des données envoyées
-        $nickname = strip_tags($_POST['nickname']);
-        $firstname = strip_tags($_POST['firstname']);
-        $lastname = strip_tags($_POST['lastname']);
-        $mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);;
-        $pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
-        $confirmPwd = password_hash($_POST['confirmPwd'], PASSWORD_DEFAULT);
+        $admin_nickname = strip_tags($_POST['nickname']);
+        $admin_firstname = strip_tags($_POST['firstname']);
+        $admin_lastname = strip_tags($_POST['lastname']);
+        $admin_mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);;
+        $admin_pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+        $admin_confirmPwd = password_hash($_POST['confirmPwd'], PASSWORD_DEFAULT);
 
-        $verifyPwd = password_verify($_POST['pwd'], $pwd);
-        $verifyConfirmPwd = password_verify($_POST['confirmPwd'], $confirmPwd);
+        $admin_verifyPwd = password_verify($_POST['pwd'], $admin_pwd);
+        $admin_verifyConfirmPwd = password_verify($_POST['confirmPwd'], $admin_confirmPwd);
 
-        if($verifyPwd === $verifyConfirmPwd) 
+        // Vérification de l'existance de l'administrateur dans la base de données
+        $checkIfAdminAlreadyExists = $database->prepare('SELECT nickname, firstname, lastname, mail FROM admins WHERE nickname = ? AND firstname = ? AND lastname = ? AND mail = ?');
+        $checkIfAdminAlreadyExists->execute([$admin_nickname, $admin_firstname, $admin_lastname, $admin_mail]);
+
+        // Si l'utilisateur n'existe pas ...
+        if($checkIfAdminAlreadyExists->rowCount() == 0)
         {
-        $sql = 'INSERT INTO `admins` (`nickname`, `firstname`, `lastname`, `mail`, `pwd`) VALUES (:nickname, :firstname, :lastname, :mail, :pwd);';
-
-        $query = $database->prepare($sql);
-
-        $query->bindValue(':nickname', $nickname, PDO::PARAM_STR);
-        $query->bindValue(':firstname', $firstname, PDO::PARAM_STR);
-        $query->bindValue(':lastname', $lastname, PDO::PARAM_STR);
-        $query->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $query->bindValue(':pwd', $pwd, PDO::PARAM_STR);
-
-        $query->execute();
-
-        $_SESSION['message'] = "Nouveau profil administrateur ajouté";
-        require_once('../req/_close.php');
-
-        header('Location: ../admin_dashboard_admin.php');
-        } 
-        else 
-        {
-            $_SESSION['erreur'] = "Le mot de passe et sa confirmation sont différents.";
+            if($admin_verifyPwd === $admin_verifyConfirmPwd && $_POST['pwd'] === $_POST['confirmPwd']) 
+            {
+                $sql = 'INSERT INTO `admins` (`nickname`, `firstname`, `lastname`, `mail`, `pwd`) VALUES (:nickname, :firstname, :lastname, :mail, :pwd);';
+        
+                $query = $database->prepare($sql);
+        
+                $query->bindValue(':nickname', $admin_nickname, PDO::PARAM_STR);
+                $query->bindValue(':firstname', $admin_firstname, PDO::PARAM_STR);
+                $query->bindValue(':lastname', $admin_lastname, PDO::PARAM_STR);
+                $query->bindValue(':mail', $admin_mail, PDO::PARAM_STR);
+                $query->bindValue(':pwd', $admin_pwd, PDO::PARAM_STR);
+        
+                $query->execute();
+        
+                $_SESSION['message'] = "Nouveau profil administrateur ajouté";
+                require_once('../req/_close.php');
+        
+                header('Location: ../admin_dashboard_admin.php');
+            }
+            else 
+            {
+                $_SESSION['erreur'] = "Le mot de passe et sa confirmation sont différents.";
+            }
+        
         }
+        else
+        {
+            $_SESSION['erreur'] = "Le profil administrateur existe déjà.";
+        }
+        
     } 
     else 
     {

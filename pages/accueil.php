@@ -11,7 +11,6 @@ session_start();
 
             <?php if(isset($_SESSION['authUser'])){ ?>
                     <h1>Bonjour <?= $_SESSION['nickname'] ?></h1>
-                    <p>Vous êtes connecté en tant que <?= $_SESSION['role_id'] ?></p>
             <?php } ?>
             
             <div class="slideshow">
