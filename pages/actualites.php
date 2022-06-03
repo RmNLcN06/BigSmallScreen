@@ -1,12 +1,15 @@
-<?php require('req/_pagination.php'); ?>
+<?php 
+require('req/_pagination.php'); 
+require('req/_connect.php');
+?>
 
 <section class="categorie">
     <div class="categorie__container">
         <div class="categorie__container--wrapper">
-            <h1>
-                <?php 
-                    require('req/_connect.php');
-                    $category = 'SELECT categories.name AS name_category FROM categories JOIN articles ON articles.category_id = categories.id WHERE articles.category_id = 3';
+            <h1>Actualités
+                <!-- <?php 
+                    
+                    $category = 'SELECT categories.name AS name_category FROM categories JOIN articles ON articles.category_id = categories.id WHERE category_id = 3';
 
                     $request = $database->prepare($category);
 
@@ -16,7 +19,7 @@
 
                     $tagCategory = $resultCategory['name_category'];
                 ?>
-                <?= $tagCategory; ?>
+                <?= $tagCategory; ?> -->
             </h1>
             <div class="card">
                 <?php foreach($articles as $article) { ?>
@@ -29,10 +32,9 @@
                                 <h4 class="description--title ellipsis"><?= $article['title']; ?></h4>
                             </a>
                             
-                            <a href="#" class="description--category ellipsis"><?= $tagCategory; ?></a>
+                            <a href="#" class="description--category ellipsis"><?= $article['category_id']; ?></a>
 
                             <?php 
-                                require('req/_connect.php');
                                 $type = 'SELECT types.name AS name_type FROM types JOIN articles ON articles.type_id = types.id;
                                 ';
 
@@ -40,7 +42,7 @@
 
                                 $request->execute();
                                 
-                                $resultType = $request->fetch();
+                                $resultType = $request->fetchAll();
 
                                 $tagType = $resultType['name_type'];
                             ?>  
