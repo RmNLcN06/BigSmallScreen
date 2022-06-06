@@ -89,7 +89,36 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <?php include('../../inc/_admin_header.php'); ?>
-    <?php include ('../../inc/_admin_menu.php'); ?>
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNav">
+        <ul class="navbar-nav row col-12">
+            <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="admin_accueil.php">Accueil</a>
+            </li> -->
+            <div class="d-flex align-items-center justify-content-center">
+                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                    <a class="nav-link text-white" href="../../admin_dashboard_user.php">Utilisateurs</a>
+                </li>
+                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                    <a class="nav-link text-white" href="../../admin_dashboard_admin.php">Administrateurs</a>
+                </li>
+                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                    <a class="nav-link text-white" href="../../admin_dashboard_article.php">Articles</a>
+                </li>
+                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                    <a class="nav-link text-white" href="../../admin_dashboard_comment.php">Commentaires</a>
+                </li>
+                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                    <a class="nav-link text-white" href="../../admin_dashboard_support.php">Supports Q/R</a>
+                </li>
+            </div>
+        </ul>
+        </div>
+    </div>
     <main class="container">
         <div class="row">
             <section class="col-12">
@@ -117,7 +146,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <h1 class="d-flex justify-content-center my-5">Liste des articles - Séries</h1>
                 <div class="d-flex align-items-center justify-content-center my-5">
-                    <a href="../admin/pages_article/add.php" class="btn btn-primary d-flex justify-content-center">Ajouter un article</a>
+                    <a href="../add.php" class="btn btn-primary d-flex justify-content-center">Ajouter un article</a>
                 </div>
                 <nav class="navbar navbar-expand-lg bg-light my-5">
                     <div class="container-fluid">
@@ -179,10 +208,9 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $article['created_at'] ?></td>
                                 <td><?= $article['updated_at'] ?></td>
                                 <td class="d-flex justify-content-evenly align-items-center">
-                                    <a href="../disable.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-success col-2">Activer / Désactiver</a>
-                                    <a href="../details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info col-2">Voir</a>
-                                    <a href="../edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning col-2">Modifier</a>
-                                    <a href="../delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger col-2">Supprimer</a>
+                                    <a href="../details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info">Voir</a>
+                                    <a href="../edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning">Modifier</a>
+                                    <a href="../delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger">Supprimer</a>
                                 </td>
                             </tr>
                         <?php
