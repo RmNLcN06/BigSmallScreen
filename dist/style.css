@@ -377,7 +377,7 @@ footer {
   border: 2px dashed yellow;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  gap: 50px 120px;
+  gap: 50px 100px;
   padding: 45px;
 }
 .categorie__container--wrapper .card__cell {
@@ -395,10 +395,9 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-.categorie__container--wrapper .card__cell .description--category, .categorie__container--wrapper .card__cell .description--tags {
+.categorie__container--wrapper .card__cell .description--category, .categorie__container--wrapper .card__cell .description--tags, .categorie__container--wrapper .card__cell .card__cell--tags {
   margin-top: 5px;
   font-size: 13px;
-  padding-left: 10px;
 }
 .categorie__container--wrapper .card__cell .description--date {
   font-size: 10px;
@@ -409,7 +408,6 @@ footer {
   width: 185px;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 1px dashed black;
 }
 .categorie__container--wrapper .page {
   display: flex;

@@ -11,6 +11,7 @@ else
 
 switch($page)
 {
+
     // Menu Pages Header
     case 'premium':
         $pagepath = 'pages/premium.php';
@@ -77,7 +78,7 @@ switch($page)
     case "deny":
         $pagepath = "pages/deny.php";
         break; 
-        
+
     // Par Défaut
     default: 
         $pagepath = 'pages/accueil.php';

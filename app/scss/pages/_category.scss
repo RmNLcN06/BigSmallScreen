@@ -26,7 +26,7 @@
             // margin-top: 20px;
             display: grid;
             grid-template-columns: auto auto auto auto auto;
-            gap: 50px 120px;
+            gap: 50px 100px;
             padding: 45px;
     
             &__cell {
@@ -58,11 +58,12 @@
                 justify-content: space-between;
                 align-items: center;
               }
+
+              
     
-              .description--category, .description--tags {
+              .description--category, .description--tags, .card__cell--tags {
                 margin-top: 5px;
                 font-size: 13px;
-                padding-left: 10px;
               }
 
               .description--date {
@@ -75,7 +76,7 @@
                 width: 185px; 
                 overflow: hidden;
                 text-overflow: ellipsis;
-                border: 1px dashed black;
+                
               }
             }
         }

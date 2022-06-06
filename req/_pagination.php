@@ -3,15 +3,16 @@
 // 1ère Etape
 // Position de l'utilisateur (sur quelle page se trouve-t'il ?)
 // S'il la page existe et qu'elle n'est pas vide
-if(isset($_GET['pages']) && !empty($_GET['pages']))
+if(isset($_GET['numPages']) && !empty($_GET['numPages']))
 {
     // On supprime les balises HTML et PHP de la chaîne avec strip_tags
-    $currentPage = (int) strip_tags($_GET['pages']);
+    $currentPage = (int) strip_tags($_GET['numPages']);
 }
 else
 {
     $currentPage = 1;
 }
+
 
 // Connexion à la base de donnée
 require_once('req/_connect.php');
@@ -31,25 +32,29 @@ $result = $request->fetch();
 $nbrArticle = (int) $result['article_amount'];
 
 // Combien d'articles par page ?
-$articlesPerPage = 15;
+$articlesPerPage = 10;
 
 // Nombre de pages totales pour afficher tous les articles
 $nbrPages = ceil($nbrArticle / $articlesPerPage);
 
 // Premier article pour la première page
-$firstPage = ($currentPage * $articlesPerPage) - $articlesPerPage;
+//$firstArticle = ($currentPage * $articlesPerPage) - $articlesPerPage;
+$firstArticle = ($currentPage - 1) * $articlesPerPage;
+echo $firstArticle;
+
 
 // 2ème Etape
 // Sélectionne tous les articles en base de données et on les affiche 
 // par date de création décroissante en limitant l'affichage entre le premier 
 // article et le nombre d'article par page
-$articleAmount = 'SELECT * FROM `articles` ORDER BY `created_at` DESC LIMIT :firstpage, :articlesperpage';
+$articleAmount = "SELECT * FROM `articles` ORDER BY `articles.created_at` DESC LIMIT `:firstarticle`, `:articlesperpage`";
 
 // Préparation de la requête
 $request = $database->prepare($articleAmount);
 
-$request->bindValue(':firstpage', $firstPage, PDO::PARAM_INT);
 $request->bindValue(':articlesperpage', $articlesPerPage, PDO::PARAM_INT);
+$request->bindValue(':firstarticle', $firstArticle, PDO::PARAM_INT);
+
 
 // Exécution de la requête
 $request->execute();

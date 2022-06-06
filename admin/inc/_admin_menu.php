@@ -9,7 +9,7 @@
 </div> -->
 
 
-<nav class="navbar navbar-expand-lg bg-light">
+
   <div class="container">
     <!-- <a class="navbar-brand" href="#">Navbar</a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +33,12 @@
             <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
                 <a class="nav-link text-white" href="admin_dashboard_comment.php">Commentaires</a>
             </li>
+            <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-3 px-3">
+                <a class="nav-link text-white" href="admin_dashboard_support.php">Supports Q/R</a>
+            </li>
         </div>
       </ul>
     </div>
   </div>
-</nav>
+
 
