@@ -1,27 +1,38 @@
+<?php
+$sheme = $_SERVER['REQUEST_SCHEME'];  // http
+// echo $sheme . '<br>';
+$host = $_SERVER['HTTP_HOST'];  // localhot ou monsite.com
+// echo $host;
+$localdir = [];
+
+if($host == 'localhost'){
+    $ruri = explode('/', $_SERVER['REQUEST_URI']);
+    // print_r($ruri);
+    // SI c'est le cas on ajoute le dossier local
+    $localdir = $ruri[1].'/';
+    $dir = $ruri[2] . '/';
+    $file = $ruri[3];
+    // echo $localdir;
+  }
+  
+  // Reconstruction URL racine du site
+  echo $sheme.'://'.$host.'/'.$localdir . $dir . $file;
+?>
+
 <nav>
     <ul class="pagination">
         <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-        <?php if($currentPage > 1) { ?>
-            <li class="page-item">
-                <a href="./admin_dashboard_user.php&numPages=<?= $currentPage - 1 ?>" class="page-link">Page Précédente</a>
+        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+            <a href="./admin_dashboard_user.php?numPages=<?= $currentPage - 1 ?>" class="page-link">Page Précédente</a>
+        </li>
+        <?php for($i = 1; $i <= $nbrPages; $i++) { ?>
+            <li class="page-item <?= ($currentPage == $i) ? "active" : "" ?>">
+                <a href="./admin_dashboard_user.php?numPages=<?= $i ?>" class="page-link"><?= $i ?></a>
             </li>
         <?php } ?>
-        
-        <?php for($i = 1; $i <= $nbrPages; $i++) { ?>
-        <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-        <li class="page-item <?= ($currentPage == $i) ? "active" : "" ?>">
-            <a href="./admin_dashboard_user.php&numPages=<?= $i ?>" class="page-link"><?= $i ?></a>
+        <li class="page-item <?= ($currentPage == $nbrPages) ? "disabled" : "" ?>">
+        <a href="./admin_dashboard_user.php?numPages=<?= $currentPage + 1 ?>" class="page-link">Page Suivante</a>
         </li>
-        <?php } ?>
-
-
-        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-        <?php if($currentPage < $nbrPages) { ?>
-        <li class="page-item">
-            <a href="./admin_dashboard_user.php&numPages=<?= $currentPage + 1 ?>" class="page-link">Page Suivante</a>
-        </li>
-        <?php } ?>
-
-        
     </ul>
 </nav>
+

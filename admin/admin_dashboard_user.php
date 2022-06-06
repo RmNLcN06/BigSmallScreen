@@ -1,11 +1,13 @@
 <?php 
 
 // Démarrage session 
-session_start();
+// session_start();
 
 // Inclusion de la connexion à la base de donnée
 require_once('../admin/req/_connect.php');
 require ('../req/_security.php');
+
+
 
 // 1ère Etape
 // Position de l'utilisateur (sur quelle page se trouve-t'il ?)
@@ -122,7 +124,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php
                 }
                 ?>
-                <h1 class="d-flex justify-content-center mt-5">Liste des utilisateurs</h1>
+                <h1 class="d-flex justify-content-center my-5">Liste des utilisateurs</h1>
                 <table class="table">
                     <thead>
                         <th>ID</th>
@@ -163,10 +165,24 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                     </tbody>
                 </table>
-                <!-- <a href="add.php" class="btn btn-primary">Ajouter un produit</a> -->
             </section>
         </div>
-        <?php include_once('../admin/inc/_admin_page.php');?>
+        <nav>
+            <ul class="pagination d-flex align-items-center justify-content-center my-3">
+                <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                    <a href="./admin_dashboard_user.php?numPages=<?= $currentPage - 1 ?>" class="page-link">Page Précédente</a>
+                </li>
+                <?php for($i = 1; $i <= $nbrPages; $i++) { ?>
+                    <li class="page-item <?= ($currentPage == $i) ? "active" : "" ?>">
+                        <a href="./admin_dashboard_user.php?numPages=<?= $i ?>" class="page-link"><?= $i ?></a>
+                    </li>
+                <?php } ?>
+                <li class="page-item <?= ($currentPage == $nbrPages) ? "disabled" : "" ?>">
+                <a href="./admin_dashboard_user.php?numPages=<?= $currentPage + 1 ?>" class="page-link">Page Suivante</a>
+                </li>
+            </ul>
+        </nav>
     </main>
 
     
