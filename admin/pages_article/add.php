@@ -7,7 +7,7 @@ if ($_POST) {
         isset($_POST['category_id']) && !empty($_POST['category_id'])
         && isset($_POST['title']) && !empty($_POST['title'])
         && isset($_POST['release_year']) && !empty($_POST['release_year'])
-        && isset($_POST['status']) && !empty($_POST['status'])
+        && isset($_POST['work_status']) && !empty($_POST['work_status'])
 
         && isset($_POST['director']) && !empty($_POST['director'])
         && isset($_POST['actor']) && !empty($_POST['actor'])
@@ -27,58 +27,96 @@ if ($_POST) {
         $title = strip_tags($_POST['title']);
         $release_year = strip_tags($_POST['release_year']);
         $nbr_season = strip_tags($_POST['nbr_season']);
-        $status = strip_tags($_POST['status']);
+        $work_status = strip_tags($_POST['work_status']);
         $director = strip_tags($_POST['director']);
         $actor = strip_tags($_POST['actor']);
         $synopsis = strip_tags($_POST['synopsis']);
         $content = strip_tags($_POST['content']);
-        $type_id[] = strip_tags($_POST['type_id[]']);
+        $type_id = strip_tags($_POST['type_id']);
         $admin_name = strip_tags($_POST['admin_name']);
-        $path_img = strip_tags($_POST['path_img']);
+        $path_img = strip_tags($_FILES['path_img']);
 
-        // Vérification de l'existance de l'administrateur dans la base de données
-        $checkIfAdminAlreadyExists = $database->prepare('SELECT nickname, firstname, lastname, mail FROM admins WHERE nickname = ? AND firstname = ? AND lastname = ? AND mail = ?');
-        $checkIfAdminAlreadyExists->execute([$admin_nickname, $admin_firstname, $admin_lastname, $admin_mail]);
+        // Vérification de l'existance de l'article dans la base de données
+        $checkIfArticleAlreadyExists = $database->prepare('SELECT category_id, title, `type_id`, admin_name FROM articles WHERE category_id = ? AND title = ? AND `type_id` = ? AND admin_name = ?');
+        $checkIfArticleAlreadyExists->execute([$category_id, $title, $type_id, $admin_name]);
 
-        // Si l'utilisateur n'existe pas ...
-        if($checkIfAdminAlreadyExists->rowCount() == 0)
+        // Si l'article n'existe pas ...
+        if($checkIfArticleAlreadyExists->rowCount() == 0)
         {
-            if($admin_verifyPwd === $admin_verifyConfirmPwd && $_POST['pwd'] === $_POST['confirmPwd']) 
-            {
-                $sql = 'INSERT INTO `admins` (`nickname`, `firstname`, `lastname`, `mail`, `pwd`) VALUES (:nickname, :firstname, :lastname, :mail, :pwd);';
-        
-                $query = $database->prepare($sql);
-        
-                $query->bindValue(':nickname', $admin_nickname, PDO::PARAM_STR);
-                $query->bindValue(':firstname', $admin_firstname, PDO::PARAM_STR);
-                $query->bindValue(':lastname', $admin_lastname, PDO::PARAM_STR);
-                $query->bindValue(':mail', $admin_mail, PDO::PARAM_STR);
-                $query->bindValue(':pwd', $admin_pwd, PDO::PARAM_STR);
-        
-                $query->execute();
-        
-                $_SESSION['message'] = "Nouveau profil administrateur ajouté";
-                require_once('../req/_close.php');
-        
-                header('Location: ../admin_dashboard_admin.php');
+
+
+            $sql = 'INSERT INTO `articles` (`category_id`, `title`, `release_year`, `nbr_season`, `work_status`, `director`, `actor`, `synopsis`, `content`, `type_id`, `admin_name`, `path_img`) VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director, :actor, :synopsis, :content, :type_id, :admin_name, :path_img);';
+    
+            $query = $database->prepare($sql);
+    
+            $query->bindValue(':category_id', $category_id, PDO::PARAM_INT);
+            $query->bindValue(':title', $title, PDO::PARAM_STR);
+            $query->bindValue(':release_year', $release_year, PDO::PARAM_INT);
+            $query->bindValue(':nbr_season', $nbr_season, PDO::PARAM_INT);
+            $query->bindValue(':work_status', $work_status, PDO::PARAM_INT);
+            $query->bindValue(':director', $director, PDO::PARAM_STR);
+            $query->bindValue(':actor', $actor, PDO::PARAM_STR);
+            $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
+            $query->bindValue(':content', $content, PDO::PARAM_STR);
+            $query->bindValue(':type_id', $type_id, PDO::PARAM_INT);
+            $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
+            // $query->bindValue(':path_img', $path_img, PDO::PARAM_STR);
+
+            $path_img_name = $_FILES['file']['name'];
+            $path_img_tmp_name = $_FILES['file']['tmp_name'];
+            $path_img_size = $_FILES['file']['size'];
+            $path_img_error = $_FILES['file']['error'];
+            $path_img_type = $_FILES['file']['type'];
+
+            $path_img_ext = explode('.', $path_img_name);
+            $path_img_actual_ext = strtolower(end($path_img_ext));
+
+            $allowed = array('jpg', 'jpeg', 'png');
+
+            if(in_array($path_img_actual_ext, $allowed)) {
+                if($path_img_error === 0) 
+                {
+                    if($path_img_size < 100000)
+                    {
+                        $path_img_new_name = uniqid('', true) . "." . $path_img_actual_ext;
+                        $path_img_destination =  '/' . "img/" . $path_img_new_name;
+                        move_uploaded_file($path_img_tmp_name, $path_img_destination);
+                    } 
+                    else
+                    {
+                        $_SESSION['erreur'] = "Taille trop grande du fichier.";
+                    }
+
+                }
+                else 
+                {
+                    $_SESSION['erreur'] = "Erreur de chargement du fichier.";
+                }
             }
             else 
             {
-                $_SESSION['erreur'] = "Le mot de passe et sa confirmation sont différents.";
+                $_SESSION['erreur'] = "Extension du fichier non reconnue.";
             }
-        
+    
+            $query->execute();
+    
+            $_SESSION['message'] = "Nouveau article ajouté";
+            require_once('../req/_close.php');
+    
+            header('Location: ../admin_dashboard_admin.php');
         }
-        else
-        {
-            $_SESSION['erreur'] = "Le profil administrateur existe déjà.";
-        }
-        
-    } 
-    else 
-    {
-        $_SESSION['erreur'] = "Le formulaire est incomplet.";
     }
+    else
+    {
+        $_SESSION['erreur'] = "Cet article existe déjà existe déjà.";
+    }
+    
+} 
+else 
+{
+    $_SESSION['erreur'] = "Le formulaire est incomplet.";
 }
+
 
 ?>
 
@@ -136,7 +174,7 @@ if ($_POST) {
                         </select>
                     </div>
                     <div class="form-group my-4">
-                        <label for="nbr_season">Nombre(s) de saison</label>
+                        <label for="nbr_season">Nombre de saison(s)</label>
                         <select name="nbr_season" id="nbr_season">
                             <?php 
                                 for($i = 0 ; $i <= 50 ; $i++) { ?>
@@ -145,8 +183,8 @@ if ($_POST) {
                         </select>
                     </div>
                     <div class="form-group my-4">
-                        <label for="status">Statut</label>
-                        <select name="status" id="status" required>
+                        <label for="work_status">Statut</label>
+                        <select name="work_status" id="work_status" required>
                             <option value="" disabled selected>Choisir le statut</option>
                             <option value="1">En production</option>
                             <option value="2">Diffusion en cours</option>
@@ -203,6 +241,7 @@ if ($_POST) {
                     </div>
                     <div class="form-group my-4">
                         <label for="path_img">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
                         <input type="file" id="path_img" name="path_img" class="form-control" required>
                     </div>
                     <button class="btn btn-primary">Envoyer</button>
