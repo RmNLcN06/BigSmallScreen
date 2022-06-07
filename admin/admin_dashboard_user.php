@@ -154,10 +154,10 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $user['created_at'] ?></td>
                                 <td><?= $user['updated_at'] ?></td>
                                 <td class="d-flex justify-content-evenly align-items-center">
-                                    <a href="./pages_user/disable.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-success col-2">Activer / Désactiver</a>
-                                    <a href="./pages_user/details.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-info col-2">Voir</a>
-                                    <a href="./pages_user/edit.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning col-2">Modifier</a>
-                                    <a href="./pages_user/delete.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-danger col-2">Supprimer</a>
+                                    <a href="./pages_user/disable.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-success mx-2">Activer / Désactiver</a>
+                                    <a href="./pages_user/details.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-info mx-2">Voir</a>
+                                    <a href="./pages_user/edit.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning mx-2">Modifier</a>
+                                    <a href="./pages_user/delete.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-danger mx-2">Supprimer</a>
                                 </td>
                             </tr>
                         <?php

@@ -2,7 +2,7 @@
 // Démarrage session 
 session_start();
 
-if ($_POST) {
+if (isset($_POST['submit'])) {
     if (
         isset($_POST['category_id']) && !empty($_POST['category_id'])
         && isset($_POST['title']) && !empty($_POST['title'])
@@ -16,13 +16,69 @@ if ($_POST) {
 
         && isset($_POST['type_id[]']) && !empty($_POST['type_id[]'])
         && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
-        && isset($_POST['path_img']) && !empty($_POST['path_img'])
-    ) {
+        && isset($_FILES['path_img']) && !empty($_FILES['path_img'])
+    ) 
+    {
         // Inclusion de la connexion à la base de donnée        
         require_once('../req/_connect.php');
 
-        // Réinitialisation des données envoyées
+        $typeArray = 
+        [
+            'scienceFiction',
+            'comedie',
+            'comedieDramatique',
+            'horreur',
+            'thriller',
+            'romance',
+            'biographie',
+            'aventure',
+            'action',
+            'drame',
+            'fantastique',
+            'guerre',
+            'policier',
+            'western',
+            'documentaire',
+            'biopic'
+        ];
 
+        if(isset($_POST['type'])) {
+            $values = [];
+            foreach($_POST['type'] as $types) {
+                if(in_array($types, $typeArray)) {
+                    $values[$types] = 1;
+                }
+                else
+                {
+                    $values[$types] = 0;
+                }
+            }
+        }
+
+        $typeInsert = $database->prepare("INSERT INTO types(scienceFiction, comedie, comedieDramatique,horreur, thriller, romance, biographie, aventure, action, drame, fantastique, guerre, policier, western, documentaire, biopic) VALUES (:scienceFiction, :comedie, :comedieDramatique, :horreur, :thriller, :romance, :biographie, :aventure, :action, :drame, :fantastique, :guerre, :policier, :western, :documentaire, :biopic)");
+
+        $queryType = $database->prepare($typeInsert);
+
+        $queryType->bindParam(':scienceFiction', $values['scienceFiction']);
+        $queryType->bindParam(':comedie', $values['comedie']);
+        $queryType->bindParam(':comedieDramatique', $values['comedieDramatique']);
+        $queryType->bindParam(':horreur', $values['horreur']);
+        $queryType->bindParam(':thriller', $values['thriller']);
+        $queryType->bindParam(':romance', $values['romance']);
+        $queryType->bindParam(':biographie', $values['biographie']);
+        $queryType->bindParam(':aventure', $values['aventure']);
+        $queryType->bindParam(':action', $values['action']);
+        $queryType->bindParam(':drame', $values['drame']);
+        $queryType->bindParam(':fantastique', $values['fantastique']);
+        $queryType->bindParam(':guerre', $values['guerre']);
+        $queryType->bindParam(':policier', $values['policier']);
+        $queryType->bindParam(':western', $values['western']);
+        $queryType->bindParam(':documentaire', $values['documentaire']);
+        $queryType->bindParam(':biopic', $values['biopic']);
+
+        $queryType->execute();
+
+        // Réinitialisation des données envoyées
         $category_id = strip_tags($_POST['category_id']);
         $title = strip_tags($_POST['title']);
         $release_year = strip_tags($_POST['release_year']);
@@ -32,7 +88,11 @@ if ($_POST) {
         $actor = strip_tags($_POST['actor']);
         $synopsis = strip_tags($_POST['synopsis']);
         $content = strip_tags($_POST['content']);
-        $type_id = strip_tags($_POST['type_id']);
+
+        // $type_id = strip_tags($_POST['type_id']);
+
+        
+        
         $admin_name = strip_tags($_POST['admin_name']);
         $path_img = strip_tags($_FILES['path_img']);
 
@@ -43,9 +103,7 @@ if ($_POST) {
         // Si l'article n'existe pas ...
         if($checkIfArticleAlreadyExists->rowCount() == 0)
         {
-
-
-            $sql = 'INSERT INTO `articles` (`category_id`, `title`, `release_year`, `nbr_season`, `work_status`, `director`, `actor`, `synopsis`, `content`, `type_id`, `admin_name`, `path_img`) VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director, :actor, :synopsis, :content, :type_id, :admin_name, :path_img);';
+            $sql = 'INSERT INTO `articles` (`category_id`, `title`, `release_year`, `nbr_season`, `work_status`, `director`, `actor`, `synopsis`, `content`, `type_id`, `admin_name`) VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director, :actor, :synopsis, :content, :pdotype, :admin_name);';
     
             $query = $database->prepare($sql);
     
@@ -58,9 +116,9 @@ if ($_POST) {
             $query->bindValue(':actor', $actor, PDO::PARAM_STR);
             $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
             $query->bindValue(':content', $content, PDO::PARAM_STR);
-            $query->bindValue(':type_id', $type_id, PDO::PARAM_INT);
+            $query->bindValue(':pdotype', $pdotype, PDO::FETCH_ASSOC);
             $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
-            // $query->bindValue(':path_img', $path_img, PDO::PARAM_STR);
+            $query->bindValue(':path_img', $path_img, PDO::PARAM_STR);
 
             $path_img_name = $_FILES['file']['name'];
             $path_img_tmp_name = $_FILES['file']['tmp_name'];
@@ -73,7 +131,8 @@ if ($_POST) {
 
             $allowed = array('jpg', 'jpeg', 'png');
 
-            if(in_array($path_img_actual_ext, $allowed)) {
+            if(in_array($path_img_actual_ext, $allowed)) 
+            {
                 if($path_img_error === 0) 
                 {
                     if($path_img_size < 100000)
@@ -81,12 +140,18 @@ if ($_POST) {
                         $path_img_new_name = uniqid('', true) . "." . $path_img_actual_ext;
                         $path_img_destination =  '/' . "img/" . $path_img_new_name;
                         move_uploaded_file($path_img_tmp_name, $path_img_destination);
+
+                        $query->execute();
+    
+                        $_SESSION['message'] = "Nouveau article ajouté";
+                        require_once('../req/_close.php');
+                
+                        header('Location: ../admin_dashboard_admin.php');
                     } 
                     else
                     {
                         $_SESSION['erreur'] = "Taille trop grande du fichier.";
                     }
-
                 }
                 else 
                 {
@@ -97,25 +162,18 @@ if ($_POST) {
             {
                 $_SESSION['erreur'] = "Extension du fichier non reconnue.";
             }
-    
-            $query->execute();
-    
-            $_SESSION['message'] = "Nouveau article ajouté";
-            require_once('../req/_close.php');
-    
-            header('Location: ../admin_dashboard_admin.php');
+        }
+        else
+        {
+            $_SESSION['erreur'] = "Cet article existe déjà.";
         }
     }
-    else
+    else 
     {
-        $_SESSION['erreur'] = "Cet article existe déjà existe déjà.";
+        $_SESSION['erreur'] = "Le formulaire est incomplet.";
     }
-    
 } 
-else 
-{
-    $_SESSION['erreur'] = "Le formulaire est incomplet.";
-}
+
 
 
 ?>
@@ -198,11 +256,15 @@ else
                         <input type="text" id="director" name="director" class="form-control" required>
                     </div>
                     <div class="form-group my-4">
-                        <label for="actor">Acteur(s) / trice(s) principaux</label>
-                        <input type="text" id="actor" name="actor" class="form-control my-3" required>
-                        <input type="text" id="actor" name="actor" class="form-control my-3" required>
-                        <input type="text" id="actor" name="actor" class="form-control my-3" required>
-                        <input type="text" id="actor" name="actor" class="form-control my-3" required>
+                        <h4>Acteur(s) / trice(s) principaux</h4>
+                        <label for="actor1">Acteur / trice</label>
+                        <input type="text" id="actor1" name="actor1" class="form-control my-3" required>
+                        <label for="actor2">Acteur / trice</label>
+                        <input type="text" id="actor2" name="actor2" class="form-control my-3" required>
+                        <label for="actor3">Acteur / trice</label>
+                        <input type="text" id="actor3" name="actor3" class="form-control my-3" required>
+                        <label for="actor4">Acteur / trice</label>
+                        <input type="text" id="actor4" name="actor4" class="form-control my-3" required>
                     </div>
                     <div class="form-group my-4">
                         <p><label for="synopsis">Synopsis</label></p>
@@ -212,27 +274,80 @@ else
                         <p><label for="content">Contenu de l'article</label></p>
                         <textarea name="content" id="content" cols="173" rows="10" class="form-control" required ></textarea>
                     </div>
-                    <div class="form-group my-4">
-                        <label for="type_id[]">Genre(s) de l'article</label>
-                        <select name="type_id[]" id="type_id[]" required>
-                            <option value="" disabled selected>Choisissez le ou les genres</option>
-                            <option value="1">Science-fiction</option>
-                            <option value="2">Comédie</option>
-                            <option value="3">Comédie dramatique</option>
-                            <option value="4">Horreur</option>
-                            <option value="5">Thriller</option>
-                            <option value="6">Romance</option>
-                            <option value="7">Biographie</option>
-                            <option value="8">Aventure</option>
-                            <option value="9">Action</option>
-                            <option value="10">Drame</option>
-                            <option value="11">Fantastique</option>
-                            <option value="12">Guerre</option>
-                            <option value="13">Policier</option>
-                            <option value="14">Western</option>
-                            <option value="15">Documentaire</option>
-                            <option value="16">Biopic</option>
-                        </select>
+                    <h4>Genre(s) de l'oeuvre</h4>
+                    <div class="form-group d-flex justify-content-around my-4">
+                        <div class="d-flex my-3 flex-column">
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="scienceFiction" id="1">
+                                <label class="form-check-label mx-3" for="1">Science-fiction</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="comedie" id="2">
+                                <label class="form-check-label mx-3" for="2">Comédie</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="comedieDramatique" id="3">
+                                <label class="form-check-label mx-3" for="3">Comédie dramatique</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="horreur" id="4">
+                                <label class="form-check-label mx-3" for="4">Horreur</label>
+                            </div>
+                        </div>
+                        <div class="d-flex my-3 flex-column">
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="thriller" id="5">
+                                <label class="form-check-label mx-3" for="5">Thriller</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="romance" id="6">
+                                <label class="form-check-label mx-3" for="6">Romance</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="biographie" id="7">
+                                <label class="form-check-label mx-3" for="7">Biographie</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="aventure" id="8">
+                                <label class="form-check-label mx-3" for="8">Aventure</label>
+                            </div>
+                        </div>
+                        <div class="d-flex my-3 flex-column">
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="action" id="9">
+                                <label class="form-check-label mx-3" for="9">Action</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="drame" id="10">
+                                <label class="form-check-label mx-3" for="10">Drame</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="fantastique" id="11">
+                                <label class="form-check-label mx-3" for="11">Fantastique</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="guerre" id="12">
+                                <label class="form-check-label mx-3" for="12">Guerre</label>
+                            </div>
+                        </div>      
+                        <div class="d-flex my-3 flex-column">
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="policier" id="13">
+                                <label class="form-check-label mx-3" for="13">Policier</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="western" id="14">
+                                <label class="form-check-label mx-3" for="14">Western</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="documentaire" id="15">
+                                <label class="form-check-label mx-3" for="15">Documentaire</label>
+                            </div>
+                            <div class="form-check my-2">
+                                <input class="form-check-input" name="type_id[]" type="checkbox" value="biopic" id="16">
+                                <label class="form-check-label mx-3" for="16">Biopic</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group my-4">
                         <label for="admin_name">Nom de l'auteur: </label>
@@ -244,7 +359,7 @@ else
                         <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
                         <input type="file" id="path_img" name="path_img" class="form-control" required>
                     </div>
-                    <button class="btn btn-primary">Envoyer</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>
                 </form>
             </section>
         </div>

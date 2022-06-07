@@ -144,13 +144,13 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                     <a class="nav-link text-white" href="../admin/pages_article/filter/films_filter.php">Films</a>
                                 </li>
                                 <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="admin_dashboard_admin.php">Séries</a>
+                                    <a class="nav-link text-white" href="../admin/pages_article/filter/series_filter.php">Séries</a>
                                 </li>
                                 <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="admin_dashboard_article.php">Actualités</a>
+                                    <a class="nav-link text-white" href="../admin/pages_article/filter/actualities_filter.php">Actualités</a>
                                 </li>
                                 <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="admin_dashboard_comment.php">Critiques</a>
+                                    <a class="nav-link text-white" href="../admin/pages_article/filter/critics_filter.php">Critiques</a>
                                 </li>
                             </div>
                         </ul>
@@ -184,14 +184,14 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <!-- <td><?= $article['content_one'] ?></td>
                                 <td><?= $article['content_two'] ?></td>
                                 <td><?= $article['content_three'] ?></td> -->
-                                <td><?= $article['user_nickname'] ?></td>
+                                <td><?= $article['admin_name'] ?></td>
                                 <td><?= $article['created_at'] ?></td>
                                 <td><?= $article['updated_at'] ?></td>
                                 <td class="d-flex justify-content-evenly align-items-center">
-                                    <a href="./pages_article/disable.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-success col-2">Activer / Désactiver</a>
-                                    <a href="./pages_article/details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info col-2">Voir</a>
-                                    <a href="./pages_article/edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning col-2">Modifier</a>
-                                    <a href="./pages_article/delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger col-2">Supprimer</a>
+                                    <a href="./pages_article/disable.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-success mx-2">Activer / Désactiver</a>
+                                    <a href="./pages_article/details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info mx-2">Voir</a>
+                                    <a href="./pages_article/edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning mx-2">Modifier</a>
+                                    <a href="./pages_article/delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger mx-2">Supprimer</a>
                                 </td>
                             </tr>
                         <?php

@@ -204,13 +204,13 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <!-- <td><?= $article['content_one'] ?></td>
                                 <td><?= $article['content_two'] ?></td>
                                 <td><?= $article['content_three'] ?></td> -->
-                                <td><?= $article['user_nickname'] ?></td>
+                                <td><?= $article['admin_name'] ?></td>
                                 <td><?= $article['created_at'] ?></td>
                                 <td><?= $article['updated_at'] ?></td>
                                 <td class="d-flex justify-content-evenly align-items-center">
-                                    <a href="../details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info">Voir</a>
-                                    <a href="../edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning">Modifier</a>
-                                    <a href="../delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger">Supprimer</a>
+                                    <a href="../details.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-info mx-2">Voir</a>
+                                    <a href="../edit.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-warning mx-2">Modifier</a>
+                                    <a href="../delete.php?id=<?= $article['id'] ?>" class="btn btn-sm btn-danger mx-2">Supprimer</a>
                                 </td>
                             </tr>
                         <?php
