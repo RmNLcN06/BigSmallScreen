@@ -18,12 +18,12 @@ $hello = 'Bonjour ' . $_SESSION['firstname'];
             <span class="nav-link"><?= $hello; ?></span>
         </li>
         <li class="nav-item col-2 d-flex justify-content-center">
-            <a class="nav-link text-dark" aria-current="page" href="admin_profil.php">
+            <a class="nav-link text-dark" aria-current="page" href="../../admin_profil.php">
                 <i class="fa-solid fa-user"></i> Mon Profil
             </a>
         </li>
         <li class="nav-item col-2 d-flex justify-content-center">
-            <a class="nav-link text-dark" href="../req/_logout.php">
+            <a class="nav-link text-dark" href="../../../req/_logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i> Se Déconnecter
             </a>
         </li>

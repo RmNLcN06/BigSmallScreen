@@ -9,11 +9,11 @@
       <?php if(isset($errorMsg)){echo '<span class="error">' . $errorMsg . '</span>';}?>
 
       <div class="form__wrapper--label">
-          <label for="nickname">Pseudo: </label>
-        </div>
-        <div class="form__wrapper--input">
-          <input type="text" name="nickname" id="nickname" >
-        </div>
+        <label for="nickname">Pseudo: </label>
+      </div>
+      <div class="form__wrapper--input">
+        <input type="text" name="nickname" id="nickname" >
+      </div>
       <!-- 
           [A-Za-z0-9._%+-]+ : caractères minuscules, majuscules, digitales, caractères spéciaux (._%+-) et accepte plusieurs fois les termes précédents
           @ : signe arobase

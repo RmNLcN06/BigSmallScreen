@@ -130,7 +130,9 @@ if ($_POST) {
                         <label for="nombre">Nombre</label>
                         <input type="number" id="nombre" name="nombre" class="form-control">
                     </div> -->
-                    <button class="btn btn-primary">Envoyer</button>
+                    <div class="d-flex justify-content-center mb-5">
+                        <input type="submit" value ="Envoyer" class="btn btn-primary">
+                    </div>
                 </form>
             </section>
         </div>

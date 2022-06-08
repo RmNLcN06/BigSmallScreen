@@ -140,17 +140,17 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                             <a class="nav-link active" aria-current="page" href="admin_accueil.php">Accueil</a>
                             </li> -->
                             <div class="d-flex align-items-center justify-content-center">
-                                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="../admin/pages_article/filter/films_filter.php">Films</a>
+                                <li class="nav-item d-flex justify-content-center mx-2 px-4">
+                                    <a class="nav-link text-white btn btn-primary" href="../admin/pages_article/filter/films_filter.php">Films</a>
                                 </li>
-                                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="../admin/pages_article/filter/series_filter.php">Séries</a>
+                                <li class="nav-item d-flex justify-content-center mx-2 px-4">
+                                    <a class="nav-link text-white btn btn-primary" href="../admin/pages_article/filter/series_filter.php">Séries</a>
                                 </li>
-                                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="../admin/pages_article/filter/actualities_filter.php">Actualités</a>
+                                <li class="nav-item d-flex justify-content-center mx-2 px-4">
+                                    <a class="nav-link text-white btn btn-primary" href="../admin/pages_article/filter/actualities_filter.php">Actualités</a>
                                 </li>
-                                <li class="nav-item border border-secondary bg-primary d-flex justify-content-center mx-2 px-4">
-                                    <a class="nav-link text-white" href="../admin/pages_article/filter/critics_filter.php">Critiques</a>
+                                <li class="nav-item d-flex justify-content-center mx-2 px-4">
+                                    <a class="nav-link text-white btn btn-primary" href="../admin/pages_article/filter/critics_filter.php">Critiques</a>
                                 </li>
                             </div>
                         </ul>
