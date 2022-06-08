@@ -1,5 +1,5 @@
 <?php 
-// session_start();
+session_start();
 $hello = 'Bonjour ' . $_SESSION['firstname'];
 ?> 
 
@@ -18,7 +18,7 @@ $hello = 'Bonjour ' . $_SESSION['firstname'];
             <span class="nav-link"><?= $hello; ?></span>
         </li>
         <li class="nav-item col-2 d-flex justify-content-center">
-            <a class="nav-link text-dark" aria-current="page" href="admin_profil.php">
+            <a class="nav-link text-dark" aria-current="page" href="../admin/admin_profil.php">
                 <i class="fa-solid fa-user"></i> Mon Profil
             </a>
         </li>

@@ -1,8 +1,9 @@
 <?php
+session_start();
+require('../req/_connect.php');
  
-require('req/_connect.php');
- 
-if(isset($_SESSION['id'])) 
+
+if(isset($_SESSION)) 
 {
     $requser = $database->prepare("SELECT * FROM admins WHERE id = ?");
     $requser->execute(array($_SESSION['id']));
@@ -33,7 +34,7 @@ if(isset($_SESSION['id']))
         {
             $insertPwd = $database->prepare("UPDATE admins SET pwd = ? WHERE id = ?");
             $insertPwd->execute(array($pwdNew1, $_SESSION['id']));
-            header('Location: ?page=profil?id='.$_SESSION['id']);
+            header('Location: admin_accueil.php');
         } 
         else 
         {
@@ -45,7 +46,7 @@ if(isset($_SESSION['id']))
 
 <!DOCTYPE html>
 <html lang="en/fr">
-
+<a href=></a>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,35 +76,38 @@ if(isset($_SESSION['id']))
                 <form method="post" action="" enctype="multipart/form-data">
                     <div class="form-group my-4">
                         <label for="nickname_new">Pseudo: </label>
-                        <input type="text" name="nickname_new" placeholder="Pseudo" value="<?php echo $user['nickname']; ?>" />
+                        <input type="text" name="nickname_new" placeholder="Pseudo" class="form-control" value="<?php echo $user['nickname']; ?>" />
                     </div>
 
                     <div class="form-group my-4">
                         <label for="mail_new">E-mail: </label>
-                        <input type="email" name="mail_new" placeholder="Mail" value="<?php echo $user['mail']; ?>" />
+                        <input type="email" name="mail_new" placeholder="Mail" class="form-control" value="<?php echo $user['mail']; ?>" />
                     </div>
 
                     <div class="form-group my-4">
                         <label for="pwd_new1">Mot de passe: </label>
-                        <input type="password" name="pwd_new1" placeholder="Mot de passe"/>
+                        <input type="password" name="pwd_new1" placeholder="Mot de passe" class="form-control"/>
                     </div>
 
                     <div class="form-group my-4">
                         <label for="pwd_new2">Confirmation - Mot de passe: </label>
-                        <input type="password" name="pwd_new2" placeholder="Confirmation du mot de passe" />
+                        <input type="password" name="pwd_new2" placeholder="Confirmation du mot de passe" class="form-control"/>
                     </div>
 
                     <div class="d-flex justify-content-center mb-5">
-                        <input type="submit" value ="Envoyer" class="btn btn-primary">
+                        <input type="submit" value="Envoyer" class="btn btn-primary">
                     </div>
                 </form>
             </section>
         </div>
     </main>
-</div>
+</body>
+</html>
+
 <?php   
 }
 else {
-   header("Location: connexion.php");
+//    header("Location: connexion.php");
+echo "Ca ne marche pas !!!";
 }
 ?>

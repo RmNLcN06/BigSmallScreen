@@ -33,7 +33,7 @@ if(isset($_SESSION['id']))
         {
             $insertPwd = $database->prepare("UPDATE users SET pwd = ? WHERE id = ?");
             $insertPwd->execute(array($pwdNew1, $_SESSION['id']));
-            header('Location: ?page=profil?id='.$_SESSION['id']);
+            header('Location: ?page=accueil');
         } 
         else 
         {
