@@ -4,7 +4,11 @@ session_start();
 
 if ($_POST) {
     if (
-        isset($_POST['title']) && !empty($_POST['title'])
+        isset($_POST['category_id']) && !empty($_POST['category_id'])
+        && isset($_POST['title']) && !empty($_POST['title'])
+        && isset($_POST['release_year']) && !empty($_POST['release_year'])
+        && isset($_POST['nbr_season']) && !empty($_POST['nbr_season'])
+        && isset($_POST['work_status']) && !empty($_POST['work_status'])
         && isset($_POST['director_one']) && !empty($_POST['director_one']) 
         && isset($_POST['director_two']) && !empty($_POST['director_two']) 
         && isset($_POST['actor_one']) && !empty($_POST['actor_one'])
@@ -14,11 +18,25 @@ if ($_POST) {
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
+        && isset($_POST['types']) && !empty($_POST['types'])
         ) 
         {
             require_once('../req/_connect.php');
+            
+            // On insère une catégorie
+            $category_id = strip_tags($_POST['category_id']);
 
             $title = strip_tags($_POST['title']);
+
+            // On insère une année de sortie
+            $release_year = strip_tags($_POST['release_year']);
+
+            // On insère un nombre de saison
+            $nbr_season = strip_tags($_POST['nbr_season']);
+
+            // On insère une année de sortie
+            $work_status = strip_tags($_POST['work_status']);
+
             $directorOne = strip_tags($_POST['director_one']);
             $directorTwo = strip_tags($_POST['director_two']);
             $actorOne = strip_tags($_POST['actor_one']);
@@ -27,14 +45,30 @@ if ($_POST) {
             $actorFour = strip_tags($_POST['actor_four']);
             $synopsis = strip_tags($_POST['synopsis']);
             $content = strip_tags($_POST['content']);
+
             $admin_name = strip_tags($_POST['admin_name']);
+
+
+            $types = $_POST['types'];
+
+            for($i = 0 ; $i <= sizeof($types) ; $i++)
+            {
+                $sqlTypes = "INSERT INTO articles_types (types_id)
+                        VALUES ('". $types[$i]. "')";
+                $query->execute();
+            }
             
 
-            $sql = "INSERT INTO articles (title, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name) VALUES (:title, :director_one, :director_two, :actor_one, :actor_two, :actor_three, :actor_four, :synopsis, :content, :admin_name)";
+            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name) 
+                    VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :actor_one, :actor_two, :actor_three, :actor_four, :synopsis, :content, :admin_name)";
 
             $query = $database->prepare($sql);
 
+            $query->bindValue(':category_id', $category_id, PDO::PARAM_INT);
             $query->bindValue(':title', $title, PDO::PARAM_STR);
+            $query->bindValue(':release_year', $release_year, PDO::PARAM_INT);
+            $query->bindValue(':nbr_season', $nbr_season, PDO::PARAM_INT);
+            $query->bindValue(':work_status', $work_status, PDO::PARAM_STR);
             $query->bindValue(':director_one', $directorOne, PDO::PARAM_STR);
             $query->bindValue(':director_two', $directorTwo, PDO::PARAM_STR);
             $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
@@ -57,6 +91,8 @@ if ($_POST) {
             $_SESSION['erreur'] = "Veuillez remplir tous les champs.";
         }
     }
+
+    // $resultCategory = "SELECT articles.title, articles.category_id, categories.id, categories.name FROM articles INNER JOIN categories ON articles.category_id = categories.id;";
     // if (
     //     isset($_POST['category_id']) && !empty($_POST['category_id'])    
     //     && isset($_POST['release_year']) && !empty($_POST['release_year'])
@@ -238,7 +274,7 @@ if ($_POST) {
                 ?>
                 <h1 class="d-flex justify-content-center my-5">Ajouter un article</h1>
                 <form method="post" action="" enctype="multipart/form-data">
-                    <!-- <div class="form-group my-4">
+                    <div class="form-group my-4">
                         <label for="category_id">Catégorie de l'article</label>
                         <select name="category_id" id="category_id" required>
                             <option value="" disabled selected>Choisissez la catégorie</option>
@@ -247,12 +283,12 @@ if ($_POST) {
                             <option value="3">Actualité</option>
                             <option value="4">Critique</option>
                         </select>
-                    </div> -->
+                    </div>
                     <div class="form-group my-4">
                         <label for="title">Titre</label>
                         <input type="text" id="title" name="title" class="form-control" required>
                     </div>
-                    <!-- <div class="form-group my-4">
+                    <div class="form-group my-4">
                         <label for="release_year">Année de sortie</label>
                         <select name="release_year" id="release_year" required>
                             <?php 
@@ -274,13 +310,13 @@ if ($_POST) {
                         <label for="work_status">Statut</label>
                         <select name="work_status" id="work_status" required>
                             <option value="" disabled selected>Choisir le statut</option>
-                            <option value="1">En production</option>
-                            <option value="2">Diffusion en cours</option>
-                            <option value="3">Sortie</option>
-                            <option value="4">Terminée</option>
-                            <option value="5">Annulée</option>
+                            <option value="En production">En production</option>
+                            <option value="Diffusion en cours">Diffusion en cours</option>
+                            <option value="Sortie">Sortie</option>
+                            <option value="Terminée">Terminée</option>
+                            <option value="Annulée">Annulée</option>
                         </select>
-                    </div> -->
+                    </div>
                     <div class="form-group my-4">
                         <h4>Réalisateur(s) / trice(s)</h4>
                         <label for="director_one">Réalisateur / trice</label>
@@ -307,81 +343,81 @@ if ($_POST) {
                         <p><label for="content">Contenu de l'article</label></p>
                         <textarea name="content" id="content" cols="173" rows="10" class="form-control" required ></textarea>
                     </div>
-                    <!-- <h4>Genre(s) de l'oeuvre</h4>
+                    <h4>Genre(s) de l'oeuvre</h4>
                     <div class="form-group d-flex justify-content-around my-4">
                         <div class="d-flex my-3 flex-column">
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="scienceFiction" id="1">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="1" id="1">
                                 <label class="form-check-label mx-3" for="1">Science-fiction</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="comedie" id="2">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="2" id="2">
                                 <label class="form-check-label mx-3" for="2">Comédie</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="comedieDramatique" id="3">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="3" id="3">
                                 <label class="form-check-label mx-3" for="3">Comédie dramatique</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="horreur" id="4">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="4" id="4">
                                 <label class="form-check-label mx-3" for="4">Horreur</label>
                             </div>
                         </div>
                         <div class="d-flex my-3 flex-column">
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="thriller" id="5">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="5" id="5">
                                 <label class="form-check-label mx-3" for="5">Thriller</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="romance" id="6">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="6" id="6">
                                 <label class="form-check-label mx-3" for="6">Romance</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="biographie" id="7">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="7" id="7">
                                 <label class="form-check-label mx-3" for="7">Biographie</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="aventure" id="8">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="8" id="8">
                                 <label class="form-check-label mx-3" for="8">Aventure</label>
                             </div>
                         </div>
                         <div class="d-flex my-3 flex-column">
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="action" id="9">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="9" id="9">
                                 <label class="form-check-label mx-3" for="9">Action</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="drame" id="10">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="10" id="10">
                                 <label class="form-check-label mx-3" for="10">Drame</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="fantastique" id="11">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="11" id="11">
                                 <label class="form-check-label mx-3" for="11">Fantastique</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="guerre" id="12">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="12" id="12">
                                 <label class="form-check-label mx-3" for="12">Guerre</label>
                             </div>
                         </div>      
                         <div class="d-flex my-3 flex-column">
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="policier" id="13">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="13" id="13">
                                 <label class="form-check-label mx-3" for="13">Policier</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="western" id="14">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="14" id="14">
                                 <label class="form-check-label mx-3" for="14">Western</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="documentaire" id="15">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="15" id="15">
                                 <label class="form-check-label mx-3" for="15">Documentaire</label>
                             </div>
                             <div class="form-check my-2">
-                                <input class="form-check-input" name="type_id[]" type="checkbox" value="biopic" id="16">
+                                <input class="form-check-input" name="types[]" type="checkbox" value="16" id="16">
                                 <label class="form-check-label mx-3" for="16">Biopic</label>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="form-group my-4">
                         <label for="admin_name">Nom de l'auteur: </label>
                         <input type="hidden" id="admin_name" name="admin_name" class="form-control" value="<?= htmlspecialchars($_SESSION['firstname']); ?>">

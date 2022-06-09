@@ -15,6 +15,9 @@ if(isset($_GET['id']) && !empty($_GET['id']))
         $article = $article->fetch();
 
         $title = $article['title'];
+        $release_year = $article['release_year'];
+        $nbr_season = $article['nbr_season'];
+        $work_status = $article['work_status'];
         $directorOne = $article['director_one'];
         $directorTwo = $article['director_two'];
         $actorOne = $article['actor_one'];
@@ -53,6 +56,20 @@ else
                 <p><?= $directorTwo; ?></p>
             </div>
         <?php } ?>
+        <div class="article__content">
+            <h1>Année de sortie: </h1>
+            <p><?= $release_year; ?></p>
+        </div>
+        <?php if(isset($nbr_season) && !empty($nbr_season)) { ?>
+            <div class="article__content">
+            <h1>Nombre(s) de saison: </h1>
+                <p><?= $nbr_season; ?></p>
+            </div>
+        <?php } ?>
+        <div class="article__content">
+            <h1>Statut: </h1>
+            <p><?= $work_status; ?></p>
+        </div>
         <div class="article__content">
             <h1>Acteurs / trices Principaux</h1>
             <p><?= $actorOne; ?></p>

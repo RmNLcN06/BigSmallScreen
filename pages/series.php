@@ -96,7 +96,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                     INNER JOIN types 
                                     ON articles_types.types_id = types.id
                                     INNER JOIN articles
-                                    ON articles_types.articles_type_id = articles.id
+                                    ON articles_types.articles_id = articles.id
                                     WHERE articles.id = ?';
 
                                 $request = $database->prepare($type);
