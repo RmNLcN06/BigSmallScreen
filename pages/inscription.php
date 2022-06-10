@@ -108,55 +108,65 @@ require ('req/_signup.php');
 
 <div class="form__wrapper">
   <div class="form-container">
-    <form method="post">
-      <fieldset>
-        <legend>Veuillez remplir le formulaire d'inscription</legend>
+  <div class="form__title">
+        <h1>Nouvel Utilisateur</h1>
+        <h3>Veuillez remplir le formulaire d'inscription ci-dessous</h3>
+      </div>
+    <form method="post" class="form__signin">
+      
+        <fieldset>
+        <h2>Inscription</h2>
 
         <?php if(isset($msgErr)){echo '<span class="error">' . $msgErr . '</span>';}?>
 
         <div class="form__wrapper--label">
-          <label for="nickname">Pseudo: </label>
+          <label for="nickname"></label>
         </div>
         <div class="form__wrapper--input">
-          <input type="text" name="nickname" id="nickname" >
+          <input type="text" name="nickname" id="nickname" placeholder="Nom d'utilisateur" >
         </div>
         <?php if(isset($nicknameMsgErr)){echo '<span class="error">' . $nicknameMsgErr . '</span>';}?>
       
-        <div class="form__wrapper--label">
-          <label for="firstname">Nom: </label>
+        <div class="form__identity">
+          <div class="form__lastname">
+            <div class="form__wrapper--label">
+              <label for="lastname"></label>
+            </div>
+            <div class="form__wrapper--input">
+              <input type="text" name="lastname" id="lastname" placeholder="Prénom" >
+            </div>
+            <?php if(isset($lastnameMsgErr)){echo '<span class="error">' . $lastnameMsgErr . '</span>';}?>
+          </div>
+          
+          <div class="form__firstname">
+            <div class="form__wrapper--label">
+              <label for="firstname"></label>
+            </div>
+            <div class="form__wrapper--input">
+              <input type="text" name="firstname" id="firstname" placeholder="Nom" >
+            </div>
+            <?php if(isset($firstnameMsgErr)){echo '<span class="error">' . $firstnameMsgErr . '</span>';}?>
+          </div>
         </div>
-        <div class="form__wrapper--input">
-          <input type="text" name="firstname" id="firstname" >
-        </div>
-        <?php if(isset($firstnameMsgErr)){echo '<span class="error">' . $firstnameMsgErr . '</span>';}?>
 
         <div class="form__wrapper--label">
-          <label for="lastname">Prénom: </label>
+          <label for="mail"></label>
         </div>
         <div class="form__wrapper--input">
-          <input type="text" name="lastname" id="lastname" >
-        </div>
-        <?php if(isset($lastnameMsgErr)){echo '<span class="error">' . $lastnameMsgErr . '</span>';}?>
-
-        <div class="form__wrapper--label">
-          <label for="mail">E-mail: </label>
-        </div>
-        <div class="form__wrapper--input">
-          <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" >
+          <input type="email" name="mail" id="mail" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$" placeholder="Adresse email">
         </div>
         <?php if(isset($mailMsgErr)){echo '<span class="error">' . $mailMsgErr . '</span>';}?>
 
         <div class="form__wrapper--label">
-          <label for="pwd">Mot de passe: </label>
+          <label for="pwd"></label>
         </div>
         <div class="form__wrapper--input">
-          <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus">
+          <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" placeholder="Mot de passe">
         </div>
         <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
 
 
         <div class="pwd-message">
-          <h3>Votre mot de passe doit comporter: </h3>
           <p id="letter" class="invalid">Une lettre minuscule</p>
           <p id="capital" class="invalid">Une lettre majuscule</p>
           <p id="number" class="invalid">Un nombre</p>
@@ -165,14 +175,12 @@ require ('req/_signup.php');
         </div>
 
         <button type="submit" name="submit">S'inscrire</button>
-
-        <div class="form__wrapper--action">
-          <p>Vous avez déjà un compte ?</p>
-          <a href="?page=connexion">Se connecter</a>
-        </div>
       </fieldset>
     </form>
   </div>
-  
-  
 </div>
+
+<div class="form__wrapper--action">
+          <p>Vous avez déjà un compte ?</p>
+          <a href="?page=connexion">Se connecter</a>
+        </div>

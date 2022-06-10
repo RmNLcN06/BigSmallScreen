@@ -40,7 +40,6 @@ else
 }
 ?>
 
-<a href="../req/_connect.php"></a>
 <section class="article">
     <h1 class="article__title"><?= $title; ?></h1>
     <div class="article__wrapper">
@@ -105,11 +104,13 @@ else
 
 <?php if(!isset($_SESSION['authUser']) || empty($_SESSION['authUser'])) { ?>
     <section class="comment">
-        Vous devez être connecté pour pouvoir laisser un message.
+        <p>Connectez-vous pour ajouter et consulter les commentaires.</p>   
+        <button><a href="?page=connexion">Se connecter</a></button>
+        <p>Vous n'avez pas de compte ? <a href="?page=inscription">Inscrivez-vous</a></p>
     </section>
-<?php } else { ?>
-    <section class="comment">
-        Voilà les commentaires !
-    </section>
-<?php } ?>
+<?php } else {
+    require('comments.php');
+} ?>
+    
+
 

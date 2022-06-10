@@ -40,8 +40,6 @@ if(isset($_POST['submit']))
             
             $insertUserOnDatabase->execute();
 
-            // $role_name = "SELECT name FROM roles INNER JOIN users ON roles.id = users.role_id";
-
             // Récupérer les informations traitées de l'utilisateur
             $getInfosUserReg = $database->prepare("SELECT id, nickname, firstname, lastname FROM users WHERE nickname = ? AND firstname = ? AND lastname = ?");
             $getInfosUserReg->execute([$user_nickname, $user_firstname, $user_lastname]);

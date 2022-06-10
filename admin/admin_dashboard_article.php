@@ -126,7 +126,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <h1 class="d-flex justify-content-center my-5">Liste des articles</h1>
                 <div class="d-flex align-items-center justify-content-center my-5">
-                    <a href="../admin/pages_article/add.php" class="btn btn-primary d-flex justify-content-center">Ajouter un article</a>
+                    <a href="../admin/pages_article/add_infos.php" class="btn btn-primary d-flex justify-content-center">Ajouter un article</a>
                 </div>
                 <nav class="navbar navbar-expand-lg bg-light my-5">
                     <div class="container-fluid">

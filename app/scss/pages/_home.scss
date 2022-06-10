@@ -1,28 +1,31 @@
 .accueil {
   margin: 10px;
-  border: 2px solid blue;
+  
+  
 
   &__container {
-    margin: 10px;
-    border: 2px solid green;
-    background-color: var(--bg-color);
+    margin: 25px 20px;
+    
+    
 
     &--wrapper {
-      border: 2px dashed purple;
+      background: var(--container-color-dark);
       display: flex;
       flex-direction: column;
+      border-radius: 6px;
 
       h1 {
-        border: 2px solid red;
         text-align: center;
         padding: 20px 0px;
         margin-bottom: 20px;
+        background: var(--container-color-dark);
       }
 
       .slideshow {
         max-width: 1000px;
         position: relative;
         margin: auto;
+
 
         .mySlides1, .mySlides2, .mySlides3, .mySlides4 {
 
@@ -77,26 +80,33 @@
       }
 
       .card {
-        border: 2px dashed yellow;
+        background: var(--container-color-dark);
         display: flex;
         justify-content: space-around;
-        margin-top: 20px;
+        margin: 20px 0px;
 
         &__cell {
-          border: 2px solid orangered;
+         
           border-radius: 5px;
+          
 
           &--description {
+            background: var(--container-color-dark);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
           }
 
+          .description--title {
+            background: var(--container-color-dark);
+          }
+
           .description--category, .description--tags {
             margin-top: 5px;
             font-size: 13px;
             padding-left: 10px;
+            background: var(--container-color-dark);
           }
 
           .ellipsis {
@@ -104,7 +114,7 @@
             width: 185px; 
             overflow: hidden;
             text-overflow: ellipsis;
-            border: 1px dashed black;
+            
           }
         }
       }

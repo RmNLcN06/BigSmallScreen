@@ -1,25 +1,33 @@
 header {
     grid-area: headerZone;
-    background: rgb(144, 238, 144);
+    margin: 0px 20px;
 }
 
 .header {
-    
-
     &__title {
         padding: 0px 5px;
         display: flex;
         justify-content: space-between;
-        border: 1px solid red;
+       
 
         &--logo {
-            border: 1px dashed blue;
+            display: flex;
+            align-items: center;
+
+            a {
+                display: flex;
+                align-items: center;
+                
+                img {
+                    margin-right: 10px;
+                }
+            }
         }
 
         &--links {
             display: flex;
             align-items: center;
-            border: 1px dashed green;
+            
 
             > li {
                 margin: 0px 20px;

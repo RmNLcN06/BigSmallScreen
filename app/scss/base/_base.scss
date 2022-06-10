@@ -3,21 +3,27 @@ html {
     font-size: 100%;
 }
 
+* {
+    font-family: "Monserrat", sans-serif;
+    background-color:var(--bg-color-dark);
+    color: var(--font-color-dark);
+}
+
 *, *::before, *::after {
     box-sizing: inherit;
+    
 }
 
 body {
     margin: 0px;
     padding: 0px;
-    font-family: "Monserrat", sans-serif;
-    background-color:var(--bg-color);
-    color: var(--font-color);
+   
 }
 
 h1, h2, h3, h4, h5, h6 {
     padding: 0px;
     margin: 0px;
+    
 }
 
 ul {
@@ -30,5 +36,4 @@ li {
 
 a {
     text-decoration: none;
-    color: var(--link-color);
 }

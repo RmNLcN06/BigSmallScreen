@@ -4,8 +4,8 @@
     --bg-color-dark: hsl(233, 60%, 6%);
 
     // Couleurs fonts default + dark mode
-    --font-color: hsl(0, 0%, 17%);
-    --font-color-dark: hsl(212, 27%, 90%);;
+    --font-color: hsl(211, 24%, 17%);
+    --font-color-dark: hsl(0, 0%, 98%);
 
     // Couleurs navigation background default + dark mode
     --nav-bg-color: rgb(25, 30, 58); // A Changer
@@ -17,5 +17,9 @@
 
     // Couleurs container default + dark mode
     --container-color: hsl(218, 46%, 10%); // A Changer
-    --container-color-dark: hsl(218, 46%, 10%);
+    --container-color-dark: hsl(231, 40%, 16%);
+
+    // Couleurs background pagination default + dark mode
+    --container-color: hsl(218, 46%, 10%); // A Changer
+    --pagination-bg-color-dark: hsl(0, 0%, 100%);
 }

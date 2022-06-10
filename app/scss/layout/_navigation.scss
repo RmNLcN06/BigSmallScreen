@@ -1,19 +1,37 @@
 nav {
     grid-area: menuZone;
-    background: lightskyblue;
 }
 
 .menu__content {
+    border-radius: 6px;
+    margin: 0px 25px;
+    
+
     &--list {
+        background: var(--nav-bg-color-dark);
         margin: 5px 0px;
         display: flex;
         justify-content: center;
+        align-items: center;
+        height: 50px;
+        
 
         > li {
-            padding: 10px 45px;
+            padding: 5px 45px;
+            background: var(--nav-bg-color-dark);
 
             &:not(:last-of-type) {
-                border-right: 1px solid white;
+                border-right: 0.1px solid hsl(218, 12%, 30%);
+                background: var(--nav-bg-color-dark);
+            }
+
+            a {
+                background: var(--nav-bg-color-dark);
+            }
+
+            i {
+                background: var(--nav-bg-color-dark);
+                margin-right: 10px;
             }
         }
     }

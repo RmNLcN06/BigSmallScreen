@@ -18,7 +18,6 @@ if ($_POST) {
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
-        && isset($_POST['types']) && !empty($_POST['types'])
         ) 
         {
             require_once('../req/_connect.php');
@@ -49,14 +48,15 @@ if ($_POST) {
             $admin_name = strip_tags($_POST['admin_name']);
 
 
-            $types = $_POST['types'];
+            // $typesGenre = $_POST['types'];
 
-            for($i = 0 ; $i <= sizeof($types) ; $i++)
-            {
-                $sqlTypes = "INSERT INTO articles_types (types_id)
-                        VALUES ('". $types[$i]. "')";
-                $query->execute();
-            }
+            // for($i = 0 ; $i <= sizeof($typesGenre) ; $i++)
+            // {
+            //     $sqlTypes = "INSERT INTO articles_types (types_id)
+            //             VALUES ('". $typesGenre[$i]. "')";
+            //             print_r($sqlTypes);
+            //     $query->execute();
+            // }
             
 
             $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name) 
@@ -81,10 +81,11 @@ if ($_POST) {
 
             $query->execute();
 
-            $_SESSION['message'] = "Votre article est ajouté";
+            $_SESSION['message'] = "Les informations de l'article sont ajoutées. ";
             require_once('../req/_close.php');
 
-            header('Location: ../admin_dashboard_article.php');
+            header('Location: add_genres.php');
+            // header('Location: ../admin_dashboard_article.php');
         }
         else
         {
@@ -342,81 +343,6 @@ if ($_POST) {
                     <div class="form-group my-4">
                         <p><label for="content">Contenu de l'article</label></p>
                         <textarea name="content" id="content" cols="173" rows="10" class="form-control" required ></textarea>
-                    </div>
-                    <h4>Genre(s) de l'oeuvre</h4>
-                    <div class="form-group d-flex justify-content-around my-4">
-                        <div class="d-flex my-3 flex-column">
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="1" id="1">
-                                <label class="form-check-label mx-3" for="1">Science-fiction</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="2" id="2">
-                                <label class="form-check-label mx-3" for="2">Comédie</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="3" id="3">
-                                <label class="form-check-label mx-3" for="3">Comédie dramatique</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="4" id="4">
-                                <label class="form-check-label mx-3" for="4">Horreur</label>
-                            </div>
-                        </div>
-                        <div class="d-flex my-3 flex-column">
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="5" id="5">
-                                <label class="form-check-label mx-3" for="5">Thriller</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="6" id="6">
-                                <label class="form-check-label mx-3" for="6">Romance</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="7" id="7">
-                                <label class="form-check-label mx-3" for="7">Biographie</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="8" id="8">
-                                <label class="form-check-label mx-3" for="8">Aventure</label>
-                            </div>
-                        </div>
-                        <div class="d-flex my-3 flex-column">
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="9" id="9">
-                                <label class="form-check-label mx-3" for="9">Action</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="10" id="10">
-                                <label class="form-check-label mx-3" for="10">Drame</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="11" id="11">
-                                <label class="form-check-label mx-3" for="11">Fantastique</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="12" id="12">
-                                <label class="form-check-label mx-3" for="12">Guerre</label>
-                            </div>
-                        </div>      
-                        <div class="d-flex my-3 flex-column">
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="13" id="13">
-                                <label class="form-check-label mx-3" for="13">Policier</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="14" id="14">
-                                <label class="form-check-label mx-3" for="14">Western</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="15" id="15">
-                                <label class="form-check-label mx-3" for="15">Documentaire</label>
-                            </div>
-                            <div class="form-check my-2">
-                                <input class="form-check-input" name="types[]" type="checkbox" value="16" id="16">
-                                <label class="form-check-label mx-3" for="16">Biopic</label>
-                            </div>
-                        </div>
                     </div>
                     <div class="form-group my-4">
                         <label for="admin_name">Nom de l'auteur: </label>

@@ -5,8 +5,8 @@ session_start();
 <div class="header__title">
     <div class="header__title--logo">
         <a href="?page=accueil">
-            <h1>BSS</h1>
-            <h3>Big&SmallScreen</h3>
+            <img src="img/logo/logo.svg" alt="Logo du site">
+            <h3> Big&Small Screen</h3>
         </a>
     </div>
     <ul class="header__title--links">
