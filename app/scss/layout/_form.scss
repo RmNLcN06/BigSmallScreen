@@ -14,6 +14,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
         margin: 50px 0px;
 
         .form__title {
@@ -42,8 +43,6 @@
         form {
             background: var(--container-color-dark);
             width: 50%;
-
-            
     
             .form__title {
                 margin-top: 20px;
@@ -89,11 +88,12 @@
     }
 
     &--input {
-        margin-bottom: 25px;
+        margin: 5px 0px;
 
     
         
         input, textarea {
+            margin: 10px 0px;
             height: 40px;
             width: 100%;
             color: var(--font-color-dark);

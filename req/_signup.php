@@ -6,7 +6,7 @@ require ('req/_connect.php');
 if(isset($_POST['submit'])) 
 {
     // Vérification que tous les champs du formulaire sont remplis
-    if(!empty($_POST['nickname']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['mail']) && !empty($_POST['pwd']))
+    if(!empty($_POST['nickname']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['mail']) && !empty($_POST['pwd']) && !empty($_POST['pwdVerify']))
     {
         // Fonction pour se protéger des informations entrées par l'utilisateur
         function test_input($data) 
@@ -23,6 +23,7 @@ if(isset($_POST['submit']))
         $user_lastname = test_input($_POST['lastname']);
         $user_mail = filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL);
         $user_pwd = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+        $user_pwdVerify = password_hash($_POST['pwdVerify'], PASSWORD_DEFAULT);
 
         // Vérification de l'existance de l'utilisateur dans la base de données
         $checkIfUserAlreadyExists = $database->prepare('SELECT nickname, firstname, lastname, mail FROM users WHERE nickname = ? AND firstname = ? AND lastname = ? AND mail = ?');
@@ -31,30 +32,38 @@ if(isset($_POST['submit']))
         // Si l'utilisateur n'existe pas ...
         if($checkIfUserAlreadyExists->rowCount() == 0)
         {
-            // ... on l'insère en base de données
-            $insertUserOnDatabase = $database->prepare("INSERT INTO users (nickname, firstname, lastname, mail, pwd) VALUES (:nickname, :firstname, :lastname, '$user_mail', '$user_pwd')");
-            
-            $insertUserOnDatabase->bindValue(":nickname", $user_nickname, PDO::PARAM_STR);
-            $insertUserOnDatabase->bindValue(":firstname", $user_firstname, PDO::PARAM_STR);
-            $insertUserOnDatabase->bindValue(":lastname", $user_lastname, PDO::PARAM_STR);
-            
-            $insertUserOnDatabase->execute();
+            if(password_verify($_POST['pwd'], $user_pwd) == password_verify($_POST['pwdVerify'], $user_pwdVerify)) 
+            {
 
-            // Récupérer les informations traitées de l'utilisateur
-            $getInfosUserReg = $database->prepare("SELECT id, nickname, firstname, lastname FROM users WHERE nickname = ? AND firstname = ? AND lastname = ?");
-            $getInfosUserReg->execute([$user_nickname, $user_firstname, $user_lastname]);
+                // ... on l'insère en base de données
+                $insertUserOnDatabase = $database->prepare("INSERT INTO users (nickname, firstname, lastname, mail, pwd) VALUES (:nickname, :firstname, :lastname, '$user_mail', '$user_pwd')");
+                
+                $insertUserOnDatabase->bindValue(":nickname", $user_nickname, PDO::PARAM_STR);
+                $insertUserOnDatabase->bindValue(":firstname", $user_firstname, PDO::PARAM_STR);
+                $insertUserOnDatabase->bindValue(":lastname", $user_lastname, PDO::PARAM_STR);
+                
+                $insertUserOnDatabase->execute();
 
-            $userInfos = $getInfosUserReg->fetch();
+                // Récupérer les informations traitées de l'utilisateur
+                $getInfosUserReg = $database->prepare("SELECT id, nickname, firstname, lastname FROM users WHERE nickname = ? AND firstname = ? AND lastname = ?");
+                $getInfosUserReg->execute([$user_nickname, $user_firstname, $user_lastname]);
 
-            // Données d'authentification de l'utilisateur récupérées dans des variables globales "SESSION"
-            $_SESSION['authUser'] = true;
-            $_SESSION['id'] = $userInfos['id'];
-            $_SESSION['nickname'] = $userInfos['nickname'];
-            $_SESSION['firstname'] = $userInfos['firstname'];
-            $_SESSION['lastname'] = $userInfos['lastname'];
+                $userInfos = $getInfosUserReg->fetch();
 
-            // Redirection de l'utilisateur enregistré vers la page d'accueil
-            header('Location: ?page=accueil');
+                // Données d'authentification de l'utilisateur récupérées dans des variables globales "SESSION"
+                $_SESSION['authUser'] = true;
+                $_SESSION['id'] = $userInfos['id'];
+                $_SESSION['nickname'] = $userInfos['nickname'];
+                $_SESSION['firstname'] = $userInfos['firstname'];
+                $_SESSION['lastname'] = $userInfos['lastname'];
+
+                // Redirection de l'utilisateur enregistré vers la page d'accueil
+                header('Location: ?page=accueil');
+            }
+            else 
+            {
+                $pwdVerifyErr = "Vos deux mots de passe ne correspondent pas !";
+            }
 
         }
         else
@@ -81,6 +90,9 @@ if(isset($_POST['submit']))
     elseif (empty($_POST['pwd']))
     {
         $pwdMsgErr = "Veuillez entrer un mot de passe.";
+    }
+    elseif($_POST['pwd'] !== $_POST['pwdVerify']) {
+        $pwdVerifyErr = "Mot de passe et confirmation différent.";
     }
     else
     {

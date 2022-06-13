@@ -161,9 +161,17 @@ require ('req/_signup.php');
           <label for="pwd"></label>
         </div>
         <div class="form__wrapper--input">
-          <input type="password" id="pwd" name="pwd"  title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" placeholder="Mot de passe">
+          <input type="password" id="pwd" name="pwd" title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" placeholder="Mot de passe">
         </div>
         <?php if(isset($pwdMsgErr)){echo '<span class="error">' . $pwdMsgErr . '</span>';}?>
+
+        <div class="form__wrapper--label">
+          <label for="pwdVerify"></label>
+        </div>
+        <div class="form__wrapper--input">
+          <input type="password" id="pwdVerify" name="pwdVerify" title="Doit contenir au minimum un nombre, une lettre minuscule, une lettre majuscule, un caractère spécial et au moins 8 caractères ou plus" placeholder="Confirmer mot de passe">
+        </div>
+        <?php if(isset($pwdVerifyErr)){echo '<span class="error">' . $pwdVerifyErr . '</span>';}?>
 
 
         <div class="pwd-message">
@@ -174,13 +182,13 @@ require ('req/_signup.php');
           <p id="length" class="invalid">8 caractères minimum</p>
         </div>
 
-        <button type="submit" name="submit">S'inscrire</button>
+        <input class="btn" type="submit" name="submit" value="S'inscrire">
       </fieldset>
     </form>
   </div>
 </div>
 
 <div class="form__wrapper--action">
-          <p>Vous avez déjà un compte ?</p>
-          <a href="?page=connexion">Se connecter</a>
-        </div>
+  <p>Vous avez déjà un compte ?</p>
+  <a href="?page=connexion">Se connecter</a>
+</div>

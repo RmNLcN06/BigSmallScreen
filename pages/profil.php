@@ -4,9 +4,9 @@ require('req/_connect.php');
  
 if(isset($_SESSION['id'])) 
 {
-    $requser = $database->prepare("SELECT * FROM users WHERE id = ?");
-    $requser->execute(array($_SESSION['id']));
-    $user = $requser->fetch();
+    $requireUser = $database->prepare("SELECT * FROM users WHERE id = ?");
+    $requireUser->execute(array($_SESSION['id']));
+    $user = $requireUser->fetch();
 
     if(isset($_POST['nickname_new']) AND !empty($_POST['nickname_new']) AND $_POST['nickname_new'] != $user['nickname']) 
     {
@@ -45,41 +45,44 @@ if(isset($_SESSION['id']))
 
 <div class="form__wrapper">
     <div class="form-container">
+        <div class="form__title">
+            <h1>Votre profil</h1>
+            <h3>Envie de changer certaines de vos données ? Cet espace est le vôtre !</h3>
+        </div>
         <form class="user-form" action="" method="POST" enctype="multipart/form-data">
             <fieldset>  
-                <legend>Edition de mon profil</legend>
 
                 <?php if(isset($errorMsg)){echo '<span class="error">' . $errorMsg . '</span>';}?>
 
                 <div class="form__wrapper--label">
-                    <label for="nickname_new">Pseudo: </label>
+                    <label for="nickname_new"></label>
                 </div>
                 <div class="form__wrapper--input">
-                    <input type="text" name="nickname_new" placeholder="Pseudo" value="<?php echo $user['nickname']; ?>" />
+                    <input type="text" name="nickname_new" placeholder="Nom d'utilisateur" value="<?php echo $user['nickname']; ?>" />
                 </div>
 
                 <div class="form__wrapper--label">
-                    <label for="mail_new">E-mail: </label>
+                    <label for="mail_new"></label>
                 </div>
                 <div class="form__wrapper--input">
-                    <input type="email" name="mail_new" placeholder="Mail" value="<?php echo $user['mail']; ?>" />
+                    <input type="email" name="mail_new" placeholder="E-mail" value="<?php echo $user['mail']; ?>" />
                 </div>
 
                 <div class="form__wrapper--label">
-                    <label for="pwd_new1">Mot de passe: </label>
+                    <label for="pwd_new1"></label>
                 </div>
                 <div class="form__wrapper--input">
                     <input type="password" name="pwd_new1" placeholder="Mot de passe"/>
                 </div>
 
                 <div class="form__wrapper--label">
-                    <label for="pwd_new2">Confirmation - Mot de passe: </label>
+                    <label for="pwd_new2"></label>
                 </div>
                 <div class="form__wrapper--input">
                     <input type="password" name="pwd_new2" placeholder="Confirmation du mot de passe" />
                 </div>
 
-                <input type="submit" value="Mettre à jour mon profil !" />
+                <input class="btn" type="submit" value="Envoyer" />
             </fieldset> 
         </form>
     </div>

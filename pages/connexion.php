@@ -10,7 +10,7 @@
         <img src="img/connexion.png" alt="Trois personnes sur un canapé">
       </div>
       <?php require('req/_loginUser.php'); ?>
-      <form class="user-form" action="" method="post">
+      <form class="user-form" action="" method="post" enctype="multipart/form-data">
         <fieldset>  
         <h2>Connexion</h2>
 
@@ -46,22 +46,19 @@
               {8,} : 8 caractères minimum
           -->
 
-          <button type="submit" name="connect">Se connecter</button>
+          <!-- <button type="submit" name="connect">Se connecter</button> -->
+          <input class="btn" type="submit" name="connect" value="Se connecter">
           <p>Vous n'avez pas de compte ? <a href="?page=inscription">Inscrivez-vous</a></p> 
         </fieldset> 
       </form>
     </div>
-  
-
-    
   </div>
-  
 </div>
 
 <div class="form__wrapper--action">
-      <p>Vous êtes administrateurs ? Accéder à votre espace dédié à la communauté cinéphile.</p> 
-      <a href="?page=connexionAdmin">Se connecter</a>
-    </div>
+  <p>Vous êtes administrateurs ? Accéder à votre espace dédié à la communauté cinéphile.</p> 
+  <a href="?page=connexionAdmin">Se connecter</a>
+</div>
   
 
 

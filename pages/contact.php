@@ -47,7 +47,7 @@
               {8,} : 8 caractères minimum
           -->
 
-          <button type="submit" name="connect">Envoyer</button>
+          <input class="btn" type="submit" name="connect" value="Envoyer">
         </fieldset> 
       </form>
     </div>

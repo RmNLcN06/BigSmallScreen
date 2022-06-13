@@ -10,26 +10,24 @@ session_start();
         </a>
     </div>
     <ul class="header__title--links">
-        <li>
-            <a href="?page=premium">
-                <i class="fa-solid fa-user-check"></i> Devenir Premium
-            </a>  
-        </li>
-        <?php if($_SESSION) { ?>
+        <!-- 
+            Pour version(s) futures :    
+            <li>
+                <a href="?page=premium">
+                    <i class="fa-solid fa-user-check"></i> Devenir Premium
+                </a>  
+            </li> 
+        -->
+        <?php if(isset($_SESSION['authUser'])) { ?>
+            <li>Bonjour <?= $_SESSION['nickname'] ?></li>
             <li>
                 <a href="?page=profil">
-                <i class="fa-solid fa-user"></i> Mon Profil
+                    <i class="fa-solid fa-user"></i> Mon Profil
                 </a>
             </li>
             <li>
                 <a href="req/_logout.php">
                     <i class="fa-solid fa-right-from-bracket"></i> Se Déconnecter
-                </a>
-            </li>
-        <?php } elseif(isset($_SESSION['authAdmin'])) { ?>
-            <li>
-                <a href="admin/admin_accueil.php">
-                    <i class="fa-solid fa-user-tie"></i> Espace Administrateur
                 </a>
             </li>
         <?php } else { ?>

@@ -46,7 +46,7 @@
               {8,} : 8 caractères minimum
           -->
 
-          <button type="submit" name="connect">Se connecter</button>
+          <input class="btn" type="submit" name="connect" value="Se connecter">
           <p>Vous n'avez pas de compte ? <a href="?page=inscription">Inscrivez-vous</a></p> 
         </fieldset> 
       </form>
