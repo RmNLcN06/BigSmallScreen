@@ -229,7 +229,10 @@ footer {
   width: 50%;
 }
 .form__wrapper .form-container .form__img img {
-  height: 355px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .form__wrapper .form-container form {
   background: var(--container-color-dark);

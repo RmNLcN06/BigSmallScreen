@@ -33,9 +33,9 @@ $request = $database->prepare($articleSlideshowForth);
 $request->execute();
 $resultForth = $request->fetchAll(PDO::FETCH_ASSOC);
 
-/******************************/
-/******************************/
-/******************************/
+/*****************************************************************/
+/*****************************************************************/
+/*****************************************************************/
 
 /* Premier Container Cards */
 $articleContainerCardsFirst = "SELECT * FROM categories INNER JOIN articles ON articles.category_id = categories.id WHERE articles.category_id = 1 ORDER BY articles.created_at DESC LIMIT 3, 5";

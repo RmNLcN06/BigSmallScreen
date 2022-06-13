@@ -36,7 +36,9 @@
         .form__img {
             width: 50%;
             img {
-                height: 355px;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
             }
         }
 
