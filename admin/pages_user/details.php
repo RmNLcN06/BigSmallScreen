@@ -27,11 +27,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Vérification de l'existance du produit
     if (!$user) {
         $_SESSION['erreur'] = 'Cet id n\'existe pas';
-        header('Location: admin/pages_user/admin_dashboard_user.php');
+        header('Location: admin/admin_dashboard_user.php');
     }
 } else {
     $_SESSION['erreur'] = 'URL invalide';
-    header('Location: admin/pages_user/admin_dashboard_user.php');
+    header('Location: admin/admin_dashboard_user.php');
 }
 
 ?>

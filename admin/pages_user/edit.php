@@ -119,7 +119,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <input type="email" id="mail" name="mail" class="form-control" value="<?= htmlentities($user['mail']); ?>">
                     </div>
                     <input type="hidden" name="id" value="<?= $user['id']; ?>">
-                    <button class="btn btn-primary">Envoyer</button>
+                    <div class="d-flex justify-content-center mb-5">
+                        <input type="submit" value ="Envoyer" class="btn btn-primary">
+                    </div>
+                    <!-- <button class="btn btn-primary">Envoyer</button> -->
                 </form>
             </section>
         </div>

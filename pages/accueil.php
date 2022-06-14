@@ -79,12 +79,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
             <div class="slideshow">
                 <?php foreach($resultFirst as $slideshowFirst) { ?> 
                     <div class="mySlides1 fade">
-                        <div class="mySlides1__number">
-                            <?php for($i = 1 ; $i <= 3 ; $i++) {
-                                echo $i;
-                            }
-                            ?>
-                        </div>
+                        <!-- <div class="mySlides1__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowFirst['id'] ?>">
                             <img src="<?= $slideshowFirst['path_img'] ;?>" alt="">
                             <div class="mySlides1__description">
@@ -138,12 +133,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
             <div class="slideshow">
                 <?php foreach($resultSecond as $slideshowSecond) { ?> 
                     <div class="mySlides2 fade">
-                        <div class="mySlides2__number">
-                            <?php for($i = 1 ; $i <= 3 ; $i++) {
-                                echo $i;
-                            }
-                            ?>
-                        </div>
+                        <!-- <div class="mySlides2__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowSecond['id'] ?>">
                             <img src="<?= $slideshowFirst['path_img'] ;?>" alt="">
                             <div class="mySlides2__description">
@@ -197,12 +187,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
             <div class="slideshow">
                 <?php foreach($resultThird as $slideshowThird) { ?> 
                     <div class="mySlides3 fade">
-                        <div class="mySlides3__number">
-                            <?php for($i = 1 ; $i <= 3 ; $i++) {
-                                echo $i;
-                            }
-                            ?>
-                        </div>
+                        <!-- <div class="mySlides3__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowThird['id'] ?>">
                             <img src="<?= $slideshowThird['path_img'] ;?>" alt="">
                             <div class="mySlides3__description">
@@ -256,12 +241,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
             <div class="slideshow">
                 <?php foreach($resultForth as $slideshowForth) { ?> 
                     <div class="mySlides4 fade">
-                        <div class="mySlides4__number">
-                            <?php for($i = 1 ; $i <= 3 ; $i++) {
-                                echo $i;
-                            }
-                            ?>
-                        </div>
+                        <!-- <div class="mySlides4__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowForth['id'] ?>">
                             <img src="<?= $slideshowForth['path_img'] ;?>" alt="">
                             <div class="mySlides4__description">
