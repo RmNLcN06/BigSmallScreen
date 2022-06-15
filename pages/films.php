@@ -78,7 +78,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="card__cell">
                     <a class="card__cell--img" href="?page=article_actualite&id=<?= $article['id'] ?>">
-                        <img src="<?= $article['path_img']; ?>" alt="">
+                        <img src="<?= str_replace("../../", "./", $article['path_img']) ?>" alt="">
                     </a>
                     <div class="card__cell--description">
                         <a href="#">

@@ -18,6 +18,7 @@ if ($_POST) {
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
+        && isset($_FILES['path_img']) && !empty($_FILES['path_img'])
         ) 
         {
             require_once('../req/_connect.php');
@@ -48,6 +49,9 @@ if ($_POST) {
             $admin_name = strip_tags($_POST['admin_name']);
 
 
+            $path_img_destination = $_FILES['path_img'];
+
+
             // $typesGenre = $_POST['types'];
 
             // for($i = 0 ; $i <= sizeof($typesGenre) ; $i++)
@@ -57,35 +61,104 @@ if ($_POST) {
             //             print_r($sqlTypes);
             //     $query->execute();
             // }
+
+
             
 
-            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name) 
-                    VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :actor_one, :actor_two, :actor_three, :actor_four, :synopsis, :content, :admin_name)";
 
-            $query = $database->prepare($sql);
 
-            $query->bindValue(':category_id', $category_id, PDO::PARAM_INT);
-            $query->bindValue(':title', $title, PDO::PARAM_STR);
-            $query->bindValue(':release_year', $release_year, PDO::PARAM_INT);
-            $query->bindValue(':nbr_season', $nbr_season, PDO::PARAM_INT);
-            $query->bindValue(':work_status', $work_status, PDO::PARAM_STR);
-            $query->bindValue(':director_one', $directorOne, PDO::PARAM_STR);
-            $query->bindValue(':director_two', $directorTwo, PDO::PARAM_STR);
-            $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
-            $query->bindValue(':actor_two', $actorTwo, PDO::PARAM_STR);
-            $query->bindValue(':actor_three', $actorThree, PDO::PARAM_STR);
-            $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
-            $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
-            $query->bindValue(':content', $content, PDO::PARAM_STR);
-            $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
+            //  Vérification de l'existance de l'article dans la base de données
+            $checkIfArticleAlreadyExists = $database->prepare('SELECT title, admin_name FROM articles WHERE title = ? AND admin_name = ?');
+            $checkIfArticleAlreadyExists->execute([$title, $admin_name]);
 
-            $query->execute();
+            // Si l'article n'existe pas ...
+            if($checkIfArticleAlreadyExists->rowCount() == 0)
+            {
+            
+                // Placer ici conditions pour img
+                $pathImg = $_FILES['path_img'];
+                echo '<pre>';
+                print_r($pathImg);
+                echo '</pre>';
+                $pathImgName = $_FILES['path_img']['name'];
+                $pathImgTmpName = $_FILES['path_img']['tmp_name'];
+                $pathImgSize = $_FILES['path_img']['size'];
+                $pathImgError = $_FILES['path_img']['error'];
+                $pathImgType = $_FILES['path_img']['type'];
 
-            $_SESSION['message'] = "Les informations de l'article sont ajoutées. ";
-            require_once('../req/_close.php');
+                $pathImgExt = explode('.', $pathImgName);
+                $pathImgActualExt = strtolower(end($pathImgExt));
 
-            header('Location: add_genres.php');
-            // header('Location: ../admin_dashboard_article.php');
+                $imgFormatAllowed = ['jpg', 'jpeg', 'png'];
+
+                if(in_array($pathImgActualExt, $imgFormatAllowed)) 
+                {
+                    if($pathImgError === 0) 
+                    {
+                        if($pathImgSize < 1000000)
+                        {
+                            $pathImgNewName = uniqid('', true) . "." . $pathImgActualExt;
+                            $pathImgDestination =  '../../' . "img/" . $pathImgNewName;
+                            move_uploaded_file($pathImgTmpName, $pathImgDestination);
+
+
+                            // Placer autres conditions de réussites
+
+                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name, path_img) 
+                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :actor_one, :actor_two, :actor_three, :actor_four, :synopsis, :content, :admin_name, :path_img)";
+
+                            $query = $database->prepare($sql);
+
+                            $query->bindValue(':category_id', $category_id, PDO::PARAM_INT);
+                            $query->bindValue(':title', $title, PDO::PARAM_STR);
+                            $query->bindValue(':release_year', $release_year, PDO::PARAM_INT);
+                            $query->bindValue(':nbr_season', $nbr_season, PDO::PARAM_INT);
+                            $query->bindValue(':work_status', $work_status, PDO::PARAM_STR);
+                            $query->bindValue(':director_one', $directorOne, PDO::PARAM_STR);
+                            $query->bindValue(':director_two', $directorTwo, PDO::PARAM_STR);
+                            $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
+                            $query->bindValue(':actor_two', $actorTwo, PDO::PARAM_STR);
+                            $query->bindValue(':actor_three', $actorThree, PDO::PARAM_STR);
+                            $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
+                            $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
+                            $query->bindValue(':content', $content, PDO::PARAM_STR);
+                            $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
+                            $query->bindValue(':path_img', $pathImgDestination, PDO::PARAM_STR);
+
+                            $query->execute();
+
+                            $_SESSION['message'] = "Les informations de l'article sont ajoutées. ";
+                            require_once('../req/_close.php');
+
+                            // header('Location: add_genres.php');
+                            header('Location: ../admin_dashboard_article.php');
+
+                            // $query->execute();
+        
+                            // $_SESSION['message'] = "Nouveau article ajouté";
+                            // require_once('../req/_close.php');
+                    
+                            // header('Location: ../admin_dashboard_admin.php');
+                        } 
+                        else
+                        {
+                            $_SESSION['erreur'] = "Taille trop grande du fichier.";
+                        }
+                    }
+                    else 
+                    {
+                        $_SESSION['erreur'] = "Erreur de chargement du fichier.";
+                    }
+                }
+                else 
+                {
+                    $_SESSION['erreur'] = "Extension du fichier non reconnue.";
+                }
+            }
+            else 
+            {
+                $_SESSION['erreur'] = "Cet article existe déjà.";
+            }
         }
         else
         {
@@ -266,7 +339,7 @@ if ($_POST) {
                 if (!empty($_SESSION['erreur'])) {
                 ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">
-                        <a href="./add.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <a href="./add_infos.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <?= $_SESSION['erreur']; ?>
                     </div>
                     <?= $_SESSION['erreur'] = ""; ?>
@@ -276,6 +349,7 @@ if ($_POST) {
                 <h1 class="d-flex justify-content-center my-5">Ajouter un article</h1>
                 <form method="post" action="" enctype="multipart/form-data">
                     <div class="form-group my-4">
+                        <!-- <img src="../../img/connexion.png" alt=""> -->
                         <label for="category_id">Catégorie de l'article</label>
                         <select name="category_id" id="category_id" required>
                             <option value="" disabled selected>Choisissez la catégorie</option>
@@ -349,13 +423,13 @@ if ($_POST) {
                         <input type="hidden" id="admin_name" name="admin_name" class="form-control" value="<?= htmlspecialchars($_SESSION['firstname']); ?>">
                         <?= htmlspecialchars($_SESSION['firstname']); ?>
                     </div>
-                    <!-- <div class="form-group my-4">
+                    <div class="form-group my-4">
                         <label for="path_img">Veuillez choisir l'image à transférer</label>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="path_img" name="path_img" class="form-control" required>
-                    </div> -->
+                    </div>
                     <div class="d-flex justify-content-center mb-5">
-                        <input type="submit" value ="Envoyer" class="btn btn-primary">
+                        <input type="submit" value="Envoyer" class="btn btn-primary">
                     </div>
                 </form>
             </section>

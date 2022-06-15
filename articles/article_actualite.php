@@ -28,6 +28,8 @@ if(isset($_GET['id']) && !empty($_GET['id']))
         $content = $article['content'];
         $admin_name = $article['admin_name'];
         $created_at = $article['created_at'];
+        $pathImg = str_replace("../../", "./", $article['path_img']);
+        print_r($pathImg);
     }
     else
     {
@@ -44,7 +46,8 @@ else
     <h1 class="article__title"><?= $title; ?></h1>
     <div class="article__wrapper">
         <div class="article__img">
-            <img src="<?= $article['path_img']; ?>" alt="">
+            <?php ?>
+            <img src="<?= $pathImg ?>" alt="">
         </div>
         <div class="article__content">
             <h1>Réalisateur(s) / trice(s): </h1>

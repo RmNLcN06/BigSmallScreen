@@ -81,7 +81,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                     <div class="mySlides1 fade">
                         <!-- <div class="mySlides1__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowFirst['id'] ?>">
-                            <img src="<?= $slideshowFirst['path_img'] ;?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $slideshowFirst['path_img']) ;?>" alt="">
                             <div class="mySlides1__description">
                                 <p class="mySlides1__description--text"><?= $slideshowFirst['title']; ?></p>
                                 <p class="mySlides1__description--date"> 
@@ -106,7 +106,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($resultContainerCardsFirst as $containerCardsFirst) { ?>
                     <div class="card__cell">
                         <a class="card__cell--img" href="?page=article_actualite&id=<?= $containerCardsFirst['id'] ?>">
-                            <img src="<?= $containerCardsFirst['path_img']; ?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $containerCardsFirst['path_img']); ?>" alt="">
                         </a>
                         <div class="card__cell--description">
                             <a href="?page=article_actualite&id=<?= $containerCardsFirst['id'] ?>">
@@ -135,7 +135,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                     <div class="mySlides2 fade">
                         <!-- <div class="mySlides2__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowSecond['id'] ?>">
-                            <img src="<?= $slideshowFirst['path_img'] ;?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $slideshowSecond['path_img']) ;?>" alt="">
                             <div class="mySlides2__description">
                                 <p class="mySlides2__description--text"><?= $slideshowSecond['title']; ?></p>
                                 <p class="mySlides2__description--date"> 
@@ -160,7 +160,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($resultContainerCardsSecond as $containerCardsSecond) { ?>
                     <div class="card__cell">
                         <a class="card__cell--img" href="?page=article_actualite&id=<?= $containerCardsSecond['id'] ?>">
-                            <img src="<?= $containerCardsSecond['path_img']; ?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $containerCardsSecond['path_img']); ?>" alt="">
                         </a>
                         <div class="card__cell--description">
                             <a href="?page=article_actualite&id=<?= $containerCardsSecond['id'] ?>">
@@ -189,7 +189,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                     <div class="mySlides3 fade">
                         <!-- <div class="mySlides3__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowThird['id'] ?>">
-                            <img src="<?= $slideshowThird['path_img'] ;?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $slideshowThird['path_img']) ;?>" alt="">
                             <div class="mySlides3__description">
                                 <p class="mySlides3__description--text"><?= $slideshowThird['title']; ?></p>
                                 <p class="mySlides3__description--date"> 
@@ -214,7 +214,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($resultContainerCardsThird as $containerCardsThird) { ?>
                     <div class="card__cell">
                         <a class="card__cell--img" href="?page=article_actualite&id=<?= $containerCardsThird['id'] ?>">
-                            <img src="<?= $containerCardsThird['path_img']; ?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $containerCardsThird['path_img']); ?>" alt="">
                         </a>
                         <div class="card__cell--description">
                             <a href="?page=article_actualite&id=<?= $containerCardsThird['id'] ?>">
@@ -243,7 +243,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                     <div class="mySlides4 fade">
                         <!-- <div class="mySlides4__number"></div> -->
                         <a href="?page=article_actualite&id=<?= $slideshowForth['id'] ?>">
-                            <img src="<?= $slideshowForth['path_img'] ;?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $slideshowForth['path_img']) ;?>" alt="">
                             <div class="mySlides4__description">
                                 <p class="mySlides4__description--text"><?= $slideshowForth['title']; ?></p>
                                 <p class="mySlides4__description--date"> 
@@ -268,7 +268,7 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($resultContainerCardsForth as $containerCardsForth) { ?>
                     <div class="card__cell">
                         <a class="card__cell--img" href="?page=article_actualite&id=<?= $containerCardsForth['id'] ?>">
-                            <img src="<?= $containerCardsForth['path_img']; ?>" alt="">
+                            <img src="<?= str_replace("../../", "./", $containerCardsForth['path_img']); ?>" alt="">
                         </a>
                         <div class="card__cell--description">
                             <a href="?page=article_actualite&id=<?= $containerCardsForth['id'] ?>">
