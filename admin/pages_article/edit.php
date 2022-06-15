@@ -2,8 +2,6 @@
 // Démarrage session 
 session_start();
 
-
-// A RETRAVAILLER !!! 
 if ($_POST) 
 {
     if (

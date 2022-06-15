@@ -8,8 +8,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Réinitialisation de l'id envoyé
     $id = strip_tags($_GET['id']);
 
-    $sql = 'SELECT * FROM `categories` INNER JOIN `articles` ON articles.category_id = categories.id WHERE articles.id = :id;';
-    $sql = 'SELECT users.nickname, articles.id, comments.articles_id, comments.content, comments.created_at FROM `comments` INNER JOIN `articles` ON comments.articles_id = articles.id INNER JOIN `users` ON comments.user_id = users.id WHERE articles.id = 92 ORDER BY comments.created_at DESC LIMIT 10;';
+    $sql = 'SELECT users.nickname, articles.id, comments.articles_id, comments.content, comments.created_at FROM `comments` INNER JOIN `articles` ON comments.articles_id = articles.id INNER JOIN `users` ON comments.user_id = users.id WHERE articles.id = ? ORDER BY comments.created_at DESC LIMIT 10;';
 
     // Préparation de la requête
     $query = $database->prepare($sql);

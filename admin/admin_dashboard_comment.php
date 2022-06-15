@@ -132,7 +132,6 @@ $comments = $request->fetchAll(PDO::FETCH_ASSOC);
                         <th>Auteur</th>
                         <th>Créé le</th>
                         <th>Modifié le</th>
-                        
                     </thead>
                     <tbody>
                         <?php
@@ -145,7 +144,6 @@ $comments = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $comment['admin_name'] ?></td>
                                 <td><?= $comment['created_at'] ?></td>
                                 <td><?= $comment['updated_at'] ?></td>
-                                
                             </tr>
                         <?php
                         }
