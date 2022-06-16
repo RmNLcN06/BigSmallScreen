@@ -46,20 +46,27 @@ if(isset($_GET['id']) AND !empty($_GET['id']))
             {
                 echo $msg; 
             } ?>
-            <input type="hidden" id="nickname" name="nickname" value="<?= htmlspecialchars($_SESSION['nickname']); ?>"> Votre pseudo: <?= htmlspecialchars($_SESSION['nickname']); ?>
-            <textarea name="content" placeholder="Votre commentaire..."></textarea>
-            <input type="submit" value="Poster mon commentaire" name="submit_comment" />
+            <input type="hidden" id="nickname" name="nickname" value="<?= htmlspecialchars($_SESSION['nickname']); ?>"> 
+            <p>Votre pseudo: <?= htmlspecialchars($_SESSION['nickname']); ?></p>
+            <textarea name="content" placeholder="Votre message" rows="10"></textarea>
+            <input class="btn" type="submit" value="Envoyer" name="submit_comment" />
         </form>
 
+        <h2>Commentaires</h2>
         <?php foreach($comments as $comment) { ?>
-            <div class="comment_posted">
-                <p>
-                    <?= $comment['user_nickname']; ?>
-                    <?php 
-                        $formDate = strtotime($comment['created_at']); ?>
-                        Envoyé le : <?= date("d-m-Y", $formDate) . " à " . date("H:i", $formDate); ?>
-                </p>
-                <?= $comment['content']; ?>
+            <div class="comment__posted">
+                <div class="comment__informations">
+                    <h4>
+                        <?= $comment['user_nickname']; ?> -
+                    </h4>
+                    <p>
+                        <?php $formDate = strtotime($comment['created_at']); ?>
+                        <?= date("d-m-Y", $formDate) . " à " . date("H:i", $formDate); ?>
+                    </p>
+                </div>
+                <div class="comment__message">
+                    <?= $comment['content']; ?>
+                </div>
             </div>
         <?php } ?>
     </div>  
