@@ -50,7 +50,7 @@ switch($page)
         break;
 
     // Article Pages
-    case 'article_actualite':
+    case 'article_actualite' :
         $pagepath = 'articles/article_actualite.php';
         break;
     case 'article_critique':

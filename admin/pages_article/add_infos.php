@@ -11,10 +11,13 @@ if ($_POST) {
         && isset($_POST['work_status']) && !empty($_POST['work_status'])
         && isset($_POST['director_one']) && !empty($_POST['director_one']) 
         && isset($_POST['director_two']) && !empty($_POST['director_two']) 
+        && isset($_POST['director_three']) && !empty($_POST['director_three']) 
+        && isset($_POST['director_four']) && !empty($_POST['director_four']) 
         && isset($_POST['actor_one']) && !empty($_POST['actor_one'])
         && isset($_POST['actor_two']) && !empty($_POST['actor_two'])
         && isset($_POST['actor_three']) && !empty($_POST['actor_three'])
         && isset($_POST['actor_four']) && !empty($_POST['actor_four'])
+        && isset($_POST['actor_five']) && !empty($_POST['actor_five'])
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
@@ -39,10 +42,13 @@ if ($_POST) {
 
             $directorOne = strip_tags($_POST['director_one']);
             $directorTwo = strip_tags($_POST['director_two']);
+            $directorThree = strip_tags($_POST['director_three']);
+            $directorFour = strip_tags($_POST['director_four']);
             $actorOne = strip_tags($_POST['actor_one']);
             $actorTwo = strip_tags($_POST['actor_two']);
             $actorThree = strip_tags($_POST['actor_three']);
             $actorFour = strip_tags($_POST['actor_four']);
+            $actorFive = strip_tags($_POST['actor_five']);
             $synopsis = strip_tags($_POST['synopsis']);
             $content = strip_tags($_POST['content']);
 
@@ -104,8 +110,8 @@ if ($_POST) {
 
                             // Placer autres conditions de réussites
 
-                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, actor_one, actor_two, actor_three, actor_four, synopsis, content, admin_name, path_img) 
-                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :actor_one, :actor_two, :actor_three, :actor_four, :synopsis, :content, :admin_name, :path_img)";
+                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, director_three, director_four, actor_one, actor_two, actor_three, actor_four, actor_five, synopsis, content, admin_name, path_img) 
+                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :director_three, :director_four, :actor_one, :actor_two, :actor_three, :actor_four, :actor_five, :synopsis, :content, :admin_name, :path_img)";
 
                             $query = $database->prepare($sql);
 
@@ -116,10 +122,13 @@ if ($_POST) {
                             $query->bindValue(':work_status', $work_status, PDO::PARAM_STR);
                             $query->bindValue(':director_one', $directorOne, PDO::PARAM_STR);
                             $query->bindValue(':director_two', $directorTwo, PDO::PARAM_STR);
+                            $query->bindValue(':director_three', $directorThree, PDO::PARAM_STR);
+                            $query->bindValue(':director_four', $directorFour, PDO::PARAM_STR);
                             $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
                             $query->bindValue(':actor_two', $actorTwo, PDO::PARAM_STR);
                             $query->bindValue(':actor_three', $actorThree, PDO::PARAM_STR);
                             $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
+                            $query->bindValue(':actor_five', $actorFive, PDO::PARAM_STR);
                             $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
                             $query->bindValue(':content', $content, PDO::PARAM_STR);
                             $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
@@ -398,6 +407,10 @@ if ($_POST) {
                         <input type="text" id="director_one" name="director_one" class="form-control my-3" required>
                         <label for="director_two">Réalisateur / trice</label>
                         <input type="text" id="director_two" name="director_two" class="form-control my-3" required>
+                        <label for="director_three">Réalisateur / trice</label>
+                        <input type="text" id="director_three" name="director_three" class="form-control my-3" required>
+                        <label for="director_four">Réalisateur / trice</label>
+                        <input type="text" id="director_four" name="director_four" class="form-control my-3" required>
                     </div>
                     <div class="form-group my-4">
                         <h4>Acteur(s) / trice(s) principaux</h4>
@@ -409,6 +422,8 @@ if ($_POST) {
                         <input type="text" id="actor_three" name="actor_three" class="form-control my-3" required>
                         <label for="actor_four">Acteur / trice</label>
                         <input type="text" id="actor_four" name="actor_four" class="form-control my-3" required>
+                        <label for="actor_five">Acteur / trice</label>
+                        <input type="text" id="actor_five" name="actor_five" class="form-control my-3" required>
                     </div>
                     <div class="form-group my-4">
                         <p><label for="synopsis">Synopsis</label></p>

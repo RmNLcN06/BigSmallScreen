@@ -39,19 +39,18 @@ if(isset($_GET['id']) AND !empty($_GET['id']))
 ?>
 
 <section class="comment">
-
-        <h2>Commentaires:</h2>
-
+    <div class="comment__container">
+        <h2>Exprimez vous !</h2>
         <form method="POST">
             <?php if(isset($msg)) 
             {
-                 echo $msg; 
+                echo $msg; 
             } ?>
-            <input type="hidden" id="nickname" name="nickname" value="<?= htmlspecialchars($_SESSION['nickname']); ?>"> Votre pseudo: <?= htmlspecialchars($_SESSION['nickname']); ?><br>
+            <input type="hidden" id="nickname" name="nickname" value="<?= htmlspecialchars($_SESSION['nickname']); ?>"> Votre pseudo: <?= htmlspecialchars($_SESSION['nickname']); ?>
             <textarea name="content" placeholder="Votre commentaire..."></textarea>
             <input type="submit" value="Poster mon commentaire" name="submit_comment" />
         </form>
-        
+
         <?php foreach($comments as $comment) { ?>
             <div class="comment_posted">
                 <p>
@@ -60,8 +59,9 @@ if(isset($_GET['id']) AND !empty($_GET['id']))
                         $formDate = strtotime($comment['created_at']); ?>
                         Envoyé le : <?= date("d-m-Y", $formDate) . " à " . date("H:i", $formDate); ?>
                 </p>
-                <?= $comment['content']; ?><br><br>
+                <?= $comment['content']; ?>
             </div>
         <?php } ?>
+    </div>  
 </section>
 <?php } ?>

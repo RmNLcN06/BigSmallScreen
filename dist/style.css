@@ -517,6 +517,133 @@ footer {
   content: "❌";
 }
 
+.articles {
+  margin: 10px;
+}
+.articles__container {
+  margin: 0px 15px;
+  background: var(--container-color-dark);
+  display: flex;
+  justify-content: center;
+}
+.articles__container--wrapper {
+  background: var(--container-color-dark);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.articles__title {
+  margin: 20px 0px;
+  background: var(--container-color-dark);
+}
+.articles__wrapper, .articles__lastwrapper {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px;
+}
+.articles__wrapper--first, .articles__lastwrapper--first {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.articles__wrapper--second, .articles__lastwrapper--second {
+  width: 70%;
+}
+.articles__lastwrapper {
+  display: flex;
+  flex-direction: column;
+}
+.articles__content, .articles__author, .articles__date {
+  margin: 10px;
+}
+.articles .first {
+  width: 50%;
+}
+.articles .first__img img {
+  width: 180px;
+  height: 300px;
+}
+.articles .second__informations {
+  width: 100%;
+}
+.articles .informations__authors, .articles .informations__releaseyear, .articles .informations__nbrseason, .articles .informations__status, .articles .informations__actors {
+  margin: 20px 0px;
+}
+.articles .informations__authors p, .articles .informations__releaseyear p, .articles .informations__nbrseason p, .articles .informations__status p, .articles .informations__actors p {
+  font-size: 12px;
+}
+.articles .informations__actors {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+.articles .wrapper__cards {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.articles .card {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid white;
+}
+.articles .card img {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 100%;
+  height: 100px;
+}
+.articles .comment {
+  width: 100%;
+}
+.articles .comment__login {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 20px 0px;
+}
+.articles .comment__login a {
+  color: white;
+  -webkit-animation: hover;
+          animation: hover;
+  transition: 0.5s ease-in-out;
+  border: 1px solid var(--font-color-dark);
+  padding: 10px 25px;
+  border-radius: 6px;
+  margin-left: 25px;
+}
+.articles .comment__login a:hover {
+  color: blue;
+}
+.articles .comment__login h1, .articles .comment__login p {
+  margin: 10px;
+}
+.articles .comment p {
+  font-size: 15px;
+  margin: 10px 20px 20px;
+}
+.articles .comment p a {
+  -webkit-animation: hover;
+          animation: hover;
+  transition: 0.5s ease-in-out;
+}
+.articles .comment p a:hover {
+  color: blue;
+}
+.articles .comment__container {
+  margin: 20px;
+}
+.articles .comment__container h2 {
+  margin: 10px 0px;
+}
+
 .categorie {
   margin: 10px;
 }

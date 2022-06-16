@@ -20,16 +20,18 @@ if(isset($_GET['id']) && !empty($_GET['id']))
         $work_status = $article['work_status'];
         $directorOne = $article['director_one'];
         $directorTwo = $article['director_two'];
+        $directorThree = $article['director_three'];
+        $directorFour = $article['director_four'];
         $actorOne = $article['actor_one'];
         $actorTwo = $article['actor_two'];
         $actorThree = $article['actor_three'];
         $actorFour = $article['actor_four'];
+        $actorFive = $article['actor_five'];
         $synopsis = $article['synopsis'];
         $content = $article['content'];
         $admin_name = $article['admin_name'];
         $created_at = $article['created_at'];
         $pathImg = str_replace("../../", "./", $article['path_img']);
-        print_r($pathImg);
     }
     else
     {
@@ -42,78 +44,124 @@ else
 }
 ?>
 
-<section class="article">
-    <h1 class="article__title"><?= $title; ?></h1>
-    <div class="article__wrapper">
-        <div class="article__img">
-            <?php ?>
-            <img src="<?= $pathImg ?>" alt="">
-        </div>
-        <div class="article__content">
-            <h1>Réalisateur(s) / trice(s): </h1>
-            <p><?= $directorOne; ?></p>
-        </div>
-        <?php if(isset($directorTwo) && !empty($directorTwo)) { ?>
-            <div class="article__content">
-                <p><?= $directorTwo; ?></p>
+<section class="articles">
+    <div class="articles__container">
+        <div class="articles__container--wrapper">
+            <h1 class="articles__title"><?= $title; ?></h1>
+            <div class="articles__wrapper">
+                <div class="articles__wrapper--first">
+                    <div class="first__img">
+                        <img src="<?= $pathImg ?>" alt="">
+                    </div>
+                </div>
+                <div class="articles__wrapper--second">
+                    <div class="second__informations">
+                        <div class="informations__authors">
+                            <h1>Réalisateur(s) / trice(s): </h1>
+                                <p><?= $directorOne; ?>
+                            <?php if(isset($directorTwo) && !empty($directorTwo)) { ?>
+                                , <?= $directorTwo; ?>
+                            <?php } ?>
+                            <?php if(isset($directorThree) && !empty($directorThree)) { ?>
+                                , <?= $directorThree; ?>
+                            <?php } ?>
+                            <?php if(isset($directorFour) && !empty($directorFour)) { ?>
+                                , <?= $directorFour; ?></p>
+                            <?php } ?>
+                        </div>
+
+                        <div class="informations__releaseyear">
+                            <h1>Année de production: </h1>
+                            <p><?= $release_year; ?></p>
+                        </div>
+                        
+                        <?php if(isset($nbr_season) && !empty($nbr_season)) { ?>
+                            <div class="informations__nbrseason">
+                                <h1>Nombre(s) de saison: </h1>
+                                <p><?= $nbr_season; ?></p>
+                            </div>
+                        <?php } ?>
+                       
+                        <div class="informations__status">
+                            <h1>Statut: </h1>
+                            <p><?= $work_status; ?></p>
+                        </div>
+
+                        <div class="informations__actors">
+                            <h1>Acteurs / trices Principaux</h1>
+                            <div class="wrapper__cards">
+                                <div class="card">
+                                    <img src="img/film01.jpg" alt="">
+                                    <p><?= $actorOne; ?></p>
+                                    <p>Rôle</p>
+                                </div>
+                                <div class="card">
+                                    <img src="img/film01.jpg" alt="">
+                                    <p><?= $actorTwo; ?></p>
+                                    <p>Rôle</p>
+                                </div>
+                                <div class="card">
+                                    <img src="img/film01.jpg" alt="">
+                                    <p><?= $actorThree; ?></p>
+                                    <p>Rôle</p>
+                                </div>
+                                <div class="card">
+                                    <img src="img/film01.jpg" alt="">
+                                    <p><?= $actorFour; ?></p>
+                                    <p>Rôle</p>
+                                </div>
+                                <div class="card">
+                                    <img src="img/film01.jpg" alt="">
+                                    <p><?= $actorFive; ?></p>
+                                    <p>Rôle</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-        <?php } ?>
-        <div class="article__content">
-            <h1>Année de sortie: </h1>
-            <p><?= $release_year; ?></p>
-        </div>
-        <?php if(isset($nbr_season) && !empty($nbr_season)) { ?>
-            <div class="article__content">
-            <h1>Nombre(s) de saison: </h1>
-                <p><?= $nbr_season; ?></p>
+            <div class="articles__wrapper">
+                <div class="articles__content">
+                    <h1>Synopsis</h1>
+                    <p><?= $synopsis; ?></p>
+                </div>
             </div>
-        <?php } ?>
-        <div class="article__content">
-            <h1>Statut: </h1>
-            <p><?= $work_status; ?></p>
-        </div>
-        <div class="article__content">
-            <h1>Acteurs / trices Principaux</h1>
-            <p><?= $actorOne; ?></p>
-        </div>
-        <div class="article__content">
-            <p><?= $actorTwo; ?></p>
-        </div>
-        <div class="article__content">
-            <p><?= $actorThree; ?></p>
-        </div>
-        <div class="article__content">
-            <p><?= $actorFour; ?></p>
-        </div>
-        <div class="article__content">
-            <h1>Synopsis</h1>
-            <p><?= $synopsis; ?></p>
-        </div>
-        <div class="article__content">
-            <h1>Contenu de l'article</h1>
-            <p><?= $content; ?></p>
-        </div>
-        <div class="article__author">
-            <p>Rédigé par votre aimable serviteur <?= $admin_name; ?></p>
-        </div>
-        <div class="article__date">
-            <?php
-                $formDate = strtotime($created_at);
-                echo "Publié le " . date("d-m-Y", $formDate) . " à " . date("H:i", $formDate); 
-            ?>
+            <div class="articles__lastwrapper">
+                <div class="articles__content">
+                    <h1>Contenu de l'article</h1>
+                    <p><?= $content; ?></p>
+                </div>
+                <div class="articles__author">
+                    <p>Rédigé par votre aimable serviteur <?= $admin_name; ?></p>
+                </div>
+                <div class="articles__date">
+                    <?php
+                        $formDate = strtotime($created_at);
+                        echo "Publié le " . date("d-m-Y", $formDate) . " à " . date("H:i", $formDate); 
+                    ?>
+                </div>
+            </div>
+
+            <div class="articles__wrapper">
+                <?php if(!isset($_SESSION['authUser']) || empty($_SESSION['authUser'])) { ?>
+                    <section class="comment">
+                        <div class="comment__login">
+                            <h1>Connectez-vous pour ajouter et consulter les commentaires</h1>
+                            <a href="?page=connexion">Se connecter</a>
+                        </div>
+                        <p>Vous n'avez pas de compte ? <a href="?page=inscription">Inscrivez-vous</a></p>
+                    </section>
+                <?php } 
+                else {
+                require('comments.php');
+                } ?>
+            </div>
         </div>
     </div>
 </section>
 
-<?php if(!isset($_SESSION['authUser']) || empty($_SESSION['authUser'])) { ?>
-    <section class="comment">
-        <p>Connectez-vous pour ajouter et consulter les commentaires.</p>   
-        <button><a href="?page=connexion">Se connecter</a></button>
-        <p>Vous n'avez pas de compte ? <a href="?page=inscription">Inscrivez-vous</a></p>
-    </section>
-<?php } else {
-    require('comments.php');
-} ?>
+
     
 
 
