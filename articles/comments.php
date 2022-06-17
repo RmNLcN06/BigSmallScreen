@@ -131,7 +131,7 @@ $comments = $request->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         <?php } ?>
-        
+
         <nav class="page">
             <ul class="page__list">
                 <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->

@@ -159,6 +159,7 @@ else
             </div>
         </div>
     </div>
+    <button class="toTheTop" title="Go to top">Top</button>
 </section>
 
 

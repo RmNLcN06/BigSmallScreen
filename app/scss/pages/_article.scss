@@ -211,7 +211,7 @@
     //   background: var(--container-color-dark);
       margin: 50px 0px;
 
-      &--item {
+        &--item {
         width: 30px;
         height: 30px;
         margin: 0px 10px;
@@ -222,20 +222,20 @@
         justify-content: center;
         align-items: center;
 
-        &.active {
-          border: 1px solid hsl(256, 100%, 50%);
-          border-radius: 4px;
+            &.active {
+                border: 1px solid hsl(256, 100%, 50%);
+                border-radius: 4px;
 
-          a {
-            color: hsl(256, 100%, 50%);
-          }
-          
-        }
+                a {
+                color: hsl(256, 100%, 50%);
+                }
+                
+            }
 
-        .item-link, .item-link i {
-          color: var(--font-color);
-          background: var(--pagination-bg-color-dark);
+            .item-link, .item-link i {
+                color: var(--font-color);
+                background: var(--pagination-bg-color-dark);
+            }
         }
-      }
     }
 }
