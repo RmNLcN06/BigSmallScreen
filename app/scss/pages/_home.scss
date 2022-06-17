@@ -1,10 +1,7 @@
 .accueil {
-  margin: 10px;
   
-  
-
   &__container {
-    margin: 25px 20px;
+    margin: 25px;
     
     
 
@@ -123,16 +120,6 @@
                 border-radius: 5px;
                 background: var(--container-color-dark);
               }
-                
-
-                  // img {
-                  //   background-color: #cccccc;
-                    
-                  //   background-position: center;
-                  //   background-repeat: no-repeat;
-                  //   background-size: cover;
-                  //   position: relative; 
-                  // }
             }
   
             &--description {

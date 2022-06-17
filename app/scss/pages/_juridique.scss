@@ -1,41 +1,49 @@
 .juridique 
 {
-    border: 2px solid red;
-    margin: 10px;
+    margin: 25px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
+    background: var(--container-color-dark);
 
-    h1 {
+    h1, h3 {
         display: flex;
         justify-content: center;
         margin: 20px 0px;
+        background: var(--container-color-dark);
     }
 
-    ol 
+    ul, ol
     {
-        border: 2px solid blue;
-        margin: 60px;
+        margin: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        background: var(--container-color-dark);
 
         li 
         {
             padding: 20px 0px;
-            list-style-type: upper-roman;
+            background: var(--container-color-dark);
+            
 
-            h2 {
-                color: grey;
+            h4 {
+                color: var(--font-color-dark);
+                background: var(--container-color-dark);
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: smaller;
+                margin: 5px 0px 10px 0px;
+                background: var(--container-color-dark);
             }
         }
+    }   
 
-        p {
-            border: 1px solid green;
-            margin: 5px 0px 10px 0px;
-        }
-        
-    }
+    ol li {
+        list-style: upper-roman;
+    }  
 }
 

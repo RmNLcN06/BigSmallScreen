@@ -201,7 +201,7 @@ footer {
   align-items: center;
   justify-content: center;
   background: var(--container-color-dark);
-  margin: 22px;
+  margin: 25px;
 }
 .form__wrapper .form-container {
   background: var(--container-color-dark);
@@ -331,7 +331,7 @@ footer {
   color: blue;
 }
 .form__wrapper--action {
-  margin: 20px 22px;
+  margin: 25px;
   padding: 70px 0px;
   display: flex;
   justify-content: space-around;
@@ -356,11 +356,8 @@ footer {
   color: blue;
 }
 
-.accueil {
-  margin: 10px;
-}
 .accueil__container {
-  margin: 25px 20px;
+  margin: 25px;
 }
 .accueil__container--wrapper {
   background: var(--container-color-dark);
@@ -682,11 +679,39 @@ footer {
   font-size: 14px;
 }
 
-.categorie {
-  margin: 10px;
+.page {
+  display: flex;
 }
+.page__list {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px;
+}
+.page__list--item {
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+  border: 1px solid white;
+  background: var(--pagination-bg-color-dark);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page__list--item.active {
+  border: 1px solid hsl(256deg, 100%, 50%);
+  border-radius: 4px;
+}
+.page__list--item.active a {
+  color: hsl(256deg, 100%, 50%);
+}
+.page__list--item .item-link, .page__list--item .item-link i {
+  color: var(--font-color);
+  background: var(--pagination-bg-color-dark);
+}
+
 .categorie__container {
-  margin: 15px;
+  margin: 25px;
 }
 .categorie__container--wrapper {
   display: flex;
@@ -771,33 +796,40 @@ footer {
 }
 
 .juridique {
-  border: 2px solid red;
-  margin: 10px;
+  margin: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: nowrap;
+  background: var(--container-color-dark);
 }
-.juridique h1 {
+.juridique h1, .juridique h3 {
   display: flex;
   justify-content: center;
   margin: 20px 0px;
+  background: var(--container-color-dark);
 }
-.juridique ol {
-  border: 2px solid blue;
-  margin: 60px;
+.juridique ul, .juridique ol {
+  margin: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: var(--container-color-dark);
+}
+.juridique ul li, .juridique ol li {
+  padding: 20px 0px;
+  background: var(--container-color-dark);
+}
+.juridique ul li h4, .juridique ol li h4 {
+  color: var(--font-color-dark);
+  background: var(--container-color-dark);
+  margin-bottom: 20px;
+}
+.juridique ul li p, .juridique ol li p {
+  font-size: smaller;
+  margin: 5px 0px 10px 0px;
+  background: var(--container-color-dark);
 }
 .juridique ol li {
-  padding: 20px 0px;
-  list-style-type: upper-roman;
-}
-.juridique ol li h2 {
-  color: grey;
-}
-.juridique ol p {
-  border: 1px solid green;
-  margin: 5px 0px 10px 0px;
+  list-style: upper-roman;
 }/*# sourceMappingURL=style.css.map */

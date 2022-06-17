@@ -1,11 +1,7 @@
 .categorie {
-    margin: 10px;
     
-  
     &__container {
-      margin: 15px;
-     
-      
+      margin: 25px;
   
       &--wrapper {
     
@@ -89,8 +85,6 @@
         .page {
             display: flex;
             background: var(--container-color-dark);
-            
-          
 
             &__list {
               display: flex;
