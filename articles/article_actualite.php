@@ -159,7 +159,7 @@ else
             </div>
         </div>
     </div>
-    <button class="toTheTop" title="Go to top">Top</button>
+    <button class="toTheTop" title="Go to top"><i class="fa-solid fa-circle-chevron-up"></i></button>
 </section>
 
 

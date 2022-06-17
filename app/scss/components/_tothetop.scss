@@ -1,24 +1,37 @@
 .toTheTop {
-    background-color: black;
+    background-color: blue;
     border: none;
     color: white;
     cursor: pointer;
     font-size: 18px;
     line-height: 48px;
     width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border-radius: 25px;
   
-    /* place it at the bottom right corner */
+    /* bouton est placé en bas à droite de la page */
     position: fixed;
     bottom: 20px;
     right: 20px;
-    /* keep it at the top of everything else */
+
+    /* bouton placé au dessus du reste de la page */
     z-index: 100;
-    /* hide with opacity */
+
+    /* bouton caché avec l'opacité */
     opacity: 0;
-    /* also add a translate effect */
+
+    /* ajout d'un effet de translation verticale... */
     transform: translateY(100px);
-    /* and a transition */
+
+    /* ... ainsi que d'un effet de transition */
     transition: all 0.5s ease;
+
+    i {
+      background: blue;
+    }
   }
   
   .showBtn {

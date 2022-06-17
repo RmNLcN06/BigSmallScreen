@@ -51,4 +51,5 @@
             </p>
         </li>
     </ul>
+    <button class="toTheTop" title="Go to top"><i class="fa-solid fa-circle-chevron-up"></i></button>
 </section>

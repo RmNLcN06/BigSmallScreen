@@ -132,8 +132,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                 ?>
             </div>
             <?php include_once('inc/_page.php'); ?>
-              
-            
         </div>
     </div>
+    <button class="toTheTop" title="Go to top"><i class="fa-solid fa-circle-chevron-up"></i></button>
 </section>

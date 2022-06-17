@@ -288,4 +288,5 @@ $resultContainerCardsForth = $request->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
+    <button class="toTheTop" title="Go to top"><i class="fa-solid fa-circle-chevron-up"></i></button>
 </section>
