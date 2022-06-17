@@ -88,7 +88,7 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#" class="description--category ellipsis"><?= $article['name']; ?></a>
 
                         <div class="card__cell--tags ellipsis">
-                        <?php 
+                            <?php 
                             $currentArticle = $article['id'];
                                 //$type = 'SELECT * FROM types JOIN articles ON articles.type_id = types.id WHERE articles.type_id = 2';
                                 $type = 'SELECT types.id, articles.id, types.name
@@ -110,8 +110,8 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 foreach($resultType as $type) {
                             ?>
 
-                                <a href="#" class="description--tags ellipsis"><?= $type['name']; ?></a> /
-                                
+                            <a href="#" class="description--tags ellipsis"><?= $type['name']; ?></a> /
+                                    
                             <?php
                                 }
                             ?>  
