@@ -14,13 +14,18 @@ if ($_POST) {
         && isset($_POST['director_three']) && !empty($_POST['director_three']) 
         && isset($_POST['director_four']) && !empty($_POST['director_four']) 
         && isset($_POST['actor_one']) && !empty($_POST['actor_one'])
+        && isset($_FILES['actor_img_one']) && !empty($_FILES['actor_img_one'])
         && isset($_POST['actor_two']) && !empty($_POST['actor_two'])
+        && isset($_FILES['actor_img_two']) && !empty($_FILES['actor_img_two'])
         && isset($_POST['actor_three']) && !empty($_POST['actor_three'])
+        && isset($_FILES['actor_img_three']) && !empty($_FILES['actor_img_three'])
         && isset($_POST['actor_four']) && !empty($_POST['actor_four'])
+        && isset($_FILES['actor_img_four']) && !empty($_FILES['actor_img_four'])
         && isset($_POST['actor_five']) && !empty($_POST['actor_five'])
+        && isset($_FILES['actor_img_five']) && !empty($_FILES['actor_img_five'])
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
-        && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
+        && isset($_POST['admin_firstname']) && !empty($_POST['admin_firstname'])
         && isset($_FILES['path_img']) && !empty($_FILES['path_img'])
         ) 
         {
@@ -44,15 +49,22 @@ if ($_POST) {
             $directorTwo = strip_tags($_POST['director_two']);
             $directorThree = strip_tags($_POST['director_three']);
             $directorFour = strip_tags($_POST['director_four']);
+
             $actorOne = strip_tags($_POST['actor_one']);
+            $actorImgOne = $_FILES['actor_img_one'];
             $actorTwo = strip_tags($_POST['actor_two']);
+            $actorImgTwo = $_FILES['actor_img_two'];
             $actorThree = strip_tags($_POST['actor_three']);
+            $actorImgThree = $_FILES['actor_img_three'];
             $actorFour = strip_tags($_POST['actor_four']);
+            $actorImgFour = $_FILES['actor_img_four'];
             $actorFive = strip_tags($_POST['actor_five']);
+            $actorImgFive = $_FILES['actor_img_five'];
+
             $synopsis = strip_tags($_POST['synopsis']);
             $content = strip_tags($_POST['content']);
 
-            $admin_name = strip_tags($_POST['admin_name']);
+            $adminFirstname = strip_tags($_POST['admin_firstname']);
 
 
             $path_img_destination = $_FILES['path_img'];
@@ -74,18 +86,85 @@ if ($_POST) {
 
 
             //  Vérification de l'existance de l'article dans la base de données
-            $checkIfArticleAlreadyExists = $database->prepare('SELECT title, admin_name FROM articles WHERE title = ? AND admin_name = ?');
-            $checkIfArticleAlreadyExists->execute([$title, $admin_name]);
+            $checkIfArticleAlreadyExists = $database->prepare('SELECT title, admin_firstname FROM articles WHERE title = ? AND admin_firstname = ?');
+            $checkIfArticleAlreadyExists->execute([$title, $adminFirstname]);
 
             // Si l'article n'existe pas ...
             if($checkIfArticleAlreadyExists->rowCount() == 0)
             {
             
                 // Placer ici conditions pour img
+                $actorImgOne = $_FILES['actor_img_one'];
+
+                $actorImgOneName = $_FILES['actor_img_one']['name'];
+                $actorImgOneTmpName = $_FILES['actor_img_one']['tmp_name'];
+                $actorImgOneSize = $_FILES['actor_img_one']['size'];
+                $actorImgOneError = $_FILES['actor_img_one']['error'];
+                $actorImgOneType = $_FILES['actor_img_one']['type'];
+
+                $actorImgOneExt = explode('.', $actorImgOneName);
+                $actorImgOneActualExt = strtolower(end($actorImgOneExt));
+
+                //////////////////////////////////////////////////////////////
+
+                $actorImgTwo = $_FILES['actor_img_two'];
+
+                $actorImgTwoName = $_FILES['actor_img_two']['name'];
+                $actorImgTwoTmpName = $_FILES['actor_img_two']['tmp_name'];
+                $actorImgTwoSize = $_FILES['actor_img_two']['size'];
+                $actorImgTwoError = $_FILES['actor_img_two']['error'];
+                $actorImgTwoType = $_FILES['actor_img_two']['type'];
+
+                $actorImgTwoExt = explode('.', $actorImgTwoName);
+                $actorImgTwoActualExt = strtolower(end($actorImgTwoExt));
+
+                //////////////////////////////////////////////////////////////
+
+                $actorImgThree = $_FILES['actor_img_three'];
+
+                $actorImgThreeName = $_FILES['actor_img_three']['name'];
+                $actorImgThreeTmpName = $_FILES['actor_img_three']['tmp_name'];
+                $actorImgThreeSize = $_FILES['actor_img_three']['size'];
+                $actorImgThreeError = $_FILES['actor_img_three']['error'];
+                $actorImgThreeType = $_FILES['actor_img_three']['type'];
+
+                $actorImgThreeExt = explode('.', $actorImgThreeName);
+                $actorImgThreeActualExt = strtolower(end($actorImgThreeExt));
+
+                //////////////////////////////////////////////////////////////
+
+                $actorImgFour = $_FILES['actor_img_four'];
+
+                $actorImgFourName = $_FILES['actor_img_four']['name'];
+                $actorImgFourTmpName = $_FILES['actor_img_four']['tmp_name'];
+                $actorImgFourSize = $_FILES['actor_img_four']['size'];
+                $actorImgFourError = $_FILES['actor_img_four']['error'];
+                $actorImgFourType = $_FILES['actor_img_four']['type'];
+
+                $actorImgFourExt = explode('.', $actorImgFourName);
+                $actorImgFourActualExt = strtolower(end($actorImgFourExt));
+
+                //////////////////////////////////////////////////////////////
+
+                $actorImgFive = $_FILES['actor_img_five'];
+
+                $actorImgFiveName = $_FILES['actor_img_five']['name'];
+                $actorImgFiveTmpName = $_FILES['actor_img_five']['tmp_name'];
+                $actorImgFiveSize = $_FILES['actor_img_five']['size'];
+                $actorImgFiveError = $_FILES['actor_img_five']['error'];
+                $actorImgFiveType = $_FILES['actor_img_five']['type'];
+
+                $actorImgFiveExt = explode('.', $actorImgFiveName);
+                $actorImgFiveActualExt = strtolower(end($actorImgFiveExt));
+
+                //////////////////////////////////////////////////////////////
+
                 $pathImg = $_FILES['path_img'];
+
                 echo '<pre>';
                 print_r($pathImg);
                 echo '</pre>';
+
                 $pathImgName = $_FILES['path_img']['name'];
                 $pathImgTmpName = $_FILES['path_img']['tmp_name'];
                 $pathImgSize = $_FILES['path_img']['size'];
@@ -97,12 +176,42 @@ if ($_POST) {
 
                 $imgFormatAllowed = ['jpg', 'jpeg', 'png'];
 
-                if(in_array($pathImgActualExt, $imgFormatAllowed)) 
+                if(in_array($actorImgOneActualExt, $imgFormatAllowed) && in_array($actorImgTwoActualExt, $imgFormatAllowed) && in_array($actorImgThreeActualExt, $imgFormatAllowed) && in_array($actorImgFourActualExt, $imgFormatAllowed) && in_array($actorImgFiveActualExt, $imgFormatAllowed) && in_array($pathImgActualExt, $imgFormatAllowed)) 
                 {
-                    if($pathImgError === 0) 
+                    if($actorImgOneError === 0 && $actorImgTwoError === 0 && $actorImgThreeError === 0 && $actorImgFourError === 0 && $actorImgFiveError === 0 && $pathImgError === 0) 
                     {
-                        if($pathImgSize < 1000000)
+                        if($actorImgOneSize < 1000000 && $actorImgTwoSize < 1000000 && $actorImgThreeSize < 1000000 && $actorImgFourSize < 1000000 && $actorImgFiveSize < 1000000 && $pathImgSize < 1000000)
                         {
+                            $actorImgOneNewName = uniqid('', true) . "." . $actorImgOneActualExt;
+                            $actorImgOneDestination =  '../../' . "img/actors/" . $actorImgOneNewName;
+                            move_uploaded_file($actorImgOneTmpName, $actorImgOneDestination);
+
+                            //////////////////////////////////////////////////////////////
+
+                            $actorImgTwoNewName = uniqid('', true) . "." . $actorImgTwoActualExt;
+                            $actorImgTwoDestination =  '../../' . "img/actors/" . $actorImgTwoNewName;
+                            move_uploaded_file($actorImgTwoTmpName, $actorImgTwoDestination);
+
+                            //////////////////////////////////////////////////////////////
+
+                            $actorImgThreeNewName = uniqid('', true) . "." . $actorImgThreeActualExt;
+                            $actorImgThreeDestination =  '../../' . "img/actors/" . $actorImgThreeNewName;
+                            move_uploaded_file($actorImgThreeTmpName, $actorImgThreeDestination);
+
+                            //////////////////////////////////////////////////////////////
+
+                            $actorImgFourNewName = uniqid('', true) . "." . $actorImgFourActualExt;
+                            $actorImgFourDestination =  '../../' . "img/actors/" . $actorImgFourNewName;
+                            move_uploaded_file($actorImgFourTmpName, $actorImgFourDestination);
+
+                            //////////////////////////////////////////////////////////////
+
+                            $actorImgFiveNewName = uniqid('', true) . "." . $actorImgFiveActualExt;
+                            $actorImgFiveDestination =  '../../' . "img/actors/" . $actorImgFiveNewName;
+                            move_uploaded_file($actorImgFiveTmpName, $actorImgFiveDestination);
+
+                            //////////////////////////////////////////////////////////////
+
                             $pathImgNewName = uniqid('', true) . "." . $pathImgActualExt;
                             $pathImgDestination =  '../../' . "img/" . $pathImgNewName;
                             move_uploaded_file($pathImgTmpName, $pathImgDestination);
@@ -110,8 +219,8 @@ if ($_POST) {
 
                             // Placer autres conditions de réussites
 
-                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, director_three, director_four, actor_one, actor_two, actor_three, actor_four, actor_five, synopsis, content, admin_name, path_img) 
-                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :director_three, :director_four, :actor_one, :actor_two, :actor_three, :actor_four, :actor_five, :synopsis, :content, :admin_name, :path_img)";
+                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, director_three, director_four, actor_one, actor_img_one, actor_two, actor_img_two, actor_three, actor_img_three, actor_four, actor_img_four, actor_five, actor_img_five, synopsis, content, admin_firstname, path_img) 
+                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :director_three, :director_four, :actor_one, :actor_img_one, :actor_two, :actor_img_two, :actor_three, :actor_img_three, :actor_four, :actor_img_four, :actor_five, :actor_img_five, :synopsis, :content, :admin_firstname, :path_img)";
 
                             $query = $database->prepare($sql);
 
@@ -125,13 +234,18 @@ if ($_POST) {
                             $query->bindValue(':director_three', $directorThree, PDO::PARAM_STR);
                             $query->bindValue(':director_four', $directorFour, PDO::PARAM_STR);
                             $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
+                            $query->bindValue(':actor_img_one', $actorImgOneDestination, PDO::PARAM_STR);
                             $query->bindValue(':actor_two', $actorTwo, PDO::PARAM_STR);
+                            $query->bindValue(':actor_img_two', $actorImgTwoDestination, PDO::PARAM_STR);
                             $query->bindValue(':actor_three', $actorThree, PDO::PARAM_STR);
+                            $query->bindValue(':actor_img_three', $actorImgThreeDestination, PDO::PARAM_STR);
                             $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
+                            $query->bindValue(':actor_img_four', $actorImgFourDestination, PDO::PARAM_STR);
                             $query->bindValue(':actor_five', $actorFive, PDO::PARAM_STR);
+                            $query->bindValue(':actor_img_five', $actorImgFiveDestination, PDO::PARAM_STR);
                             $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
                             $query->bindValue(':content', $content, PDO::PARAM_STR);
-                            $query->bindValue(':admin_name', $admin_name, PDO::PARAM_STR);
+                            $query->bindValue(':admin_firstname', $adminFirstname, PDO::PARAM_STR);
                             $query->bindValue(':path_img', $pathImgDestination, PDO::PARAM_STR);
 
                             $query->execute();
@@ -252,13 +366,13 @@ if ($_POST) {
     //     $path_img = strip_tags($_FILES['path_img']);
 
     //     // Vérification de l'existance de l'article dans la base de données
-    //     $checkIfArticleAlreadyExists = $database->prepare('SELECT category_id, title, `type_id`, admin_name FROM articles WHERE category_id = ? AND title = ? AND `type_id` = ? AND admin_name = ?');
-    //     $checkIfArticleAlreadyExists->execute([$category_id, $title, $type_id, $admin_name]);
+    //     $checkIfArticleAlreadyExists = $database->prepare('SELECT category_id, title, `type_id`, admin_firstname FROM articles WHERE category_id = ? AND title = ? AND `type_id` = ? AND admin_firstname = ?');
+    //     $checkIfArticleAlreadyExists->execute([$category_id, $title, $type_id, $adminFirstname]);
 
     //     // Si l'article n'existe pas ...
     //     if($checkIfArticleAlreadyExists->rowCount() == 0)
     //     {
-    //         $sql = 'INSERT INTO `articles` (`category_id`, `title`, `release_year`, `nbr_season`, `work_status`, `director`, `actor`, `synopsis`, `content`, `type_id`, `admin_name`) VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director, :actor, :synopsis, :content, :pdotype, :admin_name);';
+    //         $sql = 'INSERT INTO `articles` (`category_id`, `title`, `release_year`, `nbr_season`, `work_status`, `director`, `actor`, `synopsis`, `content`, `type_id`, `admin_firstname`) VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director, :actor, :synopsis, :content, :pdotype, :admin_firstname);';
     
     //         $query = $database->prepare($sql);
     
@@ -414,16 +528,36 @@ if ($_POST) {
                     </div>
                     <div class="form-group my-4">
                         <h4>Acteur(s) / trice(s) principaux</h4>
+
                         <label for="actor_one">Acteur / trice</label>
                         <input type="text" id="actor_one" name="actor_one" class="form-control my-3" required>
+                        <label for="actor_img_one">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                        <input type="file" id="actor_img_one" name="actor_img_one" class="form-control" required>
+
                         <label for="actor_two">Acteur / trice</label>
                         <input type="text" id="actor_two" name="actor_two" class="form-control my-3" required>
+                        <label for="actor_img_two">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                        <input type="file" id="actor_img_two" name="actor_img_two" class="form-control" required>
+
                         <label for="actor_three">Acteur / trice</label>
                         <input type="text" id="actor_three" name="actor_three" class="form-control my-3" required>
+                        <label for="actor_img_three">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                        <input type="file" id="actor_img_three" name="actor_img_three" class="form-control" required>
+
                         <label for="actor_four">Acteur / trice</label>
                         <input type="text" id="actor_four" name="actor_four" class="form-control my-3" required>
+                        <label for="actor_img_four">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                        <input type="file" id="actor_img_four" name="actor_img_four" class="form-control" required>
+
                         <label for="actor_five">Acteur / trice</label>
                         <input type="text" id="actor_five" name="actor_five" class="form-control my-3" required>
+                        <label for="actor_img_five">Veuillez choisir l'image à transférer</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+                        <input type="file" id="actor_img_five" name="actor_img_five" class="form-control" required>
                     </div>
                     <div class="form-group my-4">
                         <p><label for="synopsis">Synopsis</label></p>
@@ -434,8 +568,8 @@ if ($_POST) {
                         <textarea name="content" id="content" cols="173" rows="10" class="form-control" required ></textarea>
                     </div>
                     <div class="form-group my-4">
-                        <label for="admin_name">Nom de l'auteur: </label>
-                        <input type="hidden" id="admin_name" name="admin_name" class="form-control" value="<?= htmlspecialchars($_SESSION['firstname']); ?>">
+                        <label for="admin_firstname">Nom de l'auteur: </label>
+                        <input type="hidden" id="admin_firstname" name="admin_firstname" class="form-control" value="<?= htmlspecialchars($_SESSION['firstname']); ?>">
                         <?= htmlspecialchars($_SESSION['firstname']); ?>
                     </div>
                     <div class="form-group my-4">

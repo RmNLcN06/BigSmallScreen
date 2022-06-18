@@ -73,7 +73,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                 <p>Contenu: <?= $article['content']; ?></p>
 
-                <p>Nom de l'auteur: <?= $article['admin_name']; ?></p>
+                <p>Nom de l'auteur: <?= $article['admin_firstname']; ?></p>
                
                 <p>
                     <a href="../admin_dashboard_article.php">Retour</a>

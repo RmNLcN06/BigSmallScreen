@@ -141,7 +141,7 @@ $comments = $request->fetchAll(PDO::FETCH_ASSOC);
                             <tr>
                                 <td><a href="./pages_comment/edit.php?id=<?= $comment['id'] ?>"><?= $comment['title'] ?></a></td>
                                 <td><?= $comment['name'] ?></td>
-                                <td><?= $comment['admin_name'] ?></td>
+                                <td><?= $comment['admin_firstname'] ?></td>
                                 <td><?= $comment['created_at'] ?></td>
                                 <td><?= $comment['updated_at'] ?></td>
                             </tr>

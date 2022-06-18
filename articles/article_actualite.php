@@ -23,13 +23,18 @@ if(isset($_GET['id']) && !empty($_GET['id']))
         $directorThree = $article['director_three'];
         $directorFour = $article['director_four'];
         $actorOne = $article['actor_one'];
+        $actorImgOne = str_replace("../../", "./", $article['actor_img_one']);
         $actorTwo = $article['actor_two'];
+        $actorImgTwo = str_replace("../../", "./", $article['actor_img_two']);
         $actorThree = $article['actor_three'];
+        $actorImgThree = str_replace("../../", "./", $article['actor_img_three']);
         $actorFour = $article['actor_four'];
+        $actorImgFour = str_replace("../../", "./", $article['actor_img_four']);
         $actorFive = $article['actor_five'];
+        $actorImgFive = str_replace("../../", "./", $article['actor_img_five']);
         $synopsis = $article['synopsis'];
         $content = $article['content'];
-        $admin_name = $article['admin_name'];
+        $admin_firstname = $article['admin_firstname'];
         $created_at = $article['created_at'];
         $pathImg = str_replace("../../", "./", $article['path_img']);
     }
@@ -91,27 +96,27 @@ else
                             <h1>Acteurs / trices Principaux</h1>
                             <div class="wrapper__cards">
                                 <div class="card">
-                                    <img src="img/film01.jpg" alt="">
+                                    <img src="<?= $actorImgOne; ?>" alt="">
                                     <p><?= $actorOne; ?></p>
                                     <p>Rôle</p>
                                 </div>
                                 <div class="card">
-                                    <img src="img/film01.jpg" alt="">
+                                    <img src="<?= $actorImgTwo; ?>" alt="">
                                     <p><?= $actorTwo; ?></p>
                                     <p>Rôle</p>
                                 </div>
                                 <div class="card">
-                                    <img src="img/film01.jpg" alt="">
+                                    <img src="<?= $actorImgThree; ?>" alt="">
                                     <p><?= $actorThree; ?></p>
                                     <p>Rôle</p>
                                 </div>
                                 <div class="card">
-                                    <img src="img/film01.jpg" alt="">
+                                    <img src="<?= $actorImgFour; ?>" alt="">
                                     <p><?= $actorFour; ?></p>
                                     <p>Rôle</p>
                                 </div>
                                 <div class="card">
-                                    <img src="img/film01.jpg" alt="">
+                                    <img src="<?= $actorImgFive; ?>" alt="">
                                     <p><?= $actorFive; ?></p>
                                     <p>Rôle</p>
                                 </div>
@@ -133,7 +138,7 @@ else
                     <p><?= $content; ?></p>
                 </div>
                 <div class="articles__author">
-                    <p>Rédigé par votre aimable serviteur <?= $admin_name; ?></p>
+                    <p>Rédigé par votre aimable serviteur <?= $admin_firstname; ?></p>
                 </div>
                 <div class="articles__date">
                     <?php

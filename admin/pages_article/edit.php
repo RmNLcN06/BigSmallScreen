@@ -18,7 +18,7 @@ if ($_POST)
         && isset($_POST['actor_four']) && !empty($_POST['actor_four'])
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
-        && isset($_POST['admin_name']) && !empty($_POST['admin_name'])
+        && isset($_POST['admin_firstname']) && !empty($_POST['admin_firstname'])
         ) 
         {
             require_once('../req/_connect.php');
@@ -37,9 +37,9 @@ if ($_POST)
             $actorFour = strip_tags($_POST['actor_four']);
             $synopsis = strip_tags($_POST['synopsis']);
             $content = strip_tags($_POST['content']);
-            $adminName = strip_tags($_POST['admin_name']);
+            $adminFirstname = strip_tags($_POST['admin_firstname']);
 
-            $sql = 'UPDATE articles SET title = :title, release_year = :release_year, nbr_season = :nbr_season, work_status = :work_status, director_one = :director_one, director_two = :director_two, actor_one = :actor_one, actor_two = :actor_two, actor_three = :actor_three, actor_four = :actor_four, synopsis = :synopsis, content = :content, admin_name = :admin_name WHERE id = :id;';
+            $sql = 'UPDATE articles SET title = :title, release_year = :release_year, nbr_season = :nbr_season, work_status = :work_status, director_one = :director_one, director_two = :director_two, actor_one = :actor_one, actor_two = :actor_two, actor_three = :actor_three, actor_four = :actor_four, synopsis = :synopsis, content = :content, admin_firstname = :admin_firstname WHERE id = :id;';
 
 
             $query = $database->prepare($sql);
@@ -57,7 +57,7 @@ if ($_POST)
             $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
             $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
             $query->bindValue(':content', $content, PDO::PARAM_STR);
-            $query->bindValue(':admin_name', $adminName, PDO::PARAM_STR);
+            $query->bindValue(':admin_firstname', $adminFirstname, PDO::PARAM_STR);
         
             $query->execute();
 
@@ -193,8 +193,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <textarea name="content" id="content" cols="173" rows="10" class="form-control" value="<?= htmlentities($article['content']); ?>" required ></textarea>
                     </div>
                     <div class="form-group my-4">
-                        <label for="admin_name">Nom de l'auteur: </label>
-                        <input type="hidden" id="admin_name" name="admin_name" class="form-control" value="<?= htmlentities($_SESSION['firstname']); ?>">
+                        <label for="admin_firstname">Nom de l'auteur: </label>
+                        <input type="hidden" id="admin_firstname" name="admin_firstname" class="form-control" value="<?= htmlentities($_SESSION['firstname']); ?>">
                         <?= htmlentities($_SESSION['firstname']); ?>
                     </div>
                     <!-- <div class="form-group my-4">
