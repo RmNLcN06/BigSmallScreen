@@ -68,15 +68,15 @@ else
                     <div class="second__informations">
                         <div class="informations__authors">
                             <h1>Réalisateur(s) / trice(s): </h1>
-                                <p><?= $directorOne; ?>
+                                <p><?= $directorOne; ?>,
                             <?php if(isset($directorTwo) && !empty($directorTwo)) { ?>
-                                , <?= $directorTwo; ?>
+                                <?= $directorTwo; ?>,
                             <?php } ?>
                             <?php if(isset($directorThree) && !empty($directorThree)) { ?>
-                                , <?= $directorThree; ?>
+                                <?= $directorThree; ?>,
                             <?php } ?>
                             <?php if(isset($directorFour) && !empty($directorFour)) { ?>
-                                , <?= $directorFour; ?></p>
+                                <?= $directorFour; ?></p>
                             <?php } ?>
                         </div>
 
