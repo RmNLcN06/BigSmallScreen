@@ -15,14 +15,19 @@ if ($_POST) {
         && isset($_POST['director_four']) && !empty($_POST['director_four']) 
         && isset($_POST['actor_one']) && !empty($_POST['actor_one'])
         && isset($_FILES['actor_img_one']) && !empty($_FILES['actor_img_one'])
+        && isset($_POST['actor_role_one']) && !empty($_POST['actor_role_one'])
         && isset($_POST['actor_two']) && !empty($_POST['actor_two'])
         && isset($_FILES['actor_img_two']) && !empty($_FILES['actor_img_two'])
+        && isset($_POST['actor_role_two']) && !empty($_POST['actor_role_two'])
         && isset($_POST['actor_three']) && !empty($_POST['actor_three'])
         && isset($_FILES['actor_img_three']) && !empty($_FILES['actor_img_three'])
+        && isset($_POST['actor_role_three']) && !empty($_POST['actor_role_three'])
         && isset($_POST['actor_four']) && !empty($_POST['actor_four'])
         && isset($_FILES['actor_img_four']) && !empty($_FILES['actor_img_four'])
+        && isset($_POST['actor_role_four']) && !empty($_POST['actor_role_four'])
         && isset($_POST['actor_five']) && !empty($_POST['actor_five'])
         && isset($_FILES['actor_img_five']) && !empty($_FILES['actor_img_five'])
+        && isset($_POST['actor_role_five']) && !empty($_POST['actor_role_five'])
         && isset($_POST['synopsis']) && !empty($_POST['synopsis'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['admin_firstname']) && !empty($_POST['admin_firstname'])
@@ -52,14 +57,23 @@ if ($_POST) {
 
             $actorOne = strip_tags($_POST['actor_one']);
             $actorImgOne = $_FILES['actor_img_one'];
+            $actorRoleOne = strip_tags($_POST['actor_role_one']);
+
             $actorTwo = strip_tags($_POST['actor_two']);
             $actorImgTwo = $_FILES['actor_img_two'];
+            $actorRoleTwo = strip_tags($_POST['actor_role_two']);
+
             $actorThree = strip_tags($_POST['actor_three']);
             $actorImgThree = $_FILES['actor_img_three'];
+            $actorRoleThree = strip_tags($_POST['actor_role_three']);
+
             $actorFour = strip_tags($_POST['actor_four']);
             $actorImgFour = $_FILES['actor_img_four'];
+            $actorRoleFour = strip_tags($_POST['actor_role_four']);
+
             $actorFive = strip_tags($_POST['actor_five']);
             $actorImgFive = $_FILES['actor_img_five'];
+            $actorRoleFive = strip_tags($_POST['actor_role_five']);
 
             $synopsis = strip_tags($_POST['synopsis']);
             $content = strip_tags($_POST['content']);
@@ -219,8 +233,8 @@ if ($_POST) {
 
                             // Placer autres conditions de réussites
 
-                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, director_three, director_four, actor_one, actor_img_one, actor_two, actor_img_two, actor_three, actor_img_three, actor_four, actor_img_four, actor_five, actor_img_five, synopsis, content, admin_firstname, path_img) 
-                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :director_three, :director_four, :actor_one, :actor_img_one, :actor_two, :actor_img_two, :actor_three, :actor_img_three, :actor_four, :actor_img_four, :actor_five, :actor_img_five, :synopsis, :content, :admin_firstname, :path_img)";
+                            $sql = "INSERT INTO articles (category_id, title, release_year, nbr_season, work_status, director_one, director_two, director_three, director_four, actor_one, actor_img_one,actor_role_one, actor_two, actor_img_two, actor_role_two, actor_three, actor_img_three, actor_role_three, actor_four, actor_img_four, actor_role_four, actor_five, actor_img_five,actor_role_five, synopsis, content, admin_firstname, path_img) 
+                        VALUES (:category_id, :title, :release_year, :nbr_season, :work_status, :director_one, :director_two, :director_three, :director_four, :actor_one, :actor_img_one, :actor_role_one,:actor_two, :actor_img_two, :actor_role_two, :actor_three, :actor_img_three, :actor_role_three, :actor_four, :actor_img_four, :actor_role_four, :actor_five, :actor_img_five, :actor_role_five, :synopsis, :content, :admin_firstname, :path_img)";
 
                             $query = $database->prepare($sql);
 
@@ -229,20 +243,32 @@ if ($_POST) {
                             $query->bindValue(':release_year', $release_year, PDO::PARAM_INT);
                             $query->bindValue(':nbr_season', $nbr_season, PDO::PARAM_INT);
                             $query->bindValue(':work_status', $work_status, PDO::PARAM_STR);
+
                             $query->bindValue(':director_one', $directorOne, PDO::PARAM_STR);
                             $query->bindValue(':director_two', $directorTwo, PDO::PARAM_STR);
                             $query->bindValue(':director_three', $directorThree, PDO::PARAM_STR);
                             $query->bindValue(':director_four', $directorFour, PDO::PARAM_STR);
+
                             $query->bindValue(':actor_one', $actorOne, PDO::PARAM_STR);
                             $query->bindValue(':actor_img_one', $actorImgOneDestination, PDO::PARAM_STR);
+                            $query->bindValue(':actor_role_one', $actorRoleOne, PDO::PARAM_STR);
+
                             $query->bindValue(':actor_two', $actorTwo, PDO::PARAM_STR);
                             $query->bindValue(':actor_img_two', $actorImgTwoDestination, PDO::PARAM_STR);
+                            $query->bindValue(':actor_role_two', $actorRoleTwo, PDO::PARAM_STR);
+
                             $query->bindValue(':actor_three', $actorThree, PDO::PARAM_STR);
                             $query->bindValue(':actor_img_three', $actorImgThreeDestination, PDO::PARAM_STR);
+                            $query->bindValue(':actor_role_three', $actorRoleThree, PDO::PARAM_STR);
+
                             $query->bindValue(':actor_four', $actorFour, PDO::PARAM_STR);
                             $query->bindValue(':actor_img_four', $actorImgFourDestination, PDO::PARAM_STR);
+                            $query->bindValue(':actor_role_four', $actorRoleFour, PDO::PARAM_STR);
+
                             $query->bindValue(':actor_five', $actorFive, PDO::PARAM_STR);
                             $query->bindValue(':actor_img_five', $actorImgFiveDestination, PDO::PARAM_STR);
+                            $query->bindValue(':actor_role_five', $actorRoleFive, PDO::PARAM_STR);
+
                             $query->bindValue(':synopsis', $synopsis, PDO::PARAM_STR);
                             $query->bindValue(':content', $content, PDO::PARAM_STR);
                             $query->bindValue(':admin_firstname', $adminFirstname, PDO::PARAM_STR);
@@ -534,30 +560,40 @@ if ($_POST) {
                         <label for="actor_img_one">Veuillez choisir l'image à transférer</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_one" name="actor_img_one" class="form-control" required>
+                        <label for="actor_role_one">Rôle</label>
+                        <input type="text" id="actor_role_one" name="actor_role_one" class="form-control my-3" required>
 
                         <label for="actor_two">Acteur / trice</label>
                         <input type="text" id="actor_two" name="actor_two" class="form-control my-3" required>
                         <label for="actor_img_two">Veuillez choisir l'image à transférer</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_two" name="actor_img_two" class="form-control" required>
+                        <label for="actor_role_two">Rôle</label>
+                        <input type="text" id="actor_role_two" name="actor_role_two" class="form-control my-3" required>
 
                         <label for="actor_three">Acteur / trice</label>
                         <input type="text" id="actor_three" name="actor_three" class="form-control my-3" required>
                         <label for="actor_img_three">Veuillez choisir l'image à transférer</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_three" name="actor_img_three" class="form-control" required>
+                        <label for="actor_role_three">Rôle</label>
+                        <input type="text" id="actor_role_three" name="actor_role_three" class="form-control my-3" required>
 
                         <label for="actor_four">Acteur / trice</label>
                         <input type="text" id="actor_four" name="actor_four" class="form-control my-3" required>
                         <label for="actor_img_four">Veuillez choisir l'image à transférer</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_four" name="actor_img_four" class="form-control" required>
+                        <label for="actor_role_four">Rôle</label>
+                        <input type="text" id="actor_role_four" name="actor_role_four" class="form-control my-3" required>
 
                         <label for="actor_five">Acteur / trice</label>
                         <input type="text" id="actor_five" name="actor_five" class="form-control my-3" required>
                         <label for="actor_img_five">Veuillez choisir l'image à transférer</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_five" name="actor_img_five" class="form-control" required>
+                        <label for="actor_role_five">Rôle</label>
+                        <input type="text" id="actor_role_five" name="actor_role_five" class="form-control my-3" required>
                     </div>
                     <div class="form-group my-4">
                         <p><label for="synopsis">Synopsis</label></p>

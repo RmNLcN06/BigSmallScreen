@@ -24,14 +24,19 @@ if(isset($_GET['id']) && !empty($_GET['id']))
         $directorFour = $article['director_four'];
         $actorOne = $article['actor_one'];
         $actorImgOne = str_replace("../../", "./", $article['actor_img_one']);
+        $actorRoleOne = $article['actor_role_one'];
         $actorTwo = $article['actor_two'];
         $actorImgTwo = str_replace("../../", "./", $article['actor_img_two']);
+        $actorRoleTwo = $article['actor_role_two'];
         $actorThree = $article['actor_three'];
         $actorImgThree = str_replace("../../", "./", $article['actor_img_three']);
+        $actorRoleThree = $article['actor_role_three'];
         $actorFour = $article['actor_four'];
         $actorImgFour = str_replace("../../", "./", $article['actor_img_four']);
+        $actorRoleFour = $article['actor_role_four'];
         $actorFive = $article['actor_five'];
         $actorImgFive = str_replace("../../", "./", $article['actor_img_five']);
+        $actorRoleFive = $article['actor_role_five'];
         $synopsis = $article['synopsis'];
         $content = $article['content'];
         $admin_firstname = $article['admin_firstname'];
@@ -56,7 +61,7 @@ else
             <div class="articles__wrapper">
                 <div class="articles__wrapper--first">
                     <div class="first__img">
-                        <img src="<?= $pathImg ?>" alt="">
+                        <img src="<?= $pathImg ?>" alt="Jaquette de l'article">
                     </div>
                 </div>
                 <div class="articles__wrapper--second">
@@ -96,32 +101,31 @@ else
                             <h1>Acteurs / trices Principaux</h1>
                             <div class="wrapper__cards">
                                 <div class="card">
-                                    <img src="<?= $actorImgOne; ?>" alt="">
+                                    <img src="<?= $actorImgOne; ?>" alt="Acteurs / trices principaux">
                                     <p><?= $actorOne; ?></p>
-                                    <p>Rôle</p>
+                                    <p><?= $actorRoleOne; ?></p>
                                 </div>
                                 <div class="card">
-                                    <img src="<?= $actorImgTwo; ?>" alt="">
+                                    <img src="<?= $actorImgTwo; ?>" alt="Acteurs / trices principaux">
                                     <p><?= $actorTwo; ?></p>
-                                    <p>Rôle</p>
+                                    <p><?= $actorRoleTwo; ?></p>
                                 </div>
                                 <div class="card">
-                                    <img src="<?= $actorImgThree; ?>" alt="">
+                                    <img src="<?= $actorImgThree; ?>" alt="Acteurs / trices principaux">
                                     <p><?= $actorThree; ?></p>
-                                    <p>Rôle</p>
+                                    <p><?= $actorRoleThree; ?></p>
                                 </div>
                                 <div class="card">
-                                    <img src="<?= $actorImgFour; ?>" alt="">
+                                    <img src="<?= $actorImgFour; ?>" alt="Acteurs / trices principaux">
                                     <p><?= $actorFour; ?></p>
-                                    <p>Rôle</p>
+                                    <p><?= $actorRoleFour; ?></p>
                                 </div>
                                 <div class="card">
-                                    <img src="<?= $actorImgFive; ?>" alt="">
+                                    <img src="<?= $actorImgFive; ?>" alt="Acteurs / trices principaux">
                                     <p><?= $actorFive; ?></p>
-                                    <p>Rôle</p>
+                                    <p><?= $actorRoleFive; ?></p>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
