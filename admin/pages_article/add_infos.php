@@ -557,7 +557,7 @@ if ($_POST) {
 
                         <label for="actor_one">Acteur / trice</label>
                         <input type="text" id="actor_one" name="actor_one" class="form-control my-3" required>
-                        <label for="actor_img_one">Veuillez choisir l'image à transférer</label>
+                        <label for="actor_img_one">Veuillez choisir l'image à transférer</label> 
                         <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
                         <input type="file" id="actor_img_one" name="actor_img_one" class="form-control" required>
                         <label for="actor_role_one">Rôle</label>
