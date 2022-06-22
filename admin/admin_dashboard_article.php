@@ -162,10 +162,6 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID</th>
                         <th>Titre</th>
                         <th>Catégorie</th>
-                        <!-- <th>Type</th> -->
-                        <!-- <th>Contenu 1</th>
-                        <th>Contenu 2</th>
-                        <th>Contenu 3</th> -->
                         <th>Auteur</th>
                         <th>Créé le</th>
                         <th>Modifié le</th>
@@ -180,10 +176,6 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $article['id'] ?></td>
                                 <td><?= $article['title'] ?></td>
                                 <td><?= $article['name'] ?></td>
-                                <!-- <td><?= $article['type_id'] ?></td> -->
-                                <!-- <td><?= $article['content_one'] ?></td>
-                                <td><?= $article['content_two'] ?></td>
-                                <td><?= $article['content_three'] ?></td> -->
                                 <td><?= $article['admin_firstname'] ?></td>
                                 <td><?= $article['created_at'] ?></td>
                                 <td><?= $article['updated_at'] ?></td>

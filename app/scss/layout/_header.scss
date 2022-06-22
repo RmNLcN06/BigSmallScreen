@@ -9,6 +9,51 @@ header {
         display: flex;
         justify-content: space-between;
        
+    /* The sidepanel menu */
+    .sidepanel {
+        height: 320px; /* Specify a height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 52px;
+        left: 0;
+        background-color: var(--container-color-dark);
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding: 30px 0px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+
+        &__list {
+            background-color: var(--container-color-dark);
+
+            li > a {
+                padding: 8px 8px 8px 8px;
+                text-decoration: none;
+                font-size: 15px;
+                color: var(--font-color-dark);
+                display: block;
+                transition: 0.3s;
+                background-color: var(--container-color-dark);
+
+                i {
+                    background-color: var(--container-color-dark);
+                }
+            }
+        }
+    }
+    
+    /* Style the button that is used to open the sidepanel */
+    .openbtn {
+        display: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+
+        &:hover {
+            background-color: #444;
+        }
+    }
 
         &--logo {
             display: flex;
@@ -35,3 +80,104 @@ header {
         }
     }
 }
+
+// Media Queries
+@media screen and (max-width: 1480px) and (min-width: 1400px) {
+    .header {
+        &__title {
+            border: 1px solid white;
+            width: 95%;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+    .header {
+        &__title {
+            border: 1px solid white;
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+    .header {
+        &__title {
+            border: 1px solid white;
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    .header {
+        &__title {
+            border: 1px solid white;
+            width: 80%;
+    
+            &--logo {
+                display: flex;
+                align-items: center;
+                border: 1px solid red;
+    
+                a {
+                    font-size: 14px;
+                    
+                    img {
+                        margin-right: 10px;
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            &--links {
+                > li {
+                    margin: 0px 10px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) and (min-width: 500px) {
+    .header {
+        &__title {
+            border: 1px solid white;
+            width: 75%;
+            display: flex;
+            justify-content: center;
+
+            .openbtn {
+                display: block;
+                margin-right: 50px;
+            }
+    
+            &--logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid blue;
+    
+                a {
+                    font-size: 14px;
+                    
+                    img {
+                        margin-right: 10px;
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            &--links {
+                > li {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+  
+  

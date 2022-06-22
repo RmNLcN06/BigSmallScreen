@@ -1,46 +1,46 @@
 // Slideshow Script
 
-var slideIndex = [1,1,1,1];
-var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
-showSlides(1, 0);
-showSlides(1, 1);
-showSlides(1, 2);
-showSlides(1, 3);
+// var slideIndex = [1,1,1,1];
+// var slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
+// showSlides(1, 0);
+// showSlides(1, 1);
+// showSlides(1, 2);
+// showSlides(1, 3);
 
 
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
-}
+// function plusSlides(n, no) {
+//   showSlides(slideIndex[no] += n, no);
+// }
 
-function showSlides(n, no) {
-  var i;
-  var slides = document.getElementsByClassName(slideId[no]);
+// function showSlides(n, no) {
+//   var i;
+//   var slides = document.getElementsByClassName(slideId[no]);
   
 
-  if (n > slides.length) 
-  {
-      slideIndex[no] = 1
-    }    
+//   if (n > slides.length) 
+//   {
+//       slideIndex[no] = 1
+//     }    
 
-  if (n < 1) 
-  {
-      slideIndex[no] = slides.length;
-    }
+//   if (n < 1) 
+//   {
+//       slideIndex[no] = slides.length;
+//     }
 
-  for (i = 0; i < slides.length; i++) 
-  {
-     slides[i].style.display = "none";  
-  }
+//   for (i = 0; i < slides.length; i++) 
+//   {
+//      slides[i].style.display = "none";  
+//   }
 
-  slides[slideIndex[no]-1].style.display = "block";
+//   slides[slideIndex[no]-1].style.display = "block";
 
-}
+// }
 
 
 ////////////////////////////////////////////////
 
 
-// Valider Password Utilisateur
+// // Valider Password Utilisateur
 // var myInput = document.getElementById("pwd");
 // var letter = document.getElementById("letter");
 // var capital = document.getElementById("capital");
@@ -152,29 +152,43 @@ function showSlides(n, no) {
 ////////////////////////////////////////////////
 
 // ToTheTop Button
-var scrollTopBtn = document.getElementsByClassName("toTheTop")[0];
-var rootElement = document.documentElement;
+// var scrollTopBtn = document.getElementsByClassName("toTheTop")[0];
+// var rootElement = document.documentElement;
 
-function handleScroll()
-{
-    var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
-    if(rootElement.scrollTop / scrollTotal > 0.3) // 30% de la page
-    {
-        scrollTopBtn.classList.add('showBtn');
-    }
-    else
-    {
-        scrollTopBtn.classList.remove('showBtn');
-    }
+// function handleScroll()
+// {
+//     var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+//     if(rootElement.scrollTop / scrollTotal > 0.3) // 30% de la page
+//     {
+//         scrollTopBtn.classList.add('showBtn');
+//     }
+//     else
+//     {
+//         scrollTopBtn.classList.remove('showBtn');
+//     }
+// }
+
+// function scrollToTop()
+// {
+//     rootElement.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     })
+// }
+
+// scrollTopBtn.addEventListener("click", scrollToTop);
+// document.addEventListener("scroll", handleScroll);
+
+///////////////////////////////////////////
+
+// Menu for small screen
+
+/* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
 }
 
-function scrollToTop()
-{
-    rootElement.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    })
+/* Set the width of the sidebar to 0 (hide it) */
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
 }
-
-scrollTopBtn.addEventListener("click", scrollToTop);
-document.addEventListener("scroll", handleScroll);
