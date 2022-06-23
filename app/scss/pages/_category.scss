@@ -18,9 +18,6 @@
 
         .card {
           background: var(--container-color-dark);
-            // display: flex;
-            // justify-content: space-around;
-            // margin-top: 20px;
             display: grid;
             grid-template-columns: auto auto auto auto auto;
             gap: 50px 100px;
@@ -121,7 +118,7 @@
       margin: 25px;
   
       &--wrapper {
-        width: 95%;
+        width: 100%;
 
         .card {
           background: var(--container-color-dark);
@@ -143,7 +140,7 @@
       margin: 25px;
   
       &--wrapper {
-        width: 90%;
+        width: 100%;
 
         .card {
           background: var(--container-color-dark);
@@ -165,7 +162,7 @@
       margin: 25px;
   
       &--wrapper {
-        width: 85%;
+        width: 100%;
 
         .card {
           background: var(--container-color-dark);
@@ -180,14 +177,12 @@
   }
 }
 
-@media screen and (max-width: 1000px) and (min-width: 700px) {
+@media screen and (max-width: 1000px) and (min-width: 764px) {
   .categorie {
-    
+    width: 100%;
     &__container {
-  
       &--wrapper {
-        width: 80%;
-
+        // width: 95%;
         .card {
             grid-template-columns: auto auto;
             gap: 50px 10px;
@@ -198,18 +193,26 @@
   }
 }
 
-@media screen and (max-width: 700px) and (min-width: 500px) {
+@media screen and (max-width: 764px) and (min-width: 500px) {
   .categorie {
     
     &__container {
-  
+      width: 90%;
       &--wrapper {
-        width: 60%;
-
+        width: 100%;
         .card {
             grid-template-columns: auto;
             gap: 50px 0px;
             padding: 15px;
+
+            &__cell {
+              &--img {
+                img {
+                  width: 100%;
+                  height: 200px;
+                }
+              }
+            }
         }
       }
     }
@@ -221,14 +224,23 @@
   .categorie {
     
     &__container {
-  
+      width: 90%;
       &--wrapper {
-        width: 60%;
+        width: 100%;
 
         .card {
             grid-template-columns: auto;
-            gap: 50px 0px;
+            gap: 15px 0px;
             padding: 10px;
+        
+          &__cell {
+            &--img {
+              img {
+                width: 100%;
+                height: 150px;
+              }
+            }
+          }
         }
       }
     }
