@@ -34,12 +34,9 @@ $nbrArticle = (int) $result['article_amount'];
 
 // Combien d'articles par page ?
 $articlesPerPage = 10;
-
 // Nombre de pages totales pour afficher tous les articles
 $nbrPages = ceil($nbrArticle / $articlesPerPage);
-
 // Premier article pour la première page
-// $firstArticle = ($currentPage * $articlesPerPage) - $articlesPerPage;
 $firstArticle = ($currentPage - 1) * $articlesPerPage;
 
 
@@ -51,14 +48,10 @@ $articleAmount = "SELECT * FROM categories INNER JOIN articles ON articles.categ
 
 // Préparation de la requête
 $request = $database->prepare($articleAmount);
-
 $request->bindValue(':articlesperpage', $articlesPerPage, PDO::PARAM_INT);
 $request->bindValue(':firstarticle', $firstArticle, PDO::PARAM_INT);
-
-
 // Exécution de la requête
 $request->execute();
-
 // Récupération du résultat dans un tableau associatif
 $articles = $request->fetchAll(PDO::FETCH_ASSOC);
 
@@ -84,37 +77,26 @@ $articles = $request->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#">
                             <h4 class="description--title ellipsis"><?= $article['title']; ?></h4>
                         </a>
-                        
                         <a href="#" class="description--category ellipsis"><?= $article['name']; ?></a>
-
                         <div class="card__cell--tags ellipsis">
                             <?php 
                             $currentArticle = $article['id'];
-                                //$type = 'SELECT * FROM types JOIN articles ON articles.type_id = types.id WHERE articles.type_id = 2';
-                                $type = 'SELECT types.id, articles.id, types.name
-                                FROM articles_types
-                                    INNER JOIN types 
-                                    ON articles_types.types_id = types.id
-                                    INNER JOIN articles
-                                    ON articles_types.articles_id = articles.id
-                                    WHERE articles.id = ?';
+                            $type = 'SELECT types.id, articles.id, types.name
+                            FROM articles_types
+                                INNER JOIN types 
+                                ON articles_types.types_id = types.id
+                                INNER JOIN articles
+                                ON articles_types.articles_id = articles.id
+                                WHERE articles.id = ?';
 
-                                $request = $database->prepare($type);
+                            $request = $database->prepare($type);
+                            $request->execute([$currentArticle]);
+                            $resultType = $request->fetchAll(PDO::FETCH_ASSOC);
 
-                                $request->execute([$currentArticle]);
-                                
-                                $resultType = $request->fetchAll(PDO::FETCH_ASSOC);
-
-                                // $tagType = $resultType['name_type'];
-
-                                foreach($resultType as $type) {
+                            foreach($resultType as $type) {
                             ?>
-
-                            <a href="#" class="description--tags ellipsis"><?= $type['name']; ?></a> /
-                                    
-                            <?php
-                                }
-                            ?>  
+                            <a href="#" class="description--tags ellipsis"><?= $type['name']; ?></a> /    
+                            <?php } ?>  
                         </div>
                         
                         <p class="description--date"> 

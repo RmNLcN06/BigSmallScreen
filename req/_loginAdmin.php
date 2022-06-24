@@ -16,7 +16,7 @@ if(isset($_POST['connect']))
         $user_nickname = test_input($_POST['nickname']);
         $user_pwd = htmlspecialchars($_POST['pwd']);
 
-        // Vérification de l'existance de l'utilisateur dans la base de données (pseudo existant ?)
+        // Vérification de l'existence de l'utilisateur dans la base de données (pseudo existant ?)
         $checkIfUserExists = $database->prepare("SELECT * FROM admins WHERE nickname = ?");
         $checkIfUserExists->execute([$user_nickname]);
 

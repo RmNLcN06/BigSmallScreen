@@ -8,10 +8,6 @@ if(isset($_POST['connect']))
     // Vérification que tous les champs du formulaire sont remplis
     if(!empty($_POST['nickname']) && !empty($_POST['pwd'])) 
     {
-    // if(!empty($_POST['nickname'])) {
-    //     if(!empty($_POST['mail'])) {
-    //         if(!empty($_POST['pwd'])) 
-
         // Protections + tests des données envoyés par l'utilisateurs avant de les récupérer dans des variables
         $user_nickname = test_input($_POST['nickname']);
         $user_pwd = htmlspecialchars($_POST['pwd']);

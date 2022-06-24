@@ -20,10 +20,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Exécution de la requête
     $query->execute();
 
-    // Récupération du produit
+    // Récupération de l'article
     $article = $query->fetch();
 
-    // Vérification de l'existance du produit
+    // Vérification de l'existance de l'article
     if (!$article) {
         $_SESSION['erreur'] = 'Cet id n\'existe pas';
         header('Location: ../admin_dashboard_article.php');
